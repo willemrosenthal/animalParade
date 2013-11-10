@@ -56,7 +56,7 @@ class PlayState extends FlxState
 		FlxG.camera.bounds = levelMap.getBounds();
 		FlxG.worldBounds.copyFrom(levelMap.getBounds());
 
-		placeTrees(600);
+		placeTrees(300);
 	}
 
 	private function buildMap():Void {
