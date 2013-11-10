@@ -1,489 +1,0 @@
-TAnimalParade
-v6
-r1
-cCheck dependencies
-cProcessInfoPlistFile /Users/willem/Desktop/Animal\ Parade/export/ios/build/Release-iphoneos/AnimalParade.app/Info.plist /Users/willem/Desktop/Animal\ Parade/export/ios/AnimalParade/AnimalParade-Info.plist
-cCpResource /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/ResourceRules.plist build/Release-iphoneos/AnimalParade.app/ResourceRules.plist
-cCpResource AnimalParade/assets build/Release-iphoneos/AnimalParade.app/assets
-cCopyPNGFile /Users/willem/Desktop/Animal\ Parade/export/ios/build/Release-iphoneos/AnimalParade.app/Default.png AnimalParade/Default.png
-cCopyPNGFile /Users/willem/Desktop/Animal\ Parade/export/ios/build/Release-iphoneos/AnimalParade.app/Default@2x.png AnimalParade/Default@2x.png
-cCopyPNGFile /Users/willem/Desktop/Animal\ Parade/export/ios/build/Release-iphoneos/AnimalParade.app/Default-Portrait.png AnimalParade/Default-Portrait.png
-cCopyPNGFile /Users/willem/Desktop/Animal\ Parade/export/ios/build/Release-iphoneos/AnimalParade.app/Default-Portrait@2x.png AnimalParade/Default-Portrait@2x.png
-cCopyPNGFile /Users/willem/Desktop/Animal\ Parade/export/ios/build/Release-iphoneos/AnimalParade.app/Default-Landscape.png AnimalParade/Default-Landscape.png
-cCopyPNGFile /Users/willem/Desktop/Animal\ Parade/export/ios/build/Release-iphoneos/AnimalParade.app/Default-Landscape@2x.png AnimalParade/Default-Landscape@2x.png
-cCopyPNGFile /Users/willem/Desktop/Animal\ Parade/export/ios/build/Release-iphoneos/AnimalParade.app/Default-568h@2x.png AnimalParade/Default-568h@2x.png
-cProcessPCH++ /var/folders/j3/4c1fxdmn5kgd4thx1kl6hpl80000gn/C/com.apple.DeveloperTools/5.0.1-5A2053/Xcode/SharedPrecompiledHeaders/AnimalParade-Prefix-bdjvkojsujrhswfnmcvhadonthgp/AnimalParade-Prefix.pch.pch AnimalParade/AnimalParade-Prefix.pch normal armv7 c++ com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/AnimalParade.build/Release-iphoneos/AnimalParade.build/Objects-normal/armv7/Main.o /Users/willem/Desktop/Animal\ Parade/export/ios/AnimalParade/Classes/Main.mm normal armv7 c++ com.apple.compilers.llvm.clang.1_0.compiler
-cLd /Users/willem/Desktop/Animal\ Parade/export/ios/build/Release-iphoneos/AnimalParade.app/AnimalParade normal armv7
-cGenerateDSYMFile /Users/willem/Desktop/Animal\ Parade/export/ios/build/Release-iphoneos/AnimalParade.app.dSYM /Users/willem/Desktop/Animal\ Parade/export/ios/build/Release-iphoneos/AnimalParade.app/AnimalParade
-cProcessProductPackaging /Users/willem/Library/MobileDevice/Provisioning\ Profiles/34809DB1-F014-47E4-8232-0B49160AFB04.mobileprovision /Users/willem/Desktop/Animal\ Parade/export/ios/build/Release-iphoneos/AnimalParade.app/embedded.mobileprovision
-cTouch /Users/willem/Desktop/Animal\ Parade/export/ios/build/Release-iphoneos/AnimalParade.app
-cProcessProductPackaging /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/Entitlements.plist /Users/willem/Desktop/Animal\ Parade/export/ios/build/AnimalParade.build/Release-iphoneos/AnimalParade.build/AnimalParade.xcent
-cCodeSign /Users/willem/Desktop/Animal\ Parade/export/ios/build/Release-iphoneos/AnimalParade.app
-cValidate /Users/willem/Desktop/Animal\ Parade/export/ios/build/Release-iphoneos/AnimalParade.app
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk
-c00000000526A10560000000000000110
-t1382682710
-s272
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/Entitlements.plist
-c00000000523EC03B0000000000000094
-t1379844155
-s148
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/ResourceRules.plist
-c00000000523EC03B0000000000000096
-t1379844155
-s150
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/SDKSettings.plist
-c00000000523EC03B000000000000036B
-t1379844155
-s875
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/CoreServices/SystemVersion.plist
-c00000000526A0FAE00000000000001A0
-t1382682542
-s416
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/AVFoundation.framework/AVFoundation
-c00000000526A0FB000000000006279A0
-t1382682544
-s6453664
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/AudioToolbox.framework/AudioToolbox
-c00000000526A0FB10000000000CF72E0
-t1382682545
-s13595360
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreAudio.framework/CoreAudio
-c00000000526A0FB000000000001A1940
-t1382682544
-s1710400
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
-c00000000526A0FB100000000004D63C0
-t1382682545
-s5071808
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/Foundation.framework/Foundation
-c00000000526A0FB30000000000A92BC0
-t1382682547
-s11086784
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/OpenAL.framework/OpenAL
-c00000000526A0FB400000000000D0390
-t1382682548
-s852880
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/OpenGLES.framework/OpenGLES
-c00000000526A0FB50000000000046ED0
-t1382682549
-s290512
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/QuartzCore.framework/QuartzCore
-c00000000526A0FB60000000000640E80
-t1382682550
-s6557312
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/UIKit.framework/UIKit
-c00000000526A0FBA00000000025A5AC0
-t1382682554
-s39475904
-
-N/Users/willem/Desktop/Animal Parade/export/ios/AnimalParade/AnimalParade-Info.plist
-c00000000527E56A90000000000000956
-t1384011433
-s2390
-
-N/Users/willem/Desktop/Animal Parade/export/ios/AnimalParade/AnimalParade-Prefix.pch
-c00000000527E56A90000000000000147
-t1384011433
-s327
-
-N/Users/willem/Desktop/Animal Parade/export/ios/AnimalParade/Classes/Main.mm
-c00000000527E57250000000000000381
-t1384011557
-s897
-
-N/Users/willem/Desktop/Animal Parade/export/ios/AnimalParade/Default-568h@2x.png
-c00000000527E56A80000000000001188
-t1384011432
-s4488
-
-N/Users/willem/Desktop/Animal Parade/export/ios/AnimalParade/Default-Landscape.png
-c00000000527E56A80000000000000FB6
-t1384011432
-s4022
-
-N/Users/willem/Desktop/Animal Parade/export/ios/AnimalParade/Default-Landscape@2x.png
-c00000000527E56A90000000000003196
-t1384011433
-s12694
-
-N/Users/willem/Desktop/Animal Parade/export/ios/AnimalParade/Default-Portrait.png
-c00000000527E56A800000000000011D6
-t1384011432
-s4566
-
-N/Users/willem/Desktop/Animal Parade/export/ios/AnimalParade/Default-Portrait@2x.png
-c00000000527E56A900000000000035F2
-t1384011433
-s13810
-
-N/Users/willem/Desktop/Animal Parade/export/ios/AnimalParade/Default.png
-c00000000527E56A800000000000005BC
-t1384011432
-s1468
-
-N/Users/willem/Desktop/Animal Parade/export/ios/AnimalParade/Default@2x.png
-c00000000527E56A80000000000000EDE
-t1384011432
-s3806
-
-N/Users/willem/Desktop/Animal Parade/export/ios/AnimalParade/assets
-c00000000527E56AB00000000000006A4
-t1384011435
-s1700
-
-N/Users/willem/Desktop/Animal Parade/export/ios/build/AnimalParade.build/Release-iphoneos/AnimalParade.build/AnimalParade.xcent
-t1384011559
-s408
-
-N/Users/willem/Desktop/Animal Parade/export/ios/build/AnimalParade.build/Release-iphoneos/AnimalParade.build/Objects-normal/armv7/AnimalParade.LinkFileList
-c00000000527E57250000000000000088
-t1384011557
-s136
-
-N/Users/willem/Desktop/Animal Parade/export/ios/build/AnimalParade.build/Release-iphoneos/AnimalParade.build/Objects-normal/armv7/Main.o
-t1384011558
-s3180
-
-N/Users/willem/Desktop/Animal Parade/export/ios/build/AnimalParade.build/Release-iphoneos/AnimalParade.build/com.apple.build-tools.platform.validate
-t2
-s0
-
-N/Users/willem/Desktop/Animal Parade/export/ios/build/Release-iphoneos/AnimalParade.app
-t1384011559
-s510
-
-N/Users/willem/Desktop/Animal Parade/export/ios/build/Release-iphoneos/AnimalParade.app.dSYM
-t2
-s0
-
-N/Users/willem/Desktop/Animal Parade/export/ios/build/Release-iphoneos/AnimalParade.app/AnimalParade
-t1384011559
-s4798572
-
-N/Users/willem/Desktop/Animal Parade/export/ios/build/Release-iphoneos/AnimalParade.app/Default-568h@2x.png
-t1384011558
-s4555
-
-N/Users/willem/Desktop/Animal Parade/export/ios/build/Release-iphoneos/AnimalParade.app/Default-Landscape.png
-t1384011557
-s4371
-
-N/Users/willem/Desktop/Animal Parade/export/ios/build/Release-iphoneos/AnimalParade.app/Default-Landscape@2x.png
-t1384011558
-s16101
-
-N/Users/willem/Desktop/Animal Parade/export/ios/build/Release-iphoneos/AnimalParade.app/Default-Portrait.png
-t1384011557
-s4629
-
-N/Users/willem/Desktop/Animal Parade/export/ios/build/Release-iphoneos/AnimalParade.app/Default-Portrait@2x.png
-t1384011557
-s17061
-
-N/Users/willem/Desktop/Animal Parade/export/ios/build/Release-iphoneos/AnimalParade.app/Default.png
-t1384011557
-s1370
-
-N/Users/willem/Desktop/Animal Parade/export/ios/build/Release-iphoneos/AnimalParade.app/Default@2x.png
-t1384011557
-s3874
-
-N/Users/willem/Desktop/Animal Parade/export/ios/build/Release-iphoneos/AnimalParade.app/Info.plist
-t1384011557
-s1713
-
-N/Users/willem/Desktop/Animal Parade/export/ios/build/Release-iphoneos/AnimalParade.app/PkgInfo
-t1384011557
-s8
-
-N/Users/willem/Desktop/Animal Parade/export/ios/build/Release-iphoneos/AnimalParade.app/ResourceRules.plist
-t1384011557
-s150
-
-N/Users/willem/Desktop/Animal Parade/export/ios/build/Release-iphoneos/AnimalParade.app/assets
-t1384011557
-s1700
-
-N/Users/willem/Desktop/Animal Parade/export/ios/build/Release-iphoneos/AnimalParade.app/embedded.mobileprovision
-t1384011559
-s7510
-
-N/Users/willem/Library/MobileDevice/Provisioning Profiles/34809DB1-F014-47E4-8232-0B49160AFB04.mobileprovision
-c000000005185BD610000000000001D56
-t1367719265
-s7510
-
-N/var/folders/j3/4c1fxdmn5kgd4thx1kl6hpl80000gn/C/com.apple.DeveloperTools/5.0.1-5A2053/Xcode/SharedPrecompiledHeaders/AnimalParade-Prefix-bdjvkojsujrhswfnmcvhadonthgp/AnimalParade-Prefix.pch.pch
-t1384011558
-s185804
-
-CCheck dependencies
-r0
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies18"Check dependencies7fbc73a58e2eb841^d00d75a58e2eb841^---0#1#1#--18"Check dependencies36"DB2285FC-83D7-429E-B2D4-A0066DAFDF74-
-
-CCodeSign /Users/willem/Desktop/Animal\ Parade/export/ios/build/Release-iphoneos/AnimalParade.app
-s405704359.977589
-e405704360.473100
-r1
-xCodeSign
-x/Users/willem/Desktop/Animal Parade/export/ios/build/Release-iphoneos/AnimalParade.app
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection64"[1mCodeSign[0m [1mbuild/Release-iphoneos/AnimalParade.app[0m64"[1mCodeSign[0m [1mbuild/Release-iphoneos/AnimalParade.app[0m9fcbfca78e2eb841^362179a88e2eb841^---0#0#1#-19%DVTDocumentLocation2@96"file:///Users/willem/Desktop/Animal%20Parade/export/ios/build/Release-iphoneos/AnimalParade.app/0000000000000000^1101"[1mCodeSign[0m [1mbuild/Release-iphoneos/AnimalParade.app[0m    cd "/Users/willem/Desktop/Animal Parade/export/ios"    setenv CODESIGN_ALLOCATE /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/codesign_allocate    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/willem/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin"    Using code signing identity "iPhone Developer: Willem Rosenthal (CLVMEQXV8L)" and provisioning profile "iOS Team Provisioning Profile: *" (34809DB1-F014-47E4-8232-0B49160AFB04)    codesign --force --sign 76AC79185E016B7C18C09C4E97445DAC425DB62F --resource-rules=/Users/willem/Desktop/Animal\ Parade/export/ios/build/Release-iphoneos/AnimalParade.app/ResourceRules.plist --entitlements /Users/willem/Desktop/Animal\ Parade/export/ios/build/AnimalParade.build/Release-iphoneos/AnimalParade.build/AnimalParade.xcent /Users/willem/Desktop/Animal\ Parade/export/ios/build/Release-iphoneos/AnimalParade.app36"F529D5E7-2994-4A2E-A36A-76B22E8436BE-
-b96CDC276-1F42-4158-8D12-81FB7309143A
-
-CCompileC build/AnimalParade.build/Release-iphoneos/AnimalParade.build/Objects-normal/armv7/Main.o /Users/willem/Desktop/Animal\ Parade/export/ios/AnimalParade/Classes/Main.mm normal armv7 c++ com.apple.compilers.llvm.clang.1_0.compiler
-s405704358.234736
-e405704358.265475
-r1
-xCompileC
-xbuild/AnimalParade.build/Release-iphoneos/AnimalParade.build/Objects-normal/armv7/Main.o
-x/Users/willem/Desktop/Animal Parade/export/ios/AnimalParade/Classes/Main.mm
-xnormal
-xarmv7
-xc++
-xcom.apple.compilers.llvm.clang.1_0.compiler
-d/Users/willem/Desktop/Animal Parade/export/ios/AnimalParade/Classes/Main.mm
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection83"Compile /Users/willem/Desktop/Animal Parade/export/ios/AnimalParade/Classes/Main.mm203"[1mCompileC[0m build/AnimalParade.build/Release-iphoneos/AnimalParade.build/Objects-normal/armv7/Main.o [1mAnimalParade/Classes/Main.mm[0m normal armv7 c++ com.apple.compilers.llvm.clang.1_0.compiler573d3ca68e2eb841^7ff643a68e2eb841^---0#0#1#-19%DVTDocumentLocation2@84"file:///Users/willem/Desktop/Animal%20Parade/export/ios/AnimalParade/Classes/Main.mm0000000000000000^3465"[1mCompileC[0m build/AnimalParade.build/Release-iphoneos/AnimalParade.build/Objects-normal/armv7/Main.o [1mAnimalParade/Classes/Main.mm[0m normal armv7 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/willem/Desktop/Animal Parade/export/ios"    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/willem/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch armv7 -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -std=gnu++11 -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion -miphoneos-version-min=5 -iquote /Users/willem/Desktop/Animal\ Parade/export/ios/build/AnimalParade.build/Release-iphoneos/AnimalParade.build/AnimalParade-generated-files.hmap -I/Users/willem/Desktop/Animal\ Parade/export/ios/build/AnimalParade.build/Release-iphoneos/AnimalParade.build/AnimalParade-own-target-headers.hmap -I/Users/willem/Desktop/Animal\ Parade/export/ios/build/AnimalParade.build/Release-iphoneos/AnimalParade.build/AnimalParade-all-target-headers.hmap -iquote /Users/willem/Desktop/Animal\ Parade/export/ios/build/AnimalParade.build/Release-iphoneos/AnimalParade.build/AnimalParade-project-headers.hmap -I/Users/willem/Desktop/Animal\ Parade/export/ios/build/Release-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/willem/Desktop/Animal\ Parade/export/ios/build/AnimalParade.build/Release-iphoneos/AnimalParade.build/DerivedSources/armv7 -I/Users/willem/Desktop/Animal\ Parade/export/ios/build/AnimalParade.build/Release-iphoneos/AnimalParade.build/DerivedSources -F/Users/willem/Desktop/Animal\ Parade/export/ios/build/Release-iphoneos -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/j3/4c1fxdmn5kgd4thx1kl6hpl80000gn/C/com.apple.DeveloperTools/5.0.1-5A2053/Xcode/SharedPrecompiledHeaders/AnimalParade-Prefix-bdjvkojsujrhswfnmcvhadonthgp/AnimalParade-Prefix.pch -MMD -MT dependencies -MF /Users/willem/Desktop/Animal\ Parade/export/ios/build/AnimalParade.build/Release-iphoneos/AnimalParade.build/Objects-normal/armv7/Main.d --serialize-diagnostics /Users/willem/Desktop/Animal\ Parade/export/ios/build/AnimalParade.build/Release-iphoneos/AnimalParade.build/Objects-normal/armv7/Main.dia -c /Users/willem/Desktop/Animal\ Parade/export/ios/AnimalParade/Classes/Main.mm -o /Users/willem/Desktop/Animal\ Parade/export/ios/build/AnimalParade.build/Release-iphoneos/AnimalParade.build/Objects-normal/armv7/Main.o36"790CDE5D-FF16-44DE-B8CD-6261A58C7112-
-b96CDC276-1F42-4158-8D12-81FB7309143A
-
-CCopyPNGFile /Users/willem/Desktop/Animal\ Parade/export/ios/build/Release-iphoneos/AnimalParade.app/Default-568h@2x.png AnimalParade/Default-568h@2x.png
-s405704357.977551
-e405704358.067344
-r1
-xCopyPNGFile
-x/Users/willem/Desktop/Animal Parade/export/ios/build/Release-iphoneos/AnimalParade.app/Default-568h@2x.png
-xAnimalParade/Default-568h@2x.png
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection112"[1mCopyPNGFile[0m build/Release-iphoneos/AnimalParade.app/Default-568h@2x.png AnimalParade/Default-568h@2x.png112"[1mCopyPNGFile[0m build/Release-iphoneos/AnimalParade.app/Default-568h@2x.png AnimalParade/Default-568h@2x.pngc650faa58e2eb841^414911a68e2eb841^---0#0#1#-19%DVTDocumentLocation2@88"file:///Users/willem/Desktop/Animal%20Parade/export/ios/AnimalParade/Default-568h@2x.png0000000000000000^709"[1mCopyPNGFile[0m build/Release-iphoneos/AnimalParade.app/Default-568h@2x.png AnimalParade/Default-568h@2x.png    cd "/Users/willem/Desktop/Animal Parade/export/ios"    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/willem/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin"    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/copypng -compress /Users/willem/Desktop/Animal\ Parade/export/ios/AnimalParade/Default-568h@2x.png /Users/willem/Desktop/Animal\ Parade/export/ios/build/Release-iphoneos/AnimalParade.app/Default-568h@2x.png36"8A69FC02-DF19-4366-A17A-F517A5B1AFA1-
-b96CDC276-1F42-4158-8D12-81FB7309143A
-
-CCopyPNGFile /Users/willem/Desktop/Animal\ Parade/export/ios/build/Release-iphoneos/AnimalParade.app/Default-Landscape.png AnimalParade/Default-Landscape.png
-s405704357.722047
-e405704357.815975
-r1
-xCopyPNGFile
-x/Users/willem/Desktop/Animal Parade/export/ios/build/Release-iphoneos/AnimalParade.app/Default-Landscape.png
-xAnimalParade/Default-Landscape.png
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection116"[1mCopyPNGFile[0m build/Release-iphoneos/AnimalParade.app/Default-Landscape.png AnimalParade/Default-Landscape.png116"[1mCopyPNGFile[0m build/Release-iphoneos/AnimalParade.app/Default-Landscape.png AnimalParade/Default-Landscape.pngdee7b8a58e2eb841^f2eed0a58e2eb841^---0#0#1#-19%DVTDocumentLocation2@90"file:///Users/willem/Desktop/Animal%20Parade/export/ios/AnimalParade/Default-Landscape.png0000000000000000^717"[1mCopyPNGFile[0m build/Release-iphoneos/AnimalParade.app/Default-Landscape.png AnimalParade/Default-Landscape.png    cd "/Users/willem/Desktop/Animal Parade/export/ios"    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/willem/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin"    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/copypng -compress /Users/willem/Desktop/Animal\ Parade/export/ios/AnimalParade/Default-Landscape.png /Users/willem/Desktop/Animal\ Parade/export/ios/build/Release-iphoneos/AnimalParade.app/Default-Landscape.png36"4C094317-6C00-494C-9D89-8B9630695BCC-
-b96CDC276-1F42-4158-8D12-81FB7309143A
-
-CCopyPNGFile /Users/willem/Desktop/Animal\ Parade/export/ios/build/Release-iphoneos/AnimalParade.app/Default-Landscape@2x.png AnimalParade/Default-Landscape@2x.png
-s405704357.816360
-e405704358.112046
-r1
-xCopyPNGFile
-x/Users/willem/Desktop/Animal Parade/export/ios/build/Release-iphoneos/AnimalParade.app/Default-Landscape@2x.png
-xAnimalParade/Default-Landscape@2x.png
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection122"[1mCopyPNGFile[0m build/Release-iphoneos/AnimalParade.app/Default-Landscape@2x.png AnimalParade/Default-Landscape@2x.png122"[1mCopyPNGFile[0m build/Release-iphoneos/AnimalParade.app/Default-Landscape@2x.png AnimalParade/Default-Landscape@2x.png800cd1a58e2eb841^39b81ca68e2eb841^---0#0#1#-19%DVTDocumentLocation2@93"file:///Users/willem/Desktop/Animal%20Parade/export/ios/AnimalParade/Default-Landscape@2x.png0000000000000000^729"[1mCopyPNGFile[0m build/Release-iphoneos/AnimalParade.app/Default-Landscape@2x.png AnimalParade/Default-Landscape@2x.png    cd "/Users/willem/Desktop/Animal Parade/export/ios"    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/willem/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin"    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/copypng -compress /Users/willem/Desktop/Animal\ Parade/export/ios/AnimalParade/Default-Landscape@2x.png /Users/willem/Desktop/Animal\ Parade/export/ios/build/Release-iphoneos/AnimalParade.app/Default-Landscape@2x.png36"F9EFC3FC-280A-4BE6-8A8B-FEE70D2FBC6A-
-b96CDC276-1F42-4158-8D12-81FB7309143A
-
-CCopyPNGFile /Users/willem/Desktop/Animal\ Parade/export/ios/build/Release-iphoneos/AnimalParade.app/Default-Portrait.png AnimalParade/Default-Portrait.png
-s405704357.619880
-e405704357.721892
-r1
-xCopyPNGFile
-x/Users/willem/Desktop/Animal Parade/export/ios/build/Release-iphoneos/AnimalParade.app/Default-Portrait.png
-xAnimalParade/Default-Portrait.png
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection114"[1mCopyPNGFile[0m build/Release-iphoneos/AnimalParade.app/Default-Portrait.png AnimalParade/Default-Portrait.png114"[1mCopyPNGFile[0m build/Release-iphoneos/AnimalParade.app/Default-Portrait.png AnimalParade/Default-Portrait.pnga5c09ea58e2eb841^c7f4b8a58e2eb841^---0#0#1#-19%DVTDocumentLocation2@89"file:///Users/willem/Desktop/Animal%20Parade/export/ios/AnimalParade/Default-Portrait.png0000000000000000^713"[1mCopyPNGFile[0m build/Release-iphoneos/AnimalParade.app/Default-Portrait.png AnimalParade/Default-Portrait.png    cd "/Users/willem/Desktop/Animal Parade/export/ios"    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/willem/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin"    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/copypng -compress /Users/willem/Desktop/Animal\ Parade/export/ios/AnimalParade/Default-Portrait.png /Users/willem/Desktop/Animal\ Parade/export/ios/build/Release-iphoneos/AnimalParade.app/Default-Portrait.png36"0202E607-33C7-483D-8175-DF754CFDDA63-
-b96CDC276-1F42-4158-8D12-81FB7309143A
-
-CCopyPNGFile /Users/willem/Desktop/Animal\ Parade/export/ios/build/Release-iphoneos/AnimalParade.app/Default-Portrait@2x.png AnimalParade/Default-Portrait@2x.png
-s405704357.665863
-e405704357.977037
-r1
-xCopyPNGFile
-x/Users/willem/Desktop/Animal Parade/export/ios/build/Release-iphoneos/AnimalParade.app/Default-Portrait@2x.png
-xAnimalParade/Default-Portrait@2x.png
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection120"[1mCopyPNGFile[0m build/Release-iphoneos/AnimalParade.app/Default-Portrait@2x.png AnimalParade/Default-Portrait@2x.png120"[1mCopyPNGFile[0m build/Release-iphoneos/AnimalParade.app/Default-Portrait@2x.png AnimalParade/Default-Portrait@2x.png2f86aaa58e2eb841^f71efaa58e2eb841^---0#0#1#-19%DVTDocumentLocation2@92"file:///Users/willem/Desktop/Animal%20Parade/export/ios/AnimalParade/Default-Portrait@2x.png0000000000000000^725"[1mCopyPNGFile[0m build/Release-iphoneos/AnimalParade.app/Default-Portrait@2x.png AnimalParade/Default-Portrait@2x.png    cd "/Users/willem/Desktop/Animal Parade/export/ios"    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/willem/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin"    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/copypng -compress /Users/willem/Desktop/Animal\ Parade/export/ios/AnimalParade/Default-Portrait@2x.png /Users/willem/Desktop/Animal\ Parade/export/ios/build/Release-iphoneos/AnimalParade.app/Default-Portrait@2x.png36"FE37C92B-AF43-4E30-A104-D0C259642897-
-b96CDC276-1F42-4158-8D12-81FB7309143A
-
-CCopyPNGFile /Users/willem/Desktop/Animal\ Parade/export/ios/build/Release-iphoneos/AnimalParade.app/Default.png AnimalParade/Default.png
-s405704357.463865
-e405704357.619681
-r1
-xCopyPNGFile
-x/Users/willem/Desktop/Animal Parade/export/ios/build/Release-iphoneos/AnimalParade.app/Default.png
-xAnimalParade/Default.png
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection96"[1mCopyPNGFile[0m build/Release-iphoneos/AnimalParade.app/Default.png AnimalParade/Default.png96"[1mCopyPNGFile[0m build/Release-iphoneos/AnimalParade.app/Default.png AnimalParade/Default.png79ce76a58e2eb841^65c79ea58e2eb841^---0#0#1#-19%DVTDocumentLocation2@80"file:///Users/willem/Desktop/Animal%20Parade/export/ios/AnimalParade/Default.png0000000000000000^677"[1mCopyPNGFile[0m build/Release-iphoneos/AnimalParade.app/Default.png AnimalParade/Default.png    cd "/Users/willem/Desktop/Animal Parade/export/ios"    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/willem/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin"    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/copypng -compress /Users/willem/Desktop/Animal\ Parade/export/ios/AnimalParade/Default.png /Users/willem/Desktop/Animal\ Parade/export/ios/build/Release-iphoneos/AnimalParade.app/Default.png36"D377DE06-C9B4-441F-8F92-ABDC1BC841F3-
-b96CDC276-1F42-4158-8D12-81FB7309143A
-
-CCopyPNGFile /Users/willem/Desktop/Animal\ Parade/export/ios/build/Release-iphoneos/AnimalParade.app/Default@2x.png AnimalParade/Default@2x.png
-s405704357.472517
-e405704357.665672
-r1
-xCopyPNGFile
-x/Users/willem/Desktop/Animal Parade/export/ios/build/Release-iphoneos/AnimalParade.app/Default@2x.png
-xAnimalParade/Default@2x.png
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection102"[1mCopyPNGFile[0m build/Release-iphoneos/AnimalParade.app/Default@2x.png AnimalParade/Default@2x.png102"[1mCopyPNGFile[0m build/Release-iphoneos/AnimalParade.app/Default@2x.png AnimalParade/Default@2x.png030a79a58e2eb841^77a0aaa58e2eb841^---0#0#1#-19%DVTDocumentLocation2@83"file:///Users/willem/Desktop/Animal%20Parade/export/ios/AnimalParade/Default@2x.png0000000000000000^689"[1mCopyPNGFile[0m build/Release-iphoneos/AnimalParade.app/Default@2x.png AnimalParade/Default@2x.png    cd "/Users/willem/Desktop/Animal Parade/export/ios"    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/willem/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin"    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/copypng -compress /Users/willem/Desktop/Animal\ Parade/export/ios/AnimalParade/Default@2x.png /Users/willem/Desktop/Animal\ Parade/export/ios/build/Release-iphoneos/AnimalParade.app/Default@2x.png36"49955E2D-F10D-436E-AFC2-20AA72A06090-
-b96CDC276-1F42-4158-8D12-81FB7309143A
-
-CCpResource /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/ResourceRules.plist build/Release-iphoneos/AnimalParade.app/ResourceRules.plist
-s405704357.461163
-e405704357.462297
-r1
-xCpResource
-x/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/ResourceRules.plist
-xbuild/Release-iphoneos/AnimalParade.app/ResourceRules.plist
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection64"Copy build/Release-iphoneos/AnimalParade.app/ResourceRules.plist200"[1mCpResource[0m /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/ResourceRules.plist build/Release-iphoneos/AnimalParade.app/ResourceRules.plist3a1f76a58e2eb841^9e6176a58e2eb841^---0#0#1#-19%DVTDocumentLocation2@115"file:///Users/willem/Desktop/Animal%20Parade/export/ios/build/Release-iphoneos/AnimalParade.app/ResourceRules.plist0034fceeddffdf42^945"[1mCpResource[0m /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/ResourceRules.plist build/Release-iphoneos/AnimalParade.app/ResourceRules.plist    cd "/Users/willem/Desktop/Animal Parade/export/ios"    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/willem/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-debug-symbols -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/ResourceRules.plist /Users/willem/Desktop/Animal\ Parade/export/ios/build/Release-iphoneos/AnimalParade.app36"A8834205-89E5-4559-97BB-D450AC108671-
-b96CDC276-1F42-4158-8D12-81FB7309143A
-
-CCpResource AnimalParade/assets build/Release-iphoneos/AnimalParade.app/assets
-s405704357.463566
-e405704357.471864
-r1
-xCpResource
-xAnimalParade/assets
-xbuild/Release-iphoneos/AnimalParade.app/assets
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection51"Copy build/Release-iphoneos/AnimalParade.app/assets85"[1mCpResource[0m AnimalParade/assets build/Release-iphoneos/AnimalParade.app/assets7cba76a58e2eb841^912779a58e2eb841^---0#0#1#-19%DVTDocumentLocation2@102"file:///Users/willem/Desktop/Animal%20Parade/export/ios/build/Release-iphoneos/AnimalParade.app/assets0034fceeddffdf42^776"[1mCpResource[0m AnimalParade/assets build/Release-iphoneos/AnimalParade.app/assets    cd "/Users/willem/Desktop/Animal Parade/export/ios"    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/willem/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-debug-symbols -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks /Users/willem/Desktop/Animal\ Parade/export/ios/AnimalParade/assets /Users/willem/Desktop/Animal\ Parade/export/ios/build/Release-iphoneos/AnimalParade.app36"E14DC3E7-99BE-4D75-8C90-EFC93EBCE821-
-b96CDC276-1F42-4158-8D12-81FB7309143A
-
-CGenerateDSYMFile /Users/willem/Desktop/Animal\ Parade/export/ios/build/Release-iphoneos/AnimalParade.app.dSYM /Users/willem/Desktop/Animal\ Parade/export/ios/build/Release-iphoneos/AnimalParade.app/AnimalParade
-s405704359.726620
-e405704359.951028
-r1
-xGenerateDSYMFile
-x/Users/willem/Desktop/Animal Parade/export/ios/build/Release-iphoneos/AnimalParade.app.dSYM
-x/Users/willem/Desktop/Animal Parade/export/ios/build/Release-iphoneos/AnimalParade.app/AnimalParade
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection100"Generate /Users/willem/Desktop/Animal Parade/export/ios/build/Release-iphoneos/AnimalParade.app.dSYM130"[1mGenerateDSYMFile[0m [1mbuild/Release-iphoneos/AnimalParade.app.dSYM[0m build/Release-iphoneos/AnimalParade.app/AnimalParadec51ebaa78e2eb841^af7bf3a78e2eb841^---0#0#1#-19%DVTDocumentLocation2@100"file:///Users/willem/Desktop/Animal%20Parade/export/ios/build/Release-iphoneos/AnimalParade.app.dSYM0034fceeddffdf42^724"[1mGenerateDSYMFile[0m [1mbuild/Release-iphoneos/AnimalParade.app.dSYM[0m build/Release-iphoneos/AnimalParade.app/AnimalParade    cd "/Users/willem/Desktop/Animal Parade/export/ios"    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/willem/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/dsymutil /Users/willem/Desktop/Animal\ Parade/export/ios/build/Release-iphoneos/AnimalParade.app/AnimalParade -o /Users/willem/Desktop/Animal\ Parade/export/ios/build/Release-iphoneos/AnimalParade.app.dSYM36"34FB0058-7712-4E9F-8981-F6B6C877DF82-
-b96CDC276-1F42-4158-8D12-81FB7309143A
-
-CLd /Users/willem/Desktop/Animal\ Parade/export/ios/build/Release-iphoneos/AnimalParade.app/AnimalParade normal armv7
-s405704358.266549
-e405704359.725537
-r1
-xLd
-x/Users/willem/Desktop/Animal Parade/export/ios/build/Release-iphoneos/AnimalParade.app/AnimalParade
-xnormal
-xarmv7
-d/Users/willem/Desktop/Animal Parade/export/ios/build/AnimalParade.build/Release-iphoneos/AnimalParade.build/Objects-normal/armv7/AnimalParade.LinkFileList
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/crt1.3.1.o
-d/Users/willem/Desktop/Animal Parade/export/ios/build/AnimalParade.build/Release-iphoneos/AnimalParade.build/Objects-normal/armv7/Main.o
-d/Users/willem/Desktop/Animal Parade/export/ios/AnimalParade/lib/armv7/libstd.a
-d/Users/willem/Desktop/Animal Parade/export/ios/AnimalParade/lib/armv7/libregexp.a
-d/Users/willem/Desktop/Animal Parade/export/ios/AnimalParade/lib/armv7/libzlib.a
-d/Users/willem/Desktop/Animal Parade/export/ios/AnimalParade/lib/armv7/libcurl_ssl.a
-d/Users/willem/Desktop/Animal Parade/export/ios/AnimalParade/lib/armv7/libpng.a
-d/Users/willem/Desktop/Animal Parade/export/ios/AnimalParade/lib/armv7/libjpeg.a
-d/Users/willem/Desktop/Animal Parade/export/ios/AnimalParade/lib/armv7/libfreetype.a
-d/Users/willem/Desktop/Animal Parade/export/ios/AnimalParade/lib/armv7/libogg.a
-d/Users/willem/Desktop/Animal Parade/export/ios/AnimalParade/lib/armv7/libvorbis.a
-d/Users/willem/Desktop/Animal Parade/export/ios/AnimalParade/lib/armv7/libnme.a
-d/Users/willem/Desktop/Animal Parade/export/ios/AnimalParade/lib/armv7/libApplicationMain.a
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/UIKit.framework/UIKit
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/OpenAL.framework/OpenAL
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/OpenGLES.framework/OpenGLES
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/QuartzCore.framework/QuartzCore
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreAudio.framework/CoreAudio
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/AudioToolbox.framework/AudioToolbox
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/AVFoundation.framework/AVFoundation
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/Foundation.framework/Foundation
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/libc++.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/libSystem.dylib
-d/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/5.0/lib/darwin/libclang_rt.ios.a
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/PrivateFrameworks/UIFoundation.framework/UIFoundation
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/libobjc.A.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreFoundation.framework/CoreFoundation
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/AVFoundation.framework/libAVFAudio.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libcache.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libcommonCrypto.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libcompiler_rt.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libcopyfile.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libcorecrypto.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libdispatch.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libdyld.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libkeymgr.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/liblaunch.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libmacho.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libremovefile.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libsystem_asl.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libsystem_blocks.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libsystem_c.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libsystem_configuration.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libsystem_dnssd.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libsystem_info.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libsystem_kernel.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libsystem_m.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libsystem_malloc.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libsystem_network.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libsystem_notify.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libsystem_platform.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libsystem_pthread.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libsystem_sandbox.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libsystem_stats.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libunwind.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libxpc.dylib
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection104"Link /Users/willem/Desktop/Animal Parade/export/ios/build/Release-iphoneos/AnimalParade.app/AnimalParade76"[1mLd[0m build/Release-iphoneos/AnimalParade.app/AnimalParade normal armv7275044a68e2eb841^5ebeb9a78e2eb841^---0#0#1#--1663"[1mLd[0m build/Release-iphoneos/AnimalParade.app/AnimalParade normal armv7    cd "/Users/willem/Desktop/Animal Parade/export/ios"    setenv IPHONEOS_DEPLOYMENT_TARGET 5    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/willem/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -arch armv7 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk -L/Users/willem/Desktop/Animal\ Parade/export/ios/build/Release-iphoneos -L/Users/willem/Desktop/Animal\ Parade/export/ios/AnimalParade/lib/armv7 -F/Users/willem/Desktop/Animal\ Parade/export/ios/build/Release-iphoneos -filelist /Users/willem/Desktop/Animal\ Parade/export/ios/build/AnimalParade.build/Release-iphoneos/AnimalParade.build/Objects-normal/armv7/AnimalParade.LinkFileList -dead_strip -lstd -lregexp -lzlib -lcurl_ssl -lpng -ljpeg -lfreetype -logg -lvorbis -lnme -lApplicationMain -stdlib=libc++ -miphoneos-version-min=5 -framework UIKit -framework OpenAL -framework OpenGLES -framework QuartzCore -framework CoreAudio -framework CoreGraphics -framework AudioToolbox -framework AVFoundation -framework Foundation -Xlinker -dependency_info -Xlinker /Users/willem/Desktop/Animal\ Parade/export/ios/build/AnimalParade.build/Release-iphoneos/AnimalParade.build/Objects-normal/armv7/AnimalParade_dependency_info.dat -o /Users/willem/Desktop/Animal\ Parade/export/ios/build/Release-iphoneos/AnimalParade.app/AnimalParade36"93C9A5B0-67E8-4178-AC23-F96755159EAC-
-b96CDC276-1F42-4158-8D12-81FB7309143A
-
-CProcessInfoPlistFile /Users/willem/Desktop/Animal\ Parade/export/ios/build/Release-iphoneos/AnimalParade.app/Info.plist /Users/willem/Desktop/Animal\ Parade/export/ios/AnimalParade/AnimalParade-Info.plist
-s405704357.457588
-e405704357.460355
-r1
-xProcessInfoPlistFile
-x/Users/willem/Desktop/Animal Parade/export/ios/build/Release-iphoneos/AnimalParade.app/Info.plist
-x/Users/willem/Desktop/Animal Parade/export/ios/AnimalParade/AnimalParade-Info.plist
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection91"Process /Users/willem/Desktop/Animal Parade/export/ios/AnimalParade/AnimalParade-Info.plist124"[1mProcessInfoPlistFile[0m build/Release-iphoneos/AnimalParade.app/Info.plist [1mAnimalParade/AnimalParade-Info.plist[0mb03b75a58e2eb841^86e775a58e2eb841^---0#0#1#-19%DVTDocumentLocation2@92"file:///Users/willem/Desktop/Animal%20Parade/export/ios/AnimalParade/AnimalParade-Info.plist0000000000000000^927"[1mProcessInfoPlistFile[0m build/Release-iphoneos/AnimalParade.app/Info.plist [1mAnimalParade/AnimalParade-Info.plist[0m    cd "/Users/willem/Desktop/Animal Parade/export/ios"    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/willem/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin"    builtin-infoPlistUtility /Users/willem/Desktop/Animal\ Parade/export/ios/AnimalParade/AnimalParade-Info.plist -genpkginfo /Users/willem/Desktop/Animal\ Parade/export/ios/build/Release-iphoneos/AnimalParade.app/PkgInfo -expandbuildsettings -format binary -platform iphoneos -resourcerulesfile /Users/willem/Desktop/Animal\ Parade/export/ios/build/Release-iphoneos/AnimalParade.app/ResourceRules.plist -o /Users/willem/Desktop/Animal\ Parade/export/ios/build/Release-iphoneos/AnimalParade.app/Info.plist36"D01153CE-1C9C-4BC4-96AA-B87C191AFF8E-
-b96CDC276-1F42-4158-8D12-81FB7309143A
-
-CProcessPCH++ /var/folders/j3/4c1fxdmn5kgd4thx1kl6hpl80000gn/C/com.apple.DeveloperTools/5.0.1-5A2053/Xcode/SharedPrecompiledHeaders/AnimalParade-Prefix-bdjvkojsujrhswfnmcvhadonthgp/AnimalParade-Prefix.pch.pch AnimalParade/AnimalParade-Prefix.pch normal armv7 c++ com.apple.compilers.llvm.clang.1_0.compiler
-s405704358.112864
-e405704358.233639
-r1
-xProcessPCH++
-x/var/folders/j3/4c1fxdmn5kgd4thx1kl6hpl80000gn/C/com.apple.DeveloperTools/5.0.1-5A2053/Xcode/SharedPrecompiledHeaders/AnimalParade-Prefix-bdjvkojsujrhswfnmcvhadonthgp/AnimalParade-Prefix.pch.pch
-xAnimalParade/AnimalParade-Prefix.pch
-xnormal
-xarmv7
-xc++
-xcom.apple.compilers.llvm.clang.1_0.compiler
-d/Users/willem/Desktop/Animal Parade/export/ios/AnimalParade/AnimalParade-Prefix.pch
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection47"Precompile AnimalParade/AnimalParade-Prefix.pch313"[1mProcessPCH++[0m /var/folders/j3/4c1fxdmn5kgd4thx1kl6hpl80000gn/C/com.apple.DeveloperTools/5.0.1-5A2053/Xcode/SharedPrecompiledHeaders/AnimalParade-Prefix-bdjvkojsujrhswfnmcvhadonthgp/AnimalParade-Prefix.pch.pch AnimalParade/AnimalParade-Prefix.pch normal armv7 c++ com.apple.compilers.llvm.clang.1_0.compiler2ffc1ca68e2eb841^14d13ba68e2eb841^---0#0#1#-19%DVTDocumentLocation2@92"file:///Users/willem/Desktop/Animal%20Parade/export/ios/AnimalParade/AnimalParade-Prefix.pch0000000000000000^3560"[1mProcessPCH++[0m /var/folders/j3/4c1fxdmn5kgd4thx1kl6hpl80000gn/C/com.apple.DeveloperTools/5.0.1-5A2053/Xcode/SharedPrecompiledHeaders/AnimalParade-Prefix-bdjvkojsujrhswfnmcvhadonthgp/AnimalParade-Prefix.pch.pch AnimalParade/AnimalParade-Prefix.pch normal armv7 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/willem/Desktop/Animal Parade/export/ios"    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/willem/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++-header -arch armv7 -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -std=gnu++11 -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion -miphoneos-version-min=5 -iquote /Users/willem/Desktop/Animal\ Parade/export/ios/build/AnimalParade.build/Release-iphoneos/AnimalParade.build/AnimalParade-generated-files.hmap -I/Users/willem/Desktop/Animal\ Parade/export/ios/build/AnimalParade.build/Release-iphoneos/AnimalParade.build/AnimalParade-own-target-headers.hmap -I/Users/willem/Desktop/Animal\ Parade/export/ios/build/AnimalParade.build/Release-iphoneos/AnimalParade.build/AnimalParade-all-target-headers.hmap -iquote /Users/willem/Desktop/Animal\ Parade/export/ios/build/AnimalParade.build/Release-iphoneos/AnimalParade.build/AnimalParade-project-headers.hmap -I/Users/willem/Desktop/Animal\ Parade/export/ios/build/Release-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/willem/Desktop/Animal\ Parade/export/ios/build/AnimalParade.build/Release-iphoneos/AnimalParade.build/DerivedSources/armv7 -I/Users/willem/Desktop/Animal\ Parade/export/ios/build/AnimalParade.build/Release-iphoneos/AnimalParade.build/DerivedSources -F/Users/willem/Desktop/Animal\ Parade/export/ios/build/Release-iphoneos -DNS_BLOCK_ASSERTIONS=1 --serialize-diagnostics /var/folders/j3/4c1fxdmn5kgd4thx1kl6hpl80000gn/C/com.apple.DeveloperTools/5.0.1-5A2053/Xcode/SharedPrecompiledHeaders/AnimalParade-Prefix-bdjvkojsujrhswfnmcvhadonthgp/AnimalParade-Prefix.pch.dia -MMD -MT dependencies -MF /var/folders/j3/4c1fxdmn5kgd4thx1kl6hpl80000gn/C/com.apple.DeveloperTools/5.0.1-5A2053/Xcode/SharedPrecompiledHeaders/AnimalParade-Prefix-bdjvkojsujrhswfnmcvhadonthgp/AnimalParade-Prefix.pch.d -c /Users/willem/Desktop/Animal\ Parade/export/ios/AnimalParade/AnimalParade-Prefix.pch -o /var/folders/j3/4c1fxdmn5kgd4thx1kl6hpl80000gn/C/com.apple.DeveloperTools/5.0.1-5A2053/Xcode/SharedPrecompiledHeaders/AnimalParade-Prefix-bdjvkojsujrhswfnmcvhadonthgp/AnimalParade-Prefix.pch.pch36"3D557F0D-C05A-45CE-B26E-A2D50230EFE8-
-b96CDC276-1F42-4158-8D12-81FB7309143A
-
-CProcessProductPackaging /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/Entitlements.plist /Users/willem/Desktop/Animal\ Parade/export/ios/build/AnimalParade.build/Release-iphoneos/AnimalParade.build/AnimalParade.xcent
-s405704359.975857
-e405704359.977231
-r1
-xProcessProductPackaging
-x/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/Entitlements.plist
-x/Users/willem/Desktop/Animal Parade/export/ios/build/AnimalParade.build/Release-iphoneos/AnimalParade.build/AnimalParade.xcent
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection240"[1mProcessProductPackaging[0m /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/Entitlements.plist [1mbuild/AnimalParade.build/Release-iphoneos/AnimalParade.build/AnimalParade.xcent[0m240"[1mProcessProductPackaging[0m /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/Entitlements.plist [1mbuild/AnimalParade.build/Release-iphoneos/AnimalParade.build/AnimalParade.xcent[0m93e0f9a78e2eb841^6135faa78e2eb841^---0#0#1#-19%DVTDocumentLocation2@135"file:///Users/willem/Desktop/Animal%20Parade/export/ios/build/AnimalParade.build/Release-iphoneos/AnimalParade.build/AnimalParade.xcent0034fceeddffdf42^851"[1mProcessProductPackaging[0m /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/Entitlements.plist [1mbuild/AnimalParade.build/Release-iphoneos/AnimalParade.build/AnimalParade.xcent[0m    cd "/Users/willem/Desktop/Animal Parade/export/ios"    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/willem/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin"    builtin-productPackagingUtility /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/Entitlements.plist -entitlements -format xml -o /Users/willem/Desktop/Animal\ Parade/export/ios/build/AnimalParade.build/Release-iphoneos/AnimalParade.build/AnimalParade.xcent36"BCE121AE-C306-49E5-9888-A44D02D0E0DC-
-b96CDC276-1F42-4158-8D12-81FB7309143A
-
-CProcessProductPackaging /Users/willem/Library/MobileDevice/Provisioning\ Profiles/34809DB1-F014-47E4-8232-0B49160AFB04.mobileprovision /Users/willem/Desktop/Animal\ Parade/export/ios/build/Release-iphoneos/AnimalParade.app/embedded.mobileprovision
-s405704359.951548
-e405704359.974891
-r1
-xProcessProductPackaging
-x/Users/willem/Library/MobileDevice/Provisioning Profiles/34809DB1-F014-47E4-8232-0B49160AFB04.mobileprovision
-x/Users/willem/Desktop/Animal Parade/export/ios/build/Release-iphoneos/AnimalParade.app/embedded.mobileprovision
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection215"[1mProcessProductPackaging[0m /Users/willem/Library/MobileDevice/Provisioning\ Profiles/34809DB1-F014-47E4-8232-0B49160AFB04.mobileprovision [1mbuild/Release-iphoneos/AnimalParade.app/embedded.mobileprovision[0m215"[1mProcessProductPackaging[0m /Users/willem/Library/MobileDevice/Provisioning\ Profiles/34809DB1-F014-47E4-8232-0B49160AFB04.mobileprovision [1mbuild/Release-iphoneos/AnimalParade.app/embedded.mobileprovision[0m43abf3a78e2eb841^8193f9a78e2eb841^---0#0#1#-19%DVTDocumentLocation2@120"file:///Users/willem/Desktop/Animal%20Parade/export/ios/build/Release-iphoneos/AnimalParade.app/embedded.mobileprovision0034fceeddffdf42^775"[1mProcessProductPackaging[0m /Users/willem/Library/MobileDevice/Provisioning\ Profiles/34809DB1-F014-47E4-8232-0B49160AFB04.mobileprovision [1mbuild/Release-iphoneos/AnimalParade.app/embedded.mobileprovision[0m    cd "/Users/willem/Desktop/Animal Parade/export/ios"    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/willem/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin"    builtin-productPackagingUtility /Users/willem/Library/MobileDevice/Provisioning\ Profiles/34809DB1-F014-47E4-8232-0B49160AFB04.mobileprovision -o /Users/willem/Desktop/Animal\ Parade/export/ios/build/Release-iphoneos/AnimalParade.app/embedded.mobileprovision36"DB89942B-B872-485A-96D3-A13DD74FE209-
-b96CDC276-1F42-4158-8D12-81FB7309143A
-
-CTouch /Users/willem/Desktop/Animal\ Parade/export/ios/build/Release-iphoneos/AnimalParade.app
-r0
-
-CValidate /Users/willem/Desktop/Animal\ Parade/export/ios/build/Release-iphoneos/AnimalParade.app
-s405704360.473662
-e405704360.775415
-r1
-xValidate
-x/Users/willem/Desktop/Animal Parade/export/ios/build/Release-iphoneos/AnimalParade.app
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection64"[1mValidate[0m [1mbuild/Release-iphoneos/AnimalParade.app[0m64"[1mValidate[0m [1mbuild/Release-iphoneos/AnimalParade.app[0mf45279a88e2eb841^8f8bc6a88e2eb841^---0#0#1#-19%DVTDocumentLocation2@96"file:///Users/willem/Desktop/Animal%20Parade/export/ios/build/Release-iphoneos/AnimalParade.app/0000000000000000^612"[1mValidate[0m [1mbuild/Release-iphoneos/AnimalParade.app[0m    cd "/Users/willem/Desktop/Animal Parade/export/ios"    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/willem/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin"    setenv PRODUCT_TYPE com.apple.product-type.application    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/Validation /Users/willem/Desktop/Animal\ Parade/export/ios/build/Release-iphoneos/AnimalParade.app36"F37756FF-5DA8-4AAF-B4B8-15C50D04C494-
-b96CDC276-1F42-4158-8D12-81FB7309143A
-
