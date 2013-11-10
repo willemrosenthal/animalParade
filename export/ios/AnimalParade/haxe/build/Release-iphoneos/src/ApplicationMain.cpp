@@ -202,7 +202,7 @@ Void ApplicationMain_obj::main( ){
 		HX_END_LOCAL_FUNC0((void))
 
 		HX_STACK_LINE(31)
-		::flash::Lib_obj::create( Dynamic(new _Function_1_2()),(int)640,(int)1136,(int)60,(int)16777215,(int((int((int((int((int((int((int((int((int((int(::flash::Lib_obj::HARDWARE) | int(::flash::Lib_obj::ALLOW_SHADERS))) | int(::flash::Lib_obj::REQUIRE_SHADERS))) | int((int)0))) | int((int)0))) | int(::flash::Lib_obj::RESIZABLE))) | int((int)0))) | int(::flash::Lib_obj::VSYNC))) | int(::flash::Lib_obj::FULLSCREEN))) | int((int)0))) | int((int)0)),HX_CSTRING("AnimalParade"),null(),hx::ClassOf< ::ScaledStage >());
+		::flash::Lib_obj::create( Dynamic(new _Function_1_2()),(int)640,(int)1136,(int)60,(int)16777215,(int((int((int((int((int((int((int((int((int((int(::flash::Lib_obj::HARDWARE) | int(::flash::Lib_obj::ALLOW_SHADERS))) | int(::flash::Lib_obj::REQUIRE_SHADERS))) | int((int)0))) | int((int)0))) | int(::flash::Lib_obj::RESIZABLE))) | int(::flash::Lib_obj::BORDERLESS))) | int((int)0))) | int(::flash::Lib_obj::FULLSCREEN))) | int((int)0))) | int((int)0)),HX_CSTRING("AnimalParade"),null(),hx::ClassOf< ::ScaledStage >());
 	}
 return null();
 }

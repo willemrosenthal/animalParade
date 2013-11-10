@@ -103,8 +103,8 @@ class ApplicationMain {
 			(false ? flash.Lib.DEPTH_BUFFER : 0) |
 			(false ? flash.Lib.STENCIL_BUFFER : 0) |
 			(true ? flash.Lib.RESIZABLE : 0) |
-			(false ? flash.Lib.BORDERLESS : 0) |
-			(true ? flash.Lib.VSYNC : 0) |
+			(true ? flash.Lib.BORDERLESS : 0) |
+			(false ? flash.Lib.VSYNC : 0) |
 			(true ? flash.Lib.FULLSCREEN : 0) |
 			(0 == 4 ? flash.Lib.HW_AA_HIRES : 0) |
 			(0 == 2 ? flash.Lib.HW_AA : 0),

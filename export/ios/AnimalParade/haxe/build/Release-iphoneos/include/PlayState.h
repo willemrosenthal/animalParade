@@ -14,10 +14,7 @@ HX_DECLARE_CLASS1(flixel,FlxState)
 HX_DECLARE_CLASS1(flixel,IDestroyable)
 HX_DECLARE_CLASS2(flixel,group,FlxGroup)
 HX_DECLARE_CLASS2(flixel,group,FlxTypedGroup)
-HX_DECLARE_CLASS2(flixel,text,FlxText)
 HX_DECLARE_CLASS2(flixel,tile,FlxTilemap)
-HX_DECLARE_CLASS2(flixel,ui,FlxButton)
-HX_DECLARE_CLASS2(flixel,ui,FlxTypedButton)
 HX_DECLARE_CLASS2(flixel,util,FlxPoint)
 
 
@@ -51,14 +48,14 @@ class HXCPP_CLASS_ATTRIBUTES  PlayState_obj : public ::flixel::FlxState_obj{
 		virtual Void setupPlayer( );
 		Dynamic setupPlayer_dyn();
 
+		virtual Void buildMap( );
+		Dynamic buildMap_dyn();
+
 		virtual Void create( );
 
-		::flixel::text::FlxText _helperText;
-		::flixel::ui::FlxButton _resetButton;
-		::flixel::ui::FlxButton _autoAltButton;
+		::flixel::group::FlxGroup gameObjects;
 		::flixel::util::FlxPoint zeroPoint;
 		::flixel::FlxSprite _player;
-		::flixel::FlxObject _highlightBox;
 		::flixel::tile::FlxTilemap _levelMap;
 };
 

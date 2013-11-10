@@ -1,6 +1,7 @@
 package;
 
 import flixel.FlxG;
+import flixel.group.FlxGroup;
 import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.FlxState;
@@ -20,58 +21,54 @@ class PlayState extends FlxState
 		/**
          * Some static constants for the size of the tilemap tiles
          */
-	inline static private var TILE_WIDTH:Int = 16;
-	inline static private var TILE_HEIGHT:Int = 16;
+	inline static private var TILE_WIDTH:Int = 32;
+	inline static private var TILE_HEIGHT:Int = 32;
 
 		/**
          * The FlxTilemap we're using
          */
 	private var _levelMap:FlxTilemap;
 
-		/**
-         * Box to show the user where they're placing stuff
-         */
-	private var _highlightBox:FlxObject;
-
-		/**
-         * Player modified from "Mode" demo
-         */
 	private var _player:FlxSprite;
 
 	private var zeroPoint:FlxPoint;
 
-		/**
-         * Some interface buttons and text
-         */
-	private var _autoAltButton:FlxButton;
-	private var _resetButton:FlxButton;
-	private var _helperText:FlxText;
+	public var gameObjects:FlxGroup;
+
+
 
 	override public function create():Void
 	{
-		_levelMap = new FlxTilemap();
-		_levelMap.scaleX = 4;
-		_levelMap.scaleY = 4;
-		_levelMap.tileScaleHack = 1.03;
-		_levelMap.loadMap(MakeMap.newMap(400,400,40,500,100), "assets/ground.png", TILE_WIDTH, TILE_HEIGHT, FlxTilemap.OFF);
-		add(_levelMap);
+		buildMap();
+		gameObjects = new FlxGroup();
+		add(gameObjects);
 		setupPlayer();
 		_levelMap.x = _player.x - _levelMap.width * 0.5;
 		_levelMap.y = _player.y - _levelMap.height * 0.5;
 
+		//FlxG.camera.zoom = 3;
+		FlxG.camera.follow(_player, 2);
+		FlxG.camera.bounds = _levelMap.getBounds();
+		FlxG.worldBounds.copyFrom(_levelMap.getBounds());
 		//MakeMap.newMap(30,30,40,50,10);
 	}
 
+	private function buildMap():Void {
+		_levelMap = new FlxTilemap();
+		_levelMap.tileScaleHack = 1.0;
+		_levelMap.loadMap(MakeMap.newMap(200,100,40,100,15,.2), "assets/ground_full2.png", TILE_WIDTH, TILE_HEIGHT, FlxTilemap.OFF);
+		add(_levelMap);
+	}
 
 	private function setupPlayer():Void
 	{
-		_player = new FlxSprite(64, 220);
-		_player.loadGraphic("assets/spaceman.png", true, true, 16);
+		//_player = new FlxSprite(64, 220);
+		_player = new FlxSprite(16, 16);
+		_player.loadGraphic("assets/fox.png", true, true, 16);
 
 		// Bounding box tweaks
 		_player.setSize(14, 14);
 		_player.offset.set(1, 1);
-		_player.scale = new FlxPoint(4,4);
 
 		// Basic player physics
 		_player.maxVelocity.x = 200;
@@ -81,12 +78,11 @@ class PlayState extends FlxState
 		//_player.maxVelocity.set(120, 120);
 
 		// Animations
-		_player.animation.add("idle", [0]);
-		_player.animation.add("run", [1, 2, 3, 0], 12);
-		_player.animation.add("jump", [4]);
+		//_player.animation.add("idle", [0]);
+		//_player.animation.add("run", [1, 2, 3, 0], 12);
+		//_player.animation.add("jump", [4]);
 
-		FlxG.camera.follow(_player);
-		add(_player);
+		gameObjects.add(_player);
 		#if cpp
 			var data = Accelerometer.get();
 			zeroPoint = new FlxPoint(data.x,data.y);
@@ -95,6 +91,12 @@ class PlayState extends FlxState
 
 	override public function update():Void
 	{
+		#if cpp
+		if (FlxG.mouse.justPressed) {
+			var data = Accelerometer.get();
+			zeroPoint = new FlxPoint(data.x,data.y);
+		}
+		#end
 		updatePlayer();
 		super.update();
 	}
@@ -104,13 +106,18 @@ class PlayState extends FlxState
 		//FlxSpriteUtil.screenWrap(_player);
 
 		var data;
+		var deadzone:Float = 0.13;
 
 		// MOVEMENT
 		#if cpp
 			data = Accelerometer.get();
 
-		_player.x += (data.x - zeroPoint.x) * 10;
-		_player.y -= (data.y - zeroPoint.y) * 10;
+		if (Math.abs(data.x - zeroPoint.x) > deadzone)
+			_player.x += (data.x - zeroPoint.x) * 8;
+		if (Math.abs(data.y - zeroPoint.y) > deadzone * 0.7)
+			_player.y -= (data.y - zeroPoint.y) * 12;
+
+		//accText.text = data.x + " " + data.y + " :: " + zeroPoint.x + " " +zeroPoint.y;
 
 		if (data.x < zeroPoint.x)
 		{
@@ -153,38 +160,7 @@ class PlayState extends FlxState
 			_player.acceleration.y += _player.drag.x;
 		}
 
-
-
-//	if (data.y<0)
-//	{
-//	player.acceleration.x = -player.maxVelocity.x *.5 ;
-//	}
-//	if (data.y>0)
-//	{
-//	player.acceleration.x = player.maxVelocity.x *.5;
-//	}
-//	if (data.x<0)
-//	{
-//	player.acceleration.y = -player.maxVelocity.y *.5 ;
-//	}
-//	if (data.x>0)
-//	{
-//	player.acceleration.y = player.maxVelocity.y *.5;
-//	}
-
-		// ANIMATION
-		if (_player.velocity.y != 0)
-		{
-			_player.animation.play("jump");
-		}
-		else if (_player.velocity.x == 0)
-		{
-			_player.animation.play("idle");
-		}
-		else
-		{
-			_player.animation.play("run");
-		}
+		//_player.animation.play("run");
 	}
 
 	override public function draw():Void

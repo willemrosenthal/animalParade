@@ -6,6 +6,9 @@
 #ifndef INCLUDED_PlayState
 #include <PlayState.h>
 #endif
+#ifndef INCLUDED_Std
+#include <Std.h>
+#endif
 #ifndef INCLUDED_flash_Lib
 #include <flash/Lib.h>
 #endif
@@ -67,15 +70,17 @@ HX_STACK_PUSH("GameClass::new","GameClass.hx",10);
 	HX_STACK_LINE(12)
 	int stageHeight = ::flash::Lib_obj::get_current()->get_stage()->get_stageHeight();		HX_STACK_VAR(stageHeight,"stageHeight");
 	HX_STACK_LINE(14)
-	Float ratioX = (Float(stageWidth) / Float((int)640));		HX_STACK_VAR(ratioX,"ratioX");
+	Float zoom = (int)3;		HX_STACK_VAR(zoom,"zoom");
 	HX_STACK_LINE(15)
-	Float ratioY = (Float(stageHeight) / Float((int)1136));		HX_STACK_VAR(ratioY,"ratioY");
+	Float ratioX = (Float(stageWidth) / Float(zoom));		HX_STACK_VAR(ratioX,"ratioX");
 	HX_STACK_LINE(16)
+	Float ratioY = (Float(stageHeight) / Float(zoom));		HX_STACK_VAR(ratioY,"ratioY");
+	HX_STACK_LINE(17)
 	Float ratio = ::Math_obj::min(ratioX,ratioY);		HX_STACK_VAR(ratio,"ratio");
-	HX_STACK_LINE(18)
+	HX_STACK_LINE(19)
 	int fps = (int)60;		HX_STACK_VAR(fps,"fps");
-	HX_STACK_LINE(20)
-	super::__construct(::Math_obj::ceil((Float(stageWidth) / Float(ratio))),::Math_obj::ceil((Float(stageHeight) / Float(ratio))),hx::ClassOf< ::PlayState >(),(int)1,fps,fps,null());
+	HX_STACK_LINE(21)
+	super::__construct(::Std_obj::_int(::Math_obj::ceil(ratioX)),::Std_obj::_int(::Math_obj::ceil(ratioY)),hx::ClassOf< ::PlayState >(),zoom,fps,fps,null());
 }
 ;
 	return null();

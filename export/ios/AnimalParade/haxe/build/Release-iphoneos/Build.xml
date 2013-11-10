@@ -1964,16 +1964,15 @@
    <depend name="include/flixel/FlxSprite.h"/>
    <depend name="include/flixel/FlxState.h"/>
    <depend name="include/flixel/IDestroyable.h"/>
-   <depend name="include/flixel/animation/FlxAnimationController.h"/>
    <depend name="include/flixel/group/FlxGroup.h"/>
    <depend name="include/flixel/group/FlxTypedGroup.h"/>
    <depend name="include/flixel/system/input/IFlxInput.h"/>
    <depend name="include/flixel/system/input/keyboard/FlxKeyboard.h"/>
-   <depend name="include/flixel/text/FlxText.h"/>
+   <depend name="include/flixel/system/input/mouse/FlxMouse.h"/>
+   <depend name="include/flixel/system/input/mouse/FlxMouseButton.h"/>
    <depend name="include/flixel/tile/FlxTilemap.h"/>
-   <depend name="include/flixel/ui/FlxButton.h"/>
-   <depend name="include/flixel/ui/FlxTypedButton.h"/>
    <depend name="include/flixel/util/FlxPoint.h"/>
+   <depend name="include/flixel/util/FlxRect.h"/>
    <depend name="include/openfl/ui/Accelerometer.h"/>
   </file>
   <file name="src/flixel/FlxState.cpp">
@@ -2046,6 +2045,7 @@
   <file name="src/GameClass.cpp">
    <depend name="include/GameClass.h"/>
    <depend name="include/PlayState.h"/>
+   <depend name="include/Std.h"/>
    <depend name="include/flash/Lib.h"/>
    <depend name="include/flash/display/DisplayObject.h"/>
    <depend name="include/flash/display/DisplayObjectContainer.h"/>

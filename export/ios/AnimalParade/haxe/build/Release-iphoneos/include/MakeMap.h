@@ -31,17 +31,20 @@ class HXCPP_CLASS_ATTRIBUTES  MakeMap_obj : public hx::Object{
 		static Array< ::Dynamic > map;
 		static int baseInt;
 		static int seedInt;
-		static ::String newMap( int Width,int Height,hx::Null< int >  MinPatches,hx::Null< int >  MaxPatches,hx::Null< int >  PatchDepth);
+		static ::String newMap( int Width,int Height,hx::Null< int >  MinPatches,hx::Null< int >  MaxPatches,hx::Null< int >  PatchDepth,hx::Null< Float >  PatchSpread);
 		static Dynamic newMap_dyn();
 
-		static Void makePatces( int MinPatches,int MaxPatches,int PatchDepth);
+		static Void makePatces( int MinPatches,int MaxPatches,int PatchDepth,Float PatchSpread);
 		static Dynamic makePatces_dyn();
 
-		static Void patcheGrowth( Float GrowthAmount);
+		static Void patcheGrowth( Float GrowthAmount,hx::Null< bool >  Final);
 		static Dynamic patcheGrowth_dyn();
 
 		static Void checkSurrounding( int N,int Q,Float GrowthAmount,int temp);
 		static Dynamic checkSurrounding_dyn();
+
+		static Void blendEdge( int N,int Q);
+		static Dynamic blendEdge_dyn();
 
 		static Void dispersePatches( int PatchNo);
 		static Dynamic dispersePatches_dyn();

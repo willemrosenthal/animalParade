@@ -27,9 +27,6 @@
 #ifndef INCLUDED_flixel_IDestroyable
 #include <flixel/IDestroyable.h>
 #endif
-#ifndef INCLUDED_flixel_animation_FlxAnimationController
-#include <flixel/animation/FlxAnimationController.h>
-#endif
 #ifndef INCLUDED_flixel_group_FlxGroup
 #include <flixel/group/FlxGroup.h>
 #endif
@@ -42,20 +39,23 @@
 #ifndef INCLUDED_flixel_system_input_keyboard_FlxKeyboard
 #include <flixel/system/input/keyboard/FlxKeyboard.h>
 #endif
-#ifndef INCLUDED_flixel_text_FlxText
-#include <flixel/text/FlxText.h>
+#ifndef INCLUDED_flixel_system_input_mouse_FlxMouse
+#include <flixel/system/input/mouse/FlxMouse.h>
+#endif
+#ifndef INCLUDED_flixel_system_input_mouse_FlxMouseButton
+#include <flixel/system/input/mouse/FlxMouseButton.h>
 #endif
 #ifndef INCLUDED_flixel_tile_FlxTilemap
 #include <flixel/tile/FlxTilemap.h>
 #endif
-#ifndef INCLUDED_flixel_ui_FlxButton
-#include <flixel/ui/FlxButton.h>
-#endif
-#ifndef INCLUDED_flixel_ui_FlxTypedButton
-#include <flixel/ui/FlxTypedButton.h>
-#endif
 #ifndef INCLUDED_flixel_util_FlxPoint
 #include <flixel/util/FlxPoint.h>
+#endif
+#ifndef INCLUDED_flixel_util_FlxRect
+#include <flixel/util/FlxRect.h>
+#endif
+#ifndef INCLUDED_hxMath
+#include <hxMath.h>
 #endif
 #ifndef INCLUDED_openfl_ui_Accelerometer
 #include <openfl/ui/Accelerometer.h>
@@ -63,9 +63,9 @@
 
 Void PlayState_obj::__construct()
 {
-HX_STACK_PUSH("PlayState::new","PlayState.hx",18);
+HX_STACK_PUSH("PlayState::new","PlayState.hx",19);
 {
-	HX_STACK_LINE(18)
+	HX_STACK_LINE(19)
 	super::__construct();
 }
 ;
@@ -87,9 +87,9 @@ Dynamic PlayState_obj::__Create(hx::DynamicArray inArgs)
 
 Void PlayState_obj::draw( ){
 {
-		HX_STACK_PUSH("PlayState::draw","PlayState.hx",191);
+		HX_STACK_PUSH("PlayState::draw","PlayState.hx",169);
 		HX_STACK_THIS(this);
-		HX_STACK_LINE(191)
+		HX_STACK_LINE(169)
 		this->super::draw();
 	}
 return null();
@@ -98,97 +98,83 @@ return null();
 
 Void PlayState_obj::updatePlayer( ){
 {
-		HX_STACK_PUSH("PlayState::updatePlayer","PlayState.hx",103);
+		HX_STACK_PUSH("PlayState::updatePlayer","PlayState.hx",107);
 		HX_STACK_THIS(this);
-		HX_STACK_LINE(106)
-		Dynamic data;		HX_STACK_VAR(data,"data");
 		HX_STACK_LINE(110)
-		data = ::openfl::ui::Accelerometer_obj::get();
-		HX_STACK_LINE(112)
-		{
-			HX_STACK_LINE(112)
-			::flixel::FlxSprite _g = this->_player;		HX_STACK_VAR(_g,"_g");
-			HX_STACK_LINE(112)
-			_g->set_x((_g->x + (((data->__Field(HX_CSTRING("x"),true) - this->zeroPoint->x)) * (int)10)));
-		}
-		HX_STACK_LINE(113)
-		{
-			HX_STACK_LINE(113)
-			::flixel::FlxSprite _g = this->_player;		HX_STACK_VAR(_g,"_g");
-			HX_STACK_LINE(113)
-			_g->set_y((_g->y - (((data->__Field(HX_CSTRING("y"),true) - this->zeroPoint->y)) * (int)10)));
-		}
+		Dynamic data;		HX_STACK_VAR(data,"data");
+		HX_STACK_LINE(111)
+		Float deadzone = 0.2;		HX_STACK_VAR(deadzone,"deadzone");
 		HX_STACK_LINE(115)
+		data = ::openfl::ui::Accelerometer_obj::get();
+		HX_STACK_LINE(117)
+		if (((::Math_obj::abs((data->__Field(HX_CSTRING("x"),true) - this->zeroPoint->x)) > deadzone))){
+			HX_STACK_LINE(118)
+			::flixel::FlxSprite _g = this->_player;		HX_STACK_VAR(_g,"_g");
+			HX_STACK_LINE(118)
+			_g->set_x((_g->x + (((data->__Field(HX_CSTRING("x"),true) - this->zeroPoint->x)) * (int)8)));
+		}
+		HX_STACK_LINE(119)
+		if (((::Math_obj::abs((data->__Field(HX_CSTRING("y"),true) - this->zeroPoint->y)) > deadzone))){
+			HX_STACK_LINE(120)
+			::flixel::FlxSprite _g = this->_player;		HX_STACK_VAR(_g,"_g");
+			HX_STACK_LINE(120)
+			_g->set_y((_g->y - (((data->__Field(HX_CSTRING("y"),true) - this->zeroPoint->y)) * (int)12)));
+		}
+		HX_STACK_LINE(124)
 		if (((data->__Field(HX_CSTRING("x"),true) < this->zeroPoint->x))){
-			HX_STACK_LINE(116)
+			HX_STACK_LINE(125)
 			this->_player->set_facing((int)1);
 		}
 		else{
-			HX_STACK_LINE(120)
+			HX_STACK_LINE(129)
 			if (((data->__Field(HX_CSTRING("x"),true) > this->zeroPoint->x))){
-				HX_STACK_LINE(121)
+				HX_STACK_LINE(130)
 				this->_player->set_facing((int)16);
 			}
 		}
-		HX_STACK_LINE(133)
+		HX_STACK_LINE(142)
 		this->_player->acceleration->set_x((int)0);
-		HX_STACK_LINE(134)
+		HX_STACK_LINE(143)
 		this->_player->acceleration->set_y((int)0);
-		HX_STACK_LINE(137)
+		HX_STACK_LINE(146)
 		if ((::flixel::FlxG_obj::keyboard->pressed(HX_CSTRING("LEFT"),HX_CSTRING("A")))){
-			HX_STACK_LINE(139)
+			HX_STACK_LINE(148)
 			this->_player->set_facing((int)1);
-			HX_STACK_LINE(140)
+			HX_STACK_LINE(149)
 			{
-				HX_STACK_LINE(140)
+				HX_STACK_LINE(149)
 				::flixel::util::FlxPoint _g = this->_player->acceleration;		HX_STACK_VAR(_g,"_g");
-				HX_STACK_LINE(140)
+				HX_STACK_LINE(149)
 				_g->set_x((_g->x - this->_player->drag->x));
 			}
 		}
 		else{
-			HX_STACK_LINE(142)
+			HX_STACK_LINE(151)
 			if ((::flixel::FlxG_obj::keyboard->pressed(HX_CSTRING("RIGHT"),HX_CSTRING("D")))){
-				HX_STACK_LINE(144)
+				HX_STACK_LINE(153)
 				this->_player->set_facing((int)16);
-				HX_STACK_LINE(145)
+				HX_STACK_LINE(154)
 				{
-					HX_STACK_LINE(145)
+					HX_STACK_LINE(154)
 					::flixel::util::FlxPoint _g = this->_player->acceleration;		HX_STACK_VAR(_g,"_g");
-					HX_STACK_LINE(145)
+					HX_STACK_LINE(154)
 					_g->set_x((_g->x + this->_player->drag->x));
 				}
 			}
 		}
-		HX_STACK_LINE(147)
+		HX_STACK_LINE(156)
 		if ((::flixel::FlxG_obj::keyboard->justPressed(HX_CSTRING("UP"),HX_CSTRING("W")))){
-			HX_STACK_LINE(149)
+			HX_STACK_LINE(158)
 			::flixel::util::FlxPoint _g = this->_player->acceleration;		HX_STACK_VAR(_g,"_g");
-			HX_STACK_LINE(149)
+			HX_STACK_LINE(158)
 			_g->set_y((_g->y - this->_player->drag->x));
 		}
-		HX_STACK_LINE(151)
+		HX_STACK_LINE(160)
 		if ((::flixel::FlxG_obj::keyboard->justPressed(HX_CSTRING("DOWN"),HX_CSTRING("S")))){
-			HX_STACK_LINE(153)
+			HX_STACK_LINE(162)
 			::flixel::util::FlxPoint _g = this->_player->acceleration;		HX_STACK_VAR(_g,"_g");
-			HX_STACK_LINE(153)
+			HX_STACK_LINE(162)
 			_g->set_y((_g->y + this->_player->drag->x));
-		}
-		HX_STACK_LINE(176)
-		if (((this->_player->velocity->y != (int)0))){
-			HX_STACK_LINE(177)
-			this->_player->animation->play(HX_CSTRING("jump"),null(),null());
-		}
-		else{
-			HX_STACK_LINE(180)
-			if (((this->_player->velocity->x == (int)0))){
-				HX_STACK_LINE(181)
-				this->_player->animation->play(HX_CSTRING("idle"),null(),null());
-			}
-			else{
-				HX_STACK_LINE(185)
-				this->_player->animation->play(HX_CSTRING("run"),null(),null());
-			}
 		}
 	}
 return null();
@@ -199,11 +185,30 @@ HX_DEFINE_DYNAMIC_FUNC0(PlayState_obj,updatePlayer,(void))
 
 Void PlayState_obj::update( ){
 {
-		HX_STACK_PUSH("PlayState::update","PlayState.hx",97);
+		HX_STACK_PUSH("PlayState::update","PlayState.hx",93);
 		HX_STACK_THIS(this);
-		HX_STACK_LINE(98)
+		struct _Function_1_1{
+			inline static bool Block( ){
+				HX_STACK_PUSH("*::closure","PlayState.hx",97);
+				{
+					HX_STACK_LINE(97)
+					::flixel::system::input::mouse::FlxMouseButton _this = ::flixel::FlxG_obj::mouse->_leftButton;		HX_STACK_VAR(_this,"_this");
+					HX_STACK_LINE(97)
+					return (bool((_this->current == (int)2)) || bool((_this->current == (int)-2)));
+				}
+				return null();
+			}
+		};
+		HX_STACK_LINE(97)
+		if ((_Function_1_1::Block())){
+			HX_STACK_LINE(98)
+			Dynamic data = ::openfl::ui::Accelerometer_obj::get();		HX_STACK_VAR(data,"data");
+			HX_STACK_LINE(99)
+			this->zeroPoint = ::flixel::util::FlxPoint_obj::__new(data->__Field(HX_CSTRING("x"),true),data->__Field(HX_CSTRING("y"),true));
+		}
+		HX_STACK_LINE(102)
 		this->updatePlayer();
-		HX_STACK_LINE(99)
+		HX_STACK_LINE(103)
 		this->super::update();
 	}
 return null();
@@ -212,44 +217,34 @@ return null();
 
 Void PlayState_obj::setupPlayer( ){
 {
-		HX_STACK_PUSH("PlayState::setupPlayer","PlayState.hx",67);
+		HX_STACK_PUSH("PlayState::setupPlayer","PlayState.hx",64);
 		HX_STACK_THIS(this);
-		HX_STACK_LINE(68)
-		this->_player = ::flixel::FlxSprite_obj::__new((int)64,(int)220,null());
-		HX_STACK_LINE(69)
-		this->_player->loadGraphic(HX_CSTRING("assets/spaceman.png"),true,true,(int)16,null(),null(),null());
-		HX_STACK_LINE(72)
+		HX_STACK_LINE(66)
+		this->_player = ::flixel::FlxSprite_obj::__new((int)16,(int)16,null());
+		HX_STACK_LINE(67)
+		this->_player->loadGraphic(HX_CSTRING("assets/fox.png"),true,true,(int)16,null(),null(),null());
+		HX_STACK_LINE(70)
 		{
-			HX_STACK_LINE(72)
+			HX_STACK_LINE(70)
 			::flixel::FlxSprite _this = this->_player;		HX_STACK_VAR(_this,"_this");
-			HX_STACK_LINE(72)
+			HX_STACK_LINE(70)
 			_this->set_width((int)14);
-			HX_STACK_LINE(72)
+			HX_STACK_LINE(70)
 			_this->set_height((int)14);
 		}
-		HX_STACK_LINE(73)
+		HX_STACK_LINE(71)
 		this->_player->offset->set((int)1,(int)1);
 		HX_STACK_LINE(74)
-		this->_player->set_scale(::flixel::util::FlxPoint_obj::__new((int)4,(int)4));
-		HX_STACK_LINE(77)
 		this->_player->maxVelocity->set_x((int)200);
-		HX_STACK_LINE(78)
+		HX_STACK_LINE(75)
 		this->_player->maxVelocity->set_y((int)200);
-		HX_STACK_LINE(79)
+		HX_STACK_LINE(76)
 		this->_player->drag->set_x((this->_player->maxVelocity->x * (int)4));
-		HX_STACK_LINE(84)
-		this->_player->animation->add(HX_CSTRING("idle"),Array_obj< int >::__new().Add((int)0),null(),null());
 		HX_STACK_LINE(85)
-		this->_player->animation->add(HX_CSTRING("run"),Array_obj< int >::__new().Add((int)1).Add((int)2).Add((int)3).Add((int)0),(int)12,null());
-		HX_STACK_LINE(86)
-		this->_player->animation->add(HX_CSTRING("jump"),Array_obj< int >::__new().Add((int)4),null(),null());
-		HX_STACK_LINE(88)
-		::flixel::FlxG_obj::camera->follow(this->_player,null(),null(),null());
-		HX_STACK_LINE(89)
-		this->add(this->_player);
-		HX_STACK_LINE(91)
+		this->gameObjects->add(this->_player);
+		HX_STACK_LINE(87)
 		Dynamic data = ::openfl::ui::Accelerometer_obj::get();		HX_STACK_VAR(data,"data");
-		HX_STACK_LINE(92)
+		HX_STACK_LINE(88)
 		this->zeroPoint = ::flixel::util::FlxPoint_obj::__new(data->__Field(HX_CSTRING("x"),true),data->__Field(HX_CSTRING("y"),true));
 	}
 return null();
@@ -258,28 +253,61 @@ return null();
 
 HX_DEFINE_DYNAMIC_FUNC0(PlayState_obj,setupPlayer,(void))
 
+Void PlayState_obj::buildMap( ){
+{
+		HX_STACK_PUSH("PlayState::buildMap","PlayState.hx",56);
+		HX_STACK_THIS(this);
+		HX_STACK_LINE(57)
+		this->_levelMap = ::flixel::tile::FlxTilemap_obj::__new();
+		HX_STACK_LINE(58)
+		this->_levelMap->tileScaleHack = 1.0;
+		HX_STACK_LINE(59)
+		this->_levelMap->loadMap(::MakeMap_obj::newMap((int)200,(int)100,(int)40,(int)100,(int)15,.2),HX_CSTRING("assets/ground_full2.png"),(int)32,(int)32,(int)0,null(),null(),null());
+		HX_STACK_LINE(60)
+		this->add(this->_levelMap);
+	}
+return null();
+}
+
+
+HX_DEFINE_DYNAMIC_FUNC0(PlayState_obj,buildMap,(void))
+
 Void PlayState_obj::create( ){
 {
-		HX_STACK_PUSH("PlayState::create","PlayState.hx",51);
+		HX_STACK_PUSH("PlayState::create","PlayState.hx",41);
 		HX_STACK_THIS(this);
-		HX_STACK_LINE(52)
-		this->_levelMap = ::flixel::tile::FlxTilemap_obj::__new();
-		HX_STACK_LINE(53)
-		this->_levelMap->set_scaleX((int)4);
-		HX_STACK_LINE(54)
-		this->_levelMap->set_scaleY((int)4);
-		HX_STACK_LINE(55)
-		this->_levelMap->tileScaleHack = 1.03;
-		HX_STACK_LINE(56)
-		this->_levelMap->loadMap(::MakeMap_obj::newMap((int)400,(int)400,(int)40,(int)500,(int)100),HX_CSTRING("assets/ground.png"),(int)16,(int)16,(int)0,null(),null(),null());
-		HX_STACK_LINE(57)
-		this->add(this->_levelMap);
-		HX_STACK_LINE(58)
+		HX_STACK_LINE(42)
+		this->buildMap();
+		HX_STACK_LINE(43)
+		this->gameObjects = ::flixel::group::FlxGroup_obj::__new(null());
+		HX_STACK_LINE(44)
+		this->add(this->gameObjects);
+		HX_STACK_LINE(45)
 		this->setupPlayer();
-		HX_STACK_LINE(59)
+		HX_STACK_LINE(46)
 		this->_levelMap->set_x((this->_player->x - (this->_levelMap->width * 0.5)));
-		HX_STACK_LINE(60)
+		HX_STACK_LINE(47)
 		this->_levelMap->set_y((this->_player->y - (this->_levelMap->height * 0.5)));
+		HX_STACK_LINE(50)
+		::flixel::FlxG_obj::camera->follow(this->_player,(int)2,null(),null());
+		HX_STACK_LINE(51)
+		::flixel::FlxG_obj::camera->bounds = this->_levelMap->getBounds(null());
+		HX_STACK_LINE(52)
+		{
+			HX_STACK_LINE(52)
+			::flixel::util::FlxRect _this = ::flixel::FlxG_obj::worldBounds;		HX_STACK_VAR(_this,"_this");
+			::flixel::util::FlxRect Rect = this->_levelMap->getBounds(null());		HX_STACK_VAR(Rect,"Rect");
+			HX_STACK_LINE(52)
+			_this->x = Rect->x;
+			HX_STACK_LINE(52)
+			_this->y = Rect->y;
+			HX_STACK_LINE(52)
+			_this->width = Rect->width;
+			HX_STACK_LINE(52)
+			_this->height = Rect->height;
+			HX_STACK_LINE(52)
+			_this;
+		}
 	}
 return null();
 }
@@ -293,12 +321,9 @@ PlayState_obj::PlayState_obj()
 void PlayState_obj::__Mark(HX_MARK_PARAMS)
 {
 	HX_MARK_BEGIN_CLASS(PlayState);
-	HX_MARK_MEMBER_NAME(_helperText,"_helperText");
-	HX_MARK_MEMBER_NAME(_resetButton,"_resetButton");
-	HX_MARK_MEMBER_NAME(_autoAltButton,"_autoAltButton");
+	HX_MARK_MEMBER_NAME(gameObjects,"gameObjects");
 	HX_MARK_MEMBER_NAME(zeroPoint,"zeroPoint");
 	HX_MARK_MEMBER_NAME(_player,"_player");
-	HX_MARK_MEMBER_NAME(_highlightBox,"_highlightBox");
 	HX_MARK_MEMBER_NAME(_levelMap,"_levelMap");
 	super::__Mark(HX_MARK_ARG);
 	HX_MARK_END_CLASS();
@@ -306,12 +331,9 @@ void PlayState_obj::__Mark(HX_MARK_PARAMS)
 
 void PlayState_obj::__Visit(HX_VISIT_PARAMS)
 {
-	HX_VISIT_MEMBER_NAME(_helperText,"_helperText");
-	HX_VISIT_MEMBER_NAME(_resetButton,"_resetButton");
-	HX_VISIT_MEMBER_NAME(_autoAltButton,"_autoAltButton");
+	HX_VISIT_MEMBER_NAME(gameObjects,"gameObjects");
 	HX_VISIT_MEMBER_NAME(zeroPoint,"zeroPoint");
 	HX_VISIT_MEMBER_NAME(_player,"_player");
-	HX_VISIT_MEMBER_NAME(_highlightBox,"_highlightBox");
 	HX_VISIT_MEMBER_NAME(_levelMap,"_levelMap");
 	super::__Visit(HX_VISIT_ARG);
 }
@@ -329,23 +351,19 @@ Dynamic PlayState_obj::__Field(const ::String &inName,bool inCallProp)
 	case 7:
 		if (HX_FIELD_EQ(inName,"_player") ) { return _player; }
 		break;
+	case 8:
+		if (HX_FIELD_EQ(inName,"buildMap") ) { return buildMap_dyn(); }
+		break;
 	case 9:
 		if (HX_FIELD_EQ(inName,"zeroPoint") ) { return zeroPoint; }
 		if (HX_FIELD_EQ(inName,"_levelMap") ) { return _levelMap; }
 		break;
 	case 11:
 		if (HX_FIELD_EQ(inName,"setupPlayer") ) { return setupPlayer_dyn(); }
-		if (HX_FIELD_EQ(inName,"_helperText") ) { return _helperText; }
+		if (HX_FIELD_EQ(inName,"gameObjects") ) { return gameObjects; }
 		break;
 	case 12:
 		if (HX_FIELD_EQ(inName,"updatePlayer") ) { return updatePlayer_dyn(); }
-		if (HX_FIELD_EQ(inName,"_resetButton") ) { return _resetButton; }
-		break;
-	case 13:
-		if (HX_FIELD_EQ(inName,"_highlightBox") ) { return _highlightBox; }
-		break;
-	case 14:
-		if (HX_FIELD_EQ(inName,"_autoAltButton") ) { return _autoAltButton; }
 	}
 	return super::__Field(inName,inCallProp);
 }
@@ -361,28 +379,16 @@ Dynamic PlayState_obj::__SetField(const ::String &inName,const Dynamic &inValue,
 		if (HX_FIELD_EQ(inName,"_levelMap") ) { _levelMap=inValue.Cast< ::flixel::tile::FlxTilemap >(); return inValue; }
 		break;
 	case 11:
-		if (HX_FIELD_EQ(inName,"_helperText") ) { _helperText=inValue.Cast< ::flixel::text::FlxText >(); return inValue; }
-		break;
-	case 12:
-		if (HX_FIELD_EQ(inName,"_resetButton") ) { _resetButton=inValue.Cast< ::flixel::ui::FlxButton >(); return inValue; }
-		break;
-	case 13:
-		if (HX_FIELD_EQ(inName,"_highlightBox") ) { _highlightBox=inValue.Cast< ::flixel::FlxObject >(); return inValue; }
-		break;
-	case 14:
-		if (HX_FIELD_EQ(inName,"_autoAltButton") ) { _autoAltButton=inValue.Cast< ::flixel::ui::FlxButton >(); return inValue; }
+		if (HX_FIELD_EQ(inName,"gameObjects") ) { gameObjects=inValue.Cast< ::flixel::group::FlxGroup >(); return inValue; }
 	}
 	return super::__SetField(inName,inValue,inCallProp);
 }
 
 void PlayState_obj::__GetFields(Array< ::String> &outFields)
 {
-	outFields->push(HX_CSTRING("_helperText"));
-	outFields->push(HX_CSTRING("_resetButton"));
-	outFields->push(HX_CSTRING("_autoAltButton"));
+	outFields->push(HX_CSTRING("gameObjects"));
 	outFields->push(HX_CSTRING("zeroPoint"));
 	outFields->push(HX_CSTRING("_player"));
-	outFields->push(HX_CSTRING("_highlightBox"));
 	outFields->push(HX_CSTRING("_levelMap"));
 	super::__GetFields(outFields);
 };
@@ -395,13 +401,11 @@ static ::String sMemberFields[] = {
 	HX_CSTRING("updatePlayer"),
 	HX_CSTRING("update"),
 	HX_CSTRING("setupPlayer"),
+	HX_CSTRING("buildMap"),
 	HX_CSTRING("create"),
-	HX_CSTRING("_helperText"),
-	HX_CSTRING("_resetButton"),
-	HX_CSTRING("_autoAltButton"),
+	HX_CSTRING("gameObjects"),
 	HX_CSTRING("zeroPoint"),
 	HX_CSTRING("_player"),
-	HX_CSTRING("_highlightBox"),
 	HX_CSTRING("_levelMap"),
 	String(null()) };
 

@@ -10,6 +10,6 @@
 -D web
 -swf-version 11.2
 -swf export/flash/bin/AnimalParade.swf
--swf-header 1136:640:60:FFFFFF
+-swf-header 640:1136:60:FFFFFF
 -cp export/flash/haxe
 #--remap nme:flash

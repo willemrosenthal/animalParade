@@ -50,8 +50,16 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/default_empty.txt", Reflect.field (AssetType, "text".toUpperCase ()));
 		className.set ("assets/empty_tiles.png", __ASSET__assets_empty_tiles_png);
 		type.set ("assets/empty_tiles.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("assets/fox.png", __ASSET__assets_fox_png);
+		type.set ("assets/fox.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("assets/ground.png", __ASSET__assets_ground_png);
 		type.set ("assets/ground.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("assets/ground_edges.png", __ASSET__assets_ground_edges_png);
+		type.set ("assets/ground_edges.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("assets/ground_full.png", __ASSET__assets_ground_full_png);
+		type.set ("assets/ground_full.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("assets/ground_full2.png", __ASSET__assets_ground_full2_png);
+		type.set ("assets/ground_full2.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("assets/p1.png", __ASSET__assets_p1_png);
 		type.set ("assets/p1.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("assets/spaceman.png", __ASSET__assets_spaceman_png);
@@ -152,8 +160,16 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/default_empty.txt", Reflect.field (AssetType, "text".toUpperCase ()));
 		path.set ("assets/empty_tiles.png", "assets_empty_tiles_png");
 		type.set ("assets/empty_tiles.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("assets/fox.png", "assets_fox_png");
+		type.set ("assets/fox.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		path.set ("assets/ground.png", "assets_ground_png");
 		type.set ("assets/ground.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("assets/ground_edges.png", "assets_ground_edges_png");
+		type.set ("assets/ground_edges.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("assets/ground_full.png", "assets_ground_full_png");
+		type.set ("assets/ground_full.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("assets/ground_full2.png", "assets_ground_full2_png");
+		type.set ("assets/ground_full2.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		path.set ("assets/p1.png", "assets_p1_png");
 		type.set ("assets/p1.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		path.set ("assets/spaceman.png", "assets_spaceman_png");
@@ -617,7 +633,11 @@ class __ASSET__assets_default_alt_txt extends null { }
 class __ASSET__assets_default_auto_txt extends null { }
 class __ASSET__assets_default_empty_txt extends null { }
 class __ASSET__assets_empty_tiles_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__assets_fox_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__assets_ground_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__assets_ground_edges_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__assets_ground_full_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__assets_ground_full2_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__assets_p1_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__assets_spaceman_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__flixel_img_debugger_buttons_console_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
@@ -662,6 +682,10 @@ class __ASSET__manifest extends null { }
 
 
 #elseif html5
+
+
+
+
 
 
 
