@@ -86,10 +86,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PlayState.hx" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="PlayState.hx" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/PlayState.hx">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="0" selection-start="761" selection-end="761" vertical-scroll-proportion="-3.2307692">
+            <state line="46" column="33" selection-start="901" selection-end="901" vertical-scroll-proportion="0.28600407">
               <folding />
             </state>
           </provider>
@@ -104,10 +104,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Player.hx" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Player.hx" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Player.hx">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="57" column="19" selection-start="1193" selection-end="1193" vertical-scroll-proportion="0.84381336">
+            <state line="26" column="42" selection-start="486" selection-end="486" vertical-scroll-proportion="-21.846153">
               <folding />
             </state>
           </provider>
@@ -575,16 +575,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PlayState.hx">
+    <entry file="file://$PROJECT_DIR$/src/Player.hx">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="0" selection-start="761" selection-end="761" vertical-scroll-proportion="-3.2307692">
+        <state line="26" column="42" selection-start="486" selection-end="486" vertical-scroll-proportion="-21.846153">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Player.hx">
+    <entry file="file://$PROJECT_DIR$/src/PlayState.hx">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="19" selection-start="1193" selection-end="1193" vertical-scroll-proportion="0.84381336">
+        <state line="46" column="33" selection-start="901" selection-end="901" vertical-scroll-proportion="0.28600407">
           <folding />
         </state>
       </provider>
