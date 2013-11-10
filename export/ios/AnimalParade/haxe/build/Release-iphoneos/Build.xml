@@ -1013,56 +1013,6 @@
    <depend name="include/flixel/group/FlxTypedGroup.h"/>
    <depend name="include/flixel/system/FlxBGSprite.h"/>
   </file>
-  <file name="src/flixel/FlxSprite.cpp">
-   <depend name="include/Std.h"/>
-   <depend name="include/Type.h"/>
-   <depend name="include/flash/display/BitmapData.h"/>
-   <depend name="include/flash/display/BlendMode.h"/>
-   <depend name="include/flash/display/IBitmapDrawable.h"/>
-   <depend name="include/flash/geom/ColorTransform.h"/>
-   <depend name="include/flash/geom/Matrix.h"/>
-   <depend name="include/flash/geom/Point.h"/>
-   <depend name="include/flash/geom/Rectangle.h"/>
-   <depend name="include/flixel/FlxBasic.h"/>
-   <depend name="include/flixel/FlxCamera.h"/>
-   <depend name="include/flixel/FlxG.h"/>
-   <depend name="include/flixel/FlxObject.h"/>
-   <depend name="include/flixel/FlxSprite.h"/>
-   <depend name="include/flixel/IDestroyable.h"/>
-   <depend name="include/flixel/animation/FlxAnimationController.h"/>
-   <depend name="include/flixel/system/frontEnds/BitmapFrontEnd.h"/>
-   <depend name="include/flixel/system/frontEnds/CameraFrontEnd.h"/>
-   <depend name="include/flixel/system/frontEnds/LogFrontEnd.h"/>
-   <depend name="include/flixel/system/layer/DrawStackItem.h"/>
-   <depend name="include/flixel/system/layer/Region.h"/>
-   <depend name="include/flixel/system/layer/TileSheetData.h"/>
-   <depend name="include/flixel/system/layer/frames/FlxFrame.h"/>
-   <depend name="include/flixel/system/layer/frames/FlxSpriteFrames.h"/>
-   <depend name="include/flixel/util/FlxAngle.h"/>
-   <depend name="include/flixel/util/FlxPoint.h"/>
-   <depend name="include/flixel/util/loaders/CachedGraphics.h"/>
-   <depend name="include/flixel/util/loaders/TexturePackerData.h"/>
-   <depend name="include/flixel/util/loaders/TextureRegion.h"/>
-  </file>
-  <file name="src/flixel/FlxObject.cpp">
-   <depend name="include/Reflect.h"/>
-   <depend name="include/Std.h"/>
-   <depend name="include/flixel/FlxBasic.h"/>
-   <depend name="include/flixel/FlxCamera.h"/>
-   <depend name="include/flixel/FlxG.h"/>
-   <depend name="include/flixel/FlxObject.h"/>
-   <depend name="include/flixel/IDestroyable.h"/>
-   <depend name="include/flixel/group/FlxTypedGroup.h"/>
-   <depend name="include/flixel/system/FlxCollisionType.h"/>
-   <depend name="include/flixel/system/frontEnds/CameraFrontEnd.h"/>
-   <depend name="include/flixel/system/layer/Region.h"/>
-   <depend name="include/flixel/system/layer/frames/FlxSpriteFrames.h"/>
-   <depend name="include/flixel/tile/FlxTilemap.h"/>
-   <depend name="include/flixel/util/FlxMath.h"/>
-   <depend name="include/flixel/util/FlxPoint.h"/>
-   <depend name="include/flixel/util/FlxRect.h"/>
-   <depend name="include/flixel/util/loaders/CachedGraphics.h"/>
-  </file>
   <file name="src/flixel/FlxG.cpp">
    <depend name="include/Std.h"/>
    <depend name="include/StringTools.h"/>
@@ -1109,12 +1059,6 @@
    <depend name="include/flixel/util/FlxRandom.h"/>
    <depend name="include/flixel/util/FlxRect.h"/>
    <depend name="include/flixel/util/FlxSave.h"/>
-  </file>
-  <file name="src/flixel/util/FlxRect.cpp">
-   <depend name="include/flash/geom/Rectangle.h"/>
-   <depend name="include/flixel/util/FlxMath.h"/>
-   <depend name="include/flixel/util/FlxPoint.h"/>
-   <depend name="include/flixel/util/FlxRect.h"/>
   </file>
   <file name="src/flixel/system/frontEnds/WatchFrontEnd.cpp">
    <depend name="include/flixel/system/frontEnds/WatchFrontEnd.h"/>
@@ -1173,14 +1117,6 @@
    <depend name="include/flixel/util/FlxArrayUtil.h"/>
    <depend name="include/flixel/util/FlxPath.h"/>
    <depend name="include/flixel/util/FlxPool_flixel_util_FlxPath.h"/>
-  </file>
-  <file name="src/flixel/util/FlxPoint.cpp">
-   <depend name="include/StringTools.h"/>
-   <depend name="include/Type.h"/>
-   <depend name="include/flash/geom/Point.h"/>
-   <depend name="include/flixel/util/FlxMath.h"/>
-   <depend name="include/flixel/util/FlxPoint.h"/>
-   <depend name="include/flixel/util/FlxRect.h"/>
   </file>
   <file name="src/flixel/plugin/TweenManager.cpp">
    <depend name="include/flixel/FlxBasic.h"/>
@@ -1954,9 +1890,27 @@
   <file name="src/Reflect.cpp">
    <depend name="include/Reflect.h"/>
   </file>
+  <file name="src/Player.cpp">
+   <depend name="include/Animal.h"/>
+   <depend name="include/Global.h"/>
+   <depend name="include/Player.h"/>
+   <depend name="include/flixel/FlxBasic.h"/>
+   <depend name="include/flixel/FlxG.h"/>
+   <depend name="include/flixel/FlxObject.h"/>
+   <depend name="include/flixel/FlxSprite.h"/>
+   <depend name="include/flixel/IDestroyable.h"/>
+   <depend name="include/flixel/system/input/IFlxInput.h"/>
+   <depend name="include/flixel/system/input/keyboard/FlxKeyboard.h"/>
+   <depend name="include/flixel/system/input/mouse/FlxMouse.h"/>
+   <depend name="include/flixel/system/input/mouse/FlxMouseButton.h"/>
+   <depend name="include/flixel/util/FlxPoint.h"/>
+   <depend name="include/openfl/ui/Accelerometer.h"/>
+  </file>
   <file name="src/PlayState.cpp">
+   <depend name="include/Animal.h"/>
    <depend name="include/MakeMap.h"/>
    <depend name="include/PlayState.h"/>
+   <depend name="include/Player.h"/>
    <depend name="include/flixel/FlxBasic.h"/>
    <depend name="include/flixel/FlxCamera.h"/>
    <depend name="include/flixel/FlxG.h"/>
@@ -1966,14 +1920,9 @@
    <depend name="include/flixel/IDestroyable.h"/>
    <depend name="include/flixel/group/FlxGroup.h"/>
    <depend name="include/flixel/group/FlxTypedGroup.h"/>
-   <depend name="include/flixel/system/input/IFlxInput.h"/>
-   <depend name="include/flixel/system/input/keyboard/FlxKeyboard.h"/>
-   <depend name="include/flixel/system/input/mouse/FlxMouse.h"/>
-   <depend name="include/flixel/system/input/mouse/FlxMouseButton.h"/>
    <depend name="include/flixel/tile/FlxTilemap.h"/>
    <depend name="include/flixel/util/FlxPoint.h"/>
    <depend name="include/flixel/util/FlxRect.h"/>
-   <depend name="include/openfl/ui/Accelerometer.h"/>
   </file>
   <file name="src/flixel/FlxState.cpp">
    <depend name="include/flash/display/DisplayObject.h"/>
@@ -2016,19 +1965,6 @@
    <depend name="include/flixel/system/frontEnds/LogFrontEnd.h"/>
    <depend name="include/flixel/util/FlxArrayUtil.h"/>
   </file>
-  <file name="src/flixel/FlxBasic.cpp">
-   <depend name="include/StringTools.h"/>
-   <depend name="include/Type.h"/>
-   <depend name="include/flixel/FlxBasic.h"/>
-   <depend name="include/flixel/FlxCamera.h"/>
-   <depend name="include/flixel/FlxG.h"/>
-   <depend name="include/flixel/IDestroyable.h"/>
-   <depend name="include/flixel/system/FlxCollisionType.h"/>
-   <depend name="include/flixel/system/frontEnds/CameraFrontEnd.h"/>
-  </file>
-  <file name="src/flixel/IDestroyable.cpp">
-   <depend name="include/flixel/IDestroyable.h"/>
-  </file>
   <file name="src/IMap.cpp">
    <depend name="include/IMap.h"/>
   </file>
@@ -2041,6 +1977,10 @@
   </file>
   <file name="src/Lambda.cpp">
    <depend name="include/Lambda.h"/>
+  </file>
+  <file name="src/Global.cpp">
+   <depend name="include/Global.h"/>
+   <depend name="include/flixel/util/FlxPoint.h"/>
   </file>
   <file name="src/GameClass.cpp">
    <depend name="include/GameClass.h"/>
@@ -2441,6 +2381,90 @@
    <depend name="include/flash/events/EventDispatcher.h"/>
    <depend name="include/flash/events/IEventDispatcher.h"/>
    <depend name="include/flash/net/URLLoader.h"/>
+  </file>
+  <file name="src/Animal.cpp">
+   <depend name="include/Animal.h"/>
+   <depend name="include/flixel/FlxBasic.h"/>
+   <depend name="include/flixel/FlxObject.h"/>
+   <depend name="include/flixel/FlxSprite.h"/>
+   <depend name="include/flixel/IDestroyable.h"/>
+  </file>
+  <file name="src/flixel/FlxSprite.cpp">
+   <depend name="include/Std.h"/>
+   <depend name="include/Type.h"/>
+   <depend name="include/flash/display/BitmapData.h"/>
+   <depend name="include/flash/display/BlendMode.h"/>
+   <depend name="include/flash/display/IBitmapDrawable.h"/>
+   <depend name="include/flash/geom/ColorTransform.h"/>
+   <depend name="include/flash/geom/Matrix.h"/>
+   <depend name="include/flash/geom/Point.h"/>
+   <depend name="include/flash/geom/Rectangle.h"/>
+   <depend name="include/flixel/FlxBasic.h"/>
+   <depend name="include/flixel/FlxCamera.h"/>
+   <depend name="include/flixel/FlxG.h"/>
+   <depend name="include/flixel/FlxObject.h"/>
+   <depend name="include/flixel/FlxSprite.h"/>
+   <depend name="include/flixel/IDestroyable.h"/>
+   <depend name="include/flixel/animation/FlxAnimationController.h"/>
+   <depend name="include/flixel/system/frontEnds/BitmapFrontEnd.h"/>
+   <depend name="include/flixel/system/frontEnds/CameraFrontEnd.h"/>
+   <depend name="include/flixel/system/frontEnds/LogFrontEnd.h"/>
+   <depend name="include/flixel/system/layer/DrawStackItem.h"/>
+   <depend name="include/flixel/system/layer/Region.h"/>
+   <depend name="include/flixel/system/layer/TileSheetData.h"/>
+   <depend name="include/flixel/system/layer/frames/FlxFrame.h"/>
+   <depend name="include/flixel/system/layer/frames/FlxSpriteFrames.h"/>
+   <depend name="include/flixel/util/FlxAngle.h"/>
+   <depend name="include/flixel/util/FlxPoint.h"/>
+   <depend name="include/flixel/util/loaders/CachedGraphics.h"/>
+   <depend name="include/flixel/util/loaders/TexturePackerData.h"/>
+   <depend name="include/flixel/util/loaders/TextureRegion.h"/>
+  </file>
+  <file name="src/flixel/FlxObject.cpp">
+   <depend name="include/Reflect.h"/>
+   <depend name="include/Std.h"/>
+   <depend name="include/flixel/FlxBasic.h"/>
+   <depend name="include/flixel/FlxCamera.h"/>
+   <depend name="include/flixel/FlxG.h"/>
+   <depend name="include/flixel/FlxObject.h"/>
+   <depend name="include/flixel/IDestroyable.h"/>
+   <depend name="include/flixel/group/FlxTypedGroup.h"/>
+   <depend name="include/flixel/system/FlxCollisionType.h"/>
+   <depend name="include/flixel/system/frontEnds/CameraFrontEnd.h"/>
+   <depend name="include/flixel/system/layer/Region.h"/>
+   <depend name="include/flixel/system/layer/frames/FlxSpriteFrames.h"/>
+   <depend name="include/flixel/tile/FlxTilemap.h"/>
+   <depend name="include/flixel/util/FlxMath.h"/>
+   <depend name="include/flixel/util/FlxPoint.h"/>
+   <depend name="include/flixel/util/FlxRect.h"/>
+   <depend name="include/flixel/util/loaders/CachedGraphics.h"/>
+  </file>
+  <file name="src/flixel/util/FlxPoint.cpp">
+   <depend name="include/StringTools.h"/>
+   <depend name="include/Type.h"/>
+   <depend name="include/flash/geom/Point.h"/>
+   <depend name="include/flixel/util/FlxMath.h"/>
+   <depend name="include/flixel/util/FlxPoint.h"/>
+   <depend name="include/flixel/util/FlxRect.h"/>
+  </file>
+  <file name="src/flixel/util/FlxRect.cpp">
+   <depend name="include/flash/geom/Rectangle.h"/>
+   <depend name="include/flixel/util/FlxMath.h"/>
+   <depend name="include/flixel/util/FlxPoint.h"/>
+   <depend name="include/flixel/util/FlxRect.h"/>
+  </file>
+  <file name="src/flixel/FlxBasic.cpp">
+   <depend name="include/StringTools.h"/>
+   <depend name="include/Type.h"/>
+   <depend name="include/flixel/FlxBasic.h"/>
+   <depend name="include/flixel/FlxCamera.h"/>
+   <depend name="include/flixel/FlxG.h"/>
+   <depend name="include/flixel/IDestroyable.h"/>
+   <depend name="include/flixel/system/FlxCollisionType.h"/>
+   <depend name="include/flixel/system/frontEnds/CameraFrontEnd.h"/>
+  </file>
+  <file name="src/flixel/IDestroyable.cpp">
+   <depend name="include/flixel/IDestroyable.h"/>
   </file>
   <file name="src/__boot__.cpp">
   </file>

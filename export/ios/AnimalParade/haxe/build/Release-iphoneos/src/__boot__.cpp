@@ -103,10 +103,7 @@
 #include <flixel/animation/FlxAnimation.h>
 #include <flixel/animation/FlxBaseAnimation.h>
 #include <flixel/FlxSubState.h>
-#include <flixel/FlxSprite.h>
-#include <flixel/FlxObject.h>
 #include <flixel/FlxG.h>
-#include <flixel/util/FlxRect.h>
 #include <flixel/system/frontEnds/WatchFrontEnd.h>
 #include <flixel/system/frontEnds/VCRFrontEnd.h>
 #include <flixel/system/frontEnds/SoundFrontEnd.h>
@@ -114,7 +111,6 @@
 #include <flixel/plugin/PathManager.h>
 #include <flixel/util/FlxPath.h>
 #include <flixel/util/FlxPool_flixel_util_FlxPath.h>
-#include <flixel/util/FlxPoint.h>
 #include <flixel/plugin/TweenManager.h>
 #include <flixel/tweens/FlxTween.h>
 #include <flixel/system/FlxCollisionType.h>
@@ -230,16 +226,16 @@
 #include <StringTools.h>
 #include <StringBuf.h>
 #include <Reflect.h>
+#include <Player.h>
 #include <PlayState.h>
 #include <flixel/FlxState.h>
 #include <flixel/group/FlxGroup.h>
 #include <flixel/group/FlxTypedGroup.h>
-#include <flixel/FlxBasic.h>
-#include <flixel/IDestroyable.h>
 #include <IMap.h>
 #include <MakeMap.h>
 #include <List.h>
 #include <Lambda.h>
+#include <Global.h>
 #include <GameClass.h>
 #include <flixel/FlxGame.h>
 #include <DefaultAssetLibrary.h>
@@ -270,6 +266,13 @@
 #include <flash/events/EventDispatcher.h>
 #include <flash/events/IEventDispatcher.h>
 #include <ApplicationMain.h>
+#include <Animal.h>
+#include <flixel/FlxSprite.h>
+#include <flixel/FlxObject.h>
+#include <flixel/util/FlxPoint.h>
+#include <flixel/util/FlxRect.h>
+#include <flixel/FlxBasic.h>
+#include <flixel/IDestroyable.h>
 
 void __boot_all()
 {
@@ -377,10 +380,7 @@ hx::RegisterResources( hx::GetResources() );
 ::flixel::animation::FlxAnimation_obj::__register();
 ::flixel::animation::FlxBaseAnimation_obj::__register();
 ::flixel::FlxSubState_obj::__register();
-::flixel::FlxSprite_obj::__register();
-::flixel::FlxObject_obj::__register();
 ::flixel::FlxG_obj::__register();
-::flixel::util::FlxRect_obj::__register();
 ::flixel::system::frontEnds::WatchFrontEnd_obj::__register();
 ::flixel::system::frontEnds::VCRFrontEnd_obj::__register();
 ::flixel::system::frontEnds::SoundFrontEnd_obj::__register();
@@ -388,7 +388,6 @@ hx::RegisterResources( hx::GetResources() );
 ::flixel::plugin::PathManager_obj::__register();
 ::flixel::util::FlxPath_obj::__register();
 ::flixel::util::FlxPool_flixel_util_FlxPath_obj::__register();
-::flixel::util::FlxPoint_obj::__register();
 ::flixel::plugin::TweenManager_obj::__register();
 ::flixel::tweens::FlxTween_obj::__register();
 ::flixel::system::FlxCollisionType_obj::__register();
@@ -504,16 +503,16 @@ hx::RegisterResources( hx::GetResources() );
 ::StringTools_obj::__register();
 ::StringBuf_obj::__register();
 ::Reflect_obj::__register();
+::Player_obj::__register();
 ::PlayState_obj::__register();
 ::flixel::FlxState_obj::__register();
 ::flixel::group::FlxGroup_obj::__register();
 ::flixel::group::FlxTypedGroup_obj::__register();
-::flixel::FlxBasic_obj::__register();
-::flixel::IDestroyable_obj::__register();
 ::IMap_obj::__register();
 ::MakeMap_obj::__register();
 ::List_obj::__register();
 ::Lambda_obj::__register();
+::Global_obj::__register();
 ::GameClass_obj::__register();
 ::flixel::FlxGame_obj::__register();
 ::DefaultAssetLibrary_obj::__register();
@@ -544,6 +543,13 @@ hx::RegisterResources( hx::GetResources() );
 ::flash::events::EventDispatcher_obj::__register();
 ::flash::events::IEventDispatcher_obj::__register();
 ::ApplicationMain_obj::__register();
+::Animal_obj::__register();
+::flixel::FlxSprite_obj::__register();
+::flixel::FlxObject_obj::__register();
+::flixel::util::FlxPoint_obj::__register();
+::flixel::util::FlxRect_obj::__register();
+::flixel::FlxBasic_obj::__register();
+::flixel::IDestroyable_obj::__register();
 ::Xml_obj::__init__();
 ::flash::ui::Multitouch_obj::__init__();
 ::flash::utils::ByteArray_obj::__init__();
@@ -554,6 +560,13 @@ hx::RegisterResources( hx::GetResources() );
 ::cpp::zip::Flush_obj::__boot();
 ::cpp::zip::Uncompress_obj::__boot();
 ::haxe::Log_obj::__boot();
+::flixel::IDestroyable_obj::__boot();
+::flixel::FlxBasic_obj::__boot();
+::flixel::util::FlxRect_obj::__boot();
+::flixel::util::FlxPoint_obj::__boot();
+::flixel::FlxObject_obj::__boot();
+::flixel::FlxSprite_obj::__boot();
+::Animal_obj::__boot();
 ::ApplicationMain_obj::__boot();
 ::flash::events::IEventDispatcher_obj::__boot();
 ::flash::events::EventDispatcher_obj::__boot();
@@ -583,16 +596,16 @@ hx::RegisterResources( hx::GetResources() );
 ::DefaultAssetLibrary_obj::__boot();
 ::flixel::FlxGame_obj::__boot();
 ::GameClass_obj::__boot();
+::Global_obj::__boot();
 ::Lambda_obj::__boot();
 ::List_obj::__boot();
 ::MakeMap_obj::__boot();
 ::IMap_obj::__boot();
-::flixel::IDestroyable_obj::__boot();
-::flixel::FlxBasic_obj::__boot();
 ::flixel::group::FlxTypedGroup_obj::__boot();
 ::flixel::group::FlxGroup_obj::__boot();
 ::flixel::FlxState_obj::__boot();
 ::PlayState_obj::__boot();
+::Player_obj::__boot();
 ::Reflect_obj::__boot();
 ::StringBuf_obj::__boot();
 ::StringTools_obj::__boot();
@@ -702,7 +715,6 @@ hx::RegisterResources( hx::GetResources() );
 ::flixel::system::FlxCollisionType_obj::__boot();
 ::flixel::tweens::FlxTween_obj::__boot();
 ::flixel::plugin::TweenManager_obj::__boot();
-::flixel::util::FlxPoint_obj::__boot();
 ::flixel::util::FlxPool_flixel_util_FlxPath_obj::__boot();
 ::flixel::util::FlxPath_obj::__boot();
 ::flixel::plugin::PathManager_obj::__boot();
@@ -710,10 +722,7 @@ hx::RegisterResources( hx::GetResources() );
 ::flixel::system::frontEnds::SoundFrontEnd_obj::__boot();
 ::flixel::system::frontEnds::VCRFrontEnd_obj::__boot();
 ::flixel::system::frontEnds::WatchFrontEnd_obj::__boot();
-::flixel::util::FlxRect_obj::__boot();
 ::flixel::FlxG_obj::__boot();
-::flixel::FlxObject_obj::__boot();
-::flixel::FlxSprite_obj::__boot();
 ::flixel::FlxSubState_obj::__boot();
 ::flixel::animation::FlxBaseAnimation_obj::__boot();
 ::flixel::animation::FlxAnimation_obj::__boot();

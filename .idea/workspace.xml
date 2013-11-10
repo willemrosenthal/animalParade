@@ -8,13 +8,15 @@
     <file path="/Dummy.txt" changelist="5ea3d745-f555-4071-a325-3d0770ebacd4" time="1384011595901" ignored="false" />
     <file path="/MakeMap.hx" changelist="5ea3d745-f555-4071-a325-3d0770ebacd4" time="1384053824784" ignored="false" />
     <file path="/Calcs.hx" changelist="5ea3d745-f555-4071-a325-3d0770ebacd4" time="1384012112296" ignored="false" />
-    <file path="/PlayState.hx" changelist="5ea3d745-f555-4071-a325-3d0770ebacd4" time="1384055464155" ignored="false" />
+    <file path="/PlayState.hx" changelist="5ea3d745-f555-4071-a325-3d0770ebacd4" time="1384058075145" ignored="false" />
     <file path="/a.dummy" changelist="5ea3d745-f555-4071-a325-3d0770ebacd4" time="1384043567351" ignored="false" />
-    <file path="$PROJECT_DIR$/export/ios/AnimalParade/haxe/build/Release-iphoneos/Build.xml" changelist="5ea3d745-f555-4071-a325-3d0770ebacd4" time="1384051351492" ignored="false" />
+    <file path="$PROJECT_DIR$/export/ios/AnimalParade/haxe/build/Release-iphoneos/Build.xml" changelist="5ea3d745-f555-4071-a325-3d0770ebacd4" time="1384058312263" ignored="false" />
     <file path="/GameClass.hx" changelist="5ea3d745-f555-4071-a325-3d0770ebacd4" time="1384042097367" ignored="false" />
     <file path="$USER_HOME$/RGB/src/EnemyGroup.hx" changelist="5ea3d745-f555-4071-a325-3d0770ebacd4" time="1384043488768" ignored="false" />
     <file path="/ObjectsGroup.hx" changelist="5ea3d745-f555-4071-a325-3d0770ebacd4" time="1384055436077" ignored="false" />
-    <file path="/Animal.hx" changelist="5ea3d745-f555-4071-a325-3d0770ebacd4" time="1384055653861" ignored="false" />
+    <file path="/Animal.hx" changelist="5ea3d745-f555-4071-a325-3d0770ebacd4" time="1384057117551" ignored="false" />
+    <file path="/Player.hx" changelist="5ea3d745-f555-4071-a325-3d0770ebacd4" time="1384058182361" ignored="false" />
+    <file path="/Global.hx" changelist="5ea3d745-f555-4071-a325-3d0770ebacd4" time="1384056967994" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,15 +77,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="project.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/project.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="0" selection-start="1106" selection-end="1106" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Animal Parade.iml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Animal Parade.iml">
           <provider selected="true" editor-type-id="text-editor">
@@ -93,10 +86,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PlayState.hx" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="PlayState.hx" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/PlayState.hx">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="0" selection-start="85" selection-end="109" vertical-scroll-proportion="-0.4347826">
+            <state line="37" column="0" selection-start="761" selection-end="761" vertical-scroll-proportion="-3.2307692">
               <folding />
             </state>
           </provider>
@@ -105,7 +98,16 @@
       <file leaf-file-name="Animal.hx" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Animal.hx">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="29" selection-start="635" selection-end="635" vertical-scroll-proportion="0.0">
+            <state line="4" column="0" selection-start="56" selection-end="56" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Player.hx" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Player.hx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="57" column="19" selection-start="1193" selection-end="1193" vertical-scroll-proportion="0.84381336">
               <folding />
             </state>
           </provider>
@@ -123,7 +125,7 @@
       <file leaf-file-name="FlxGame.hx" pinned="false" current="false" current-in-tab="false">
         <entry file="file:///usr/lib/haxe/lib/flixel/3,0,0-alpha/flixel/FlxGame.hx">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="222" column="0" selection-start="6471" selection-end="6471" vertical-scroll-proportion="-41.23077">
+            <state line="222" column="0" selection-start="6471" selection-end="6471" vertical-scroll-proportion="-93.69231">
               <folding />
             </state>
           </provider>
@@ -132,7 +134,7 @@
       <file leaf-file-name="Global.hx" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Global.hx">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="22" selection-start="310" selection-end="310" vertical-scroll-proportion="0.0">
+            <state line="4" column="0" selection-start="88" selection-end="88" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -175,14 +177,15 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/Global.hx" />
         <option value="$PROJECT_DIR$/src/Calcs.hx" />
         <option value="$PROJECT_DIR$/project.xml" />
         <option value="$PROJECT_DIR$/src/MakeMap.hx" />
         <option value="$PROJECT_DIR$/src/ObjectsGroup.hx" />
-        <option value="$PROJECT_DIR$/src/PlayState.hx" />
-        <option value="$PROJECT_DIR$/src/Animal.hx" />
         <option value="$PROJECT_DIR$/src/GameClass.hx" />
+        <option value="$PROJECT_DIR$/src/Animal.hx" />
+        <option value="$PROJECT_DIR$/src/Global.hx" />
+        <option value="$PROJECT_DIR$/src/PlayState.hx" />
+        <option value="$PROJECT_DIR$/src/Player.hx" />
       </list>
     </option>
   </component>
@@ -537,23 +540,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Global.hx">
+    <entry file="file://$PROJECT_DIR$/src/GameClass.hx">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="22" selection-start="310" selection-end="310" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/lib/haxe/lib/flixel/3,0,0-alpha/flixel/FlxGame.hx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="222" column="0" selection-start="6471" selection-end="6471" vertical-scroll-proportion="-41.23077">
+        <state line="16" column="43" selection-start="381" selection-end="381" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Animal.hx">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="29" selection-start="635" selection-end="635" vertical-scroll-proportion="0.0">
+        <state line="4" column="0" selection-start="56" selection-end="56" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/haxe/lib/flixel/3,0,0-alpha/flixel/FlxGame.hx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="222" column="0" selection-start="6471" selection-end="6471" vertical-scroll-proportion="-93.69231">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Global.hx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="0" selection-start="88" selection-end="88" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -565,16 +575,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameClass.hx">
+    <entry file="file://$PROJECT_DIR$/src/PlayState.hx">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="43" selection-start="381" selection-end="381" vertical-scroll-proportion="0.0">
+        <state line="37" column="0" selection-start="761" selection-end="761" vertical-scroll-proportion="-3.2307692">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PlayState.hx">
+    <entry file="file://$PROJECT_DIR$/src/Player.hx">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="85" selection-end="109" vertical-scroll-proportion="-0.4347826">
+        <state line="57" column="19" selection-start="1193" selection-end="1193" vertical-scroll-proportion="0.84381336">
           <folding />
         </state>
       </provider>

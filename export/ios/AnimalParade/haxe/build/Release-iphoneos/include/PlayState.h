@@ -6,7 +6,9 @@
 #endif
 
 #include <flixel/FlxState.h>
+HX_DECLARE_CLASS0(Animal)
 HX_DECLARE_CLASS0(PlayState)
+HX_DECLARE_CLASS0(Player)
 HX_DECLARE_CLASS1(flixel,FlxBasic)
 HX_DECLARE_CLASS1(flixel,FlxObject)
 HX_DECLARE_CLASS1(flixel,FlxSprite)
@@ -40,22 +42,16 @@ class HXCPP_CLASS_ATTRIBUTES  PlayState_obj : public ::flixel::FlxState_obj{
 
 		virtual Void draw( );
 
-		virtual Void updatePlayer( );
-		Dynamic updatePlayer_dyn();
-
 		virtual Void update( );
-
-		virtual Void setupPlayer( );
-		Dynamic setupPlayer_dyn();
 
 		virtual Void buildMap( );
 		Dynamic buildMap_dyn();
 
 		virtual Void create( );
 
+		::Player player;
 		::flixel::group::FlxGroup gameObjects;
 		::flixel::util::FlxPoint zeroPoint;
-		::flixel::FlxSprite _player;
 		::flixel::tile::FlxTilemap _levelMap;
 };
 
