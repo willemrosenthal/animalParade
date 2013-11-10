@@ -12,16 +12,23 @@ class Player extends Animal
 {
 	private var deadzone:Float = 0.13;
 	private var zeroPoint:FlxPoint;
-	private var pfacing:String;
+	private var pfacing:String = "sit";
 
 	public function new(X:Float, Y:Float)
 	{
 		super(X, Y);
 		//offset.y += height * 0.5;
-		offset.y += height * 0.5;
-		offset.x += width * 0.5 - 10;
-		width = 20;
-		height = 12;
+
+		Global.paradeX.push(X);
+		Global.paradeX.push(Y);
+
+		// adds first animal's place in line
+		Global.linePlace.push(followDistance);
+		for(i in 0...followDistance)
+		{
+			Global.paradeX.push(last.x);
+			Global.paradeY.push(last.y);
+		}
 
 		#if cpp
 			var data = Accelerometer.get();
@@ -34,6 +41,7 @@ class Player extends Animal
 	{
 		super.update();
 
+		// removes last + adds new
 
 		#if cpp
 		var data = Accelerometer.get();
@@ -87,8 +95,20 @@ class Player extends Animal
 			animation.play("rundown");
 			pfacing = "down";
 		}
+		else if (Math.abs(velocity.x) < Math.abs(velocity.y) && velocity.y < 0) {
+			animation.play("runup");
+			pfacing = "up";
+		}
 		else if (pfacing == "side" && velocity.x == 0 && velocity.y == 0) animation.play("idleside");
 		else if (pfacing == "down" && velocity.x == 0 && velocity.y == 0) animation.play("idledown");
+		else if (pfacing == "up" && velocity.x == 0 && velocity.y == 0) animation.play("idleup");
+
+		if (velocity.x != 0 || velocity.y != 0) {
+			Global.paradeX.unshift(x);
+			Global.paradeY.unshift(y);
+			Global.paradeX.pop();
+			Global.paradeY.pop();
+		}
 
 		x += velocity.x*FlxG.elapsed;
 		y += velocity.y*FlxG.elapsed;

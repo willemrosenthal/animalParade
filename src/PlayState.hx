@@ -33,6 +33,7 @@ class PlayState extends FlxState
 	private var zeroPoint:FlxPoint;
 
 	public var treeGroup:FlxGroup;
+	public var animalGroup:FlxGroup;
 	public var gameObjects:ObjectsGroup;
 
 	private var player:Player;
@@ -57,6 +58,7 @@ class PlayState extends FlxState
 		FlxG.worldBounds.copyFrom(levelMap.getBounds());
 
 		placeTrees(300);
+		placeAnimals(40);
 	}
 
 	private function buildMap():Void {
@@ -67,7 +69,7 @@ class PlayState extends FlxState
 		add(levelMap);
 	}
 
-	private function placeTrees(NumTrees:Int){
+	private function placeTrees(NumTrees:Int) {
 		var lr:FlxRect = levelMap.getBounds();
 		treeGroup = new FlxGroup();
 
@@ -78,10 +80,50 @@ class PlayState extends FlxState
 		}
 	}
 
-	override public function update():Void
-	{
+	private function placeAnimals(NumAnimals:Int) {
+		var lr:FlxRect = levelMap.getBounds();
+		animalGroup = new FlxGroup();
+
+		for (n in 0...NumAnimals) {
+			var animal:Animal = new Animal(Math.random()*lr.width + lr.x, Math.random()*lr.height + lr.y);
+			animalGroup.add(animal);
+			gameObjects.add(animal);
+		}
+	}
+
+	override public function update():Void {
 		super.update();
 		gameObjects.zSort();
 		FlxG.collide(player, treeGroup);
+		FlxG.overlap(player, animalGroup, getAnimal);
+	}
+
+	private function getAnimal(Player:Player,Animal:Animal):Void {
+		if (Animal.pickedUp)
+			return;
+
+		var last:FlxPoint = new FlxPoint(Global.paradeX[Global.paradeX.length -1],Global.paradeY[Global.paradeY.length -1]);
+		var followDistance = Animal.followDistance;
+
+		for(i in 0...followDistance)
+		{
+			Global.paradeX.push(last.x);
+			Global.paradeY.push(last.y);
+		}
+
+		Global.linePlace.push(followDistance);
+		Animal.linePlace = Global.linePlace.length - 1;
+		Animal.fd = getTotalFollowDistance(Animal.linePlace);
+		Animal.pickedUp = true;
+		trace(Global.linePlace);
+	}
+
+	private function getTotalFollowDistance(LinePos:Int):Int {
+		var totalDistance:Int = 0;
+		for(i in 0...LinePos)
+		{
+			totalDistance += Global.linePlace[i];
+		}
+		return totalDistance;
 	}
 }

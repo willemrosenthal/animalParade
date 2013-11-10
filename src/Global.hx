@@ -11,6 +11,10 @@ class Global {
 
 	static public var music:String = "";
 
+	static public var paradeX:Array<Float> = [];
+	static public var paradeY:Array<Float> = [];
+	static public var linePlace:Array<Int> = [];
+
 /*
 	static public function playMusic(Music:String):Void
 	{
