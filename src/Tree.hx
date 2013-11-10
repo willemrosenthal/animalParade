@@ -16,7 +16,7 @@ class Tree extends FlxSprite
 
 		loadGraphic(image, false, false, 28,52);
 
-		scale= new FlxPoint(1.75,1.75);
+		scale= new FlxPoint(1.5,1.5);
 		offset.y += height * 0.70 * scale.y;
 		offset.x += width * 0.5 - 5.5;
 		width = 8;
