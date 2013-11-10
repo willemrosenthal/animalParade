@@ -1,6 +1,7 @@
 package;
 
 import flixel.FlxG;
+import flixel.util.FlxRect;
 import flixel.group.FlxGroup;
 import flixel.FlxObject;
 import flixel.FlxSprite;
@@ -31,7 +32,7 @@ class PlayState extends FlxState
 
 	private var zeroPoint:FlxPoint;
 
-	public var gameObjects:FlxGroup;
+	public var gameObjects:ObjectsGroup;
 
 	private var player:Player;
 
@@ -41,7 +42,7 @@ class PlayState extends FlxState
 	{
 		buildMap();
 
-		gameObjects = new FlxGroup();
+		gameObjects = new ObjectsGroup();
 		add(gameObjects);
 
 		player = new Player(0,0);
@@ -50,21 +51,34 @@ class PlayState extends FlxState
 		_levelMap.x = player.x - _levelMap.width * 0.5;
 		_levelMap.y = player.y - _levelMap.height * 0.5;
 
-		FlxG.camera.follow(player, 2);
+		FlxG.camera.follow(player, 1.3);
 		FlxG.camera.bounds = _levelMap.getBounds();
 		FlxG.worldBounds.copyFrom(_levelMap.getBounds());
+
+		placeTrees(1000);
 	}
 
 	private function buildMap():Void {
 		_levelMap = new FlxTilemap();
 		_levelMap.tileScaleHack = 1.0;
-		_levelMap.loadMap(MakeMap.newMap(200,100,60,120,5,1), "assets/ground_full2.png", TILE_WIDTH, TILE_HEIGHT, FlxTilemap.OFF);
+		_levelMap.loadMap(MakeMap.newMap(50,50,60,120,5,1), "assets/ground_full2.png", TILE_WIDTH, TILE_HEIGHT, FlxTilemap.OFF);
 		add(_levelMap);
+	}
+
+	private function placeTrees(NumTrees:Int){
+		var lr:FlxRect = _levelMap.getBounds();
+
+		for (n in 0...NumTrees) {
+			var tree:Tree = new Tree(Math.random()*lr.width + lr.x, Math.random()*lr.height + lr.y);
+			gameObjects.add(tree);
+		}
+
 	}
 
 	override public function update():Void
 	{
 		super.update();
+		gameObjects.zSort();
 	}
 
 	override public function draw():Void

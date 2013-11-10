@@ -16,6 +16,7 @@ class Player extends Animal
 	public function new(X:Float, Y:Float)
 	{
 		super(X, Y);
+		offset.y += height;
 
 		#if cpp
 			var data = Accelerometer.get();
