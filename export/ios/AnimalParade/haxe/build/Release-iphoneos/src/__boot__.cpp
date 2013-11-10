@@ -223,16 +223,18 @@
 #include <XmlType.h>
 #include <Type.h>
 #include <ValueType.h>
+#include <Tree.h>
 #include <StringTools.h>
 #include <StringBuf.h>
+#include <SimpleMap.h>
 #include <Reflect.h>
 #include <Player.h>
 #include <PlayState.h>
 #include <flixel/FlxState.h>
+#include <ObjectsGroup.h>
 #include <flixel/group/FlxGroup.h>
 #include <flixel/group/FlxTypedGroup.h>
 #include <IMap.h>
-#include <MakeMap.h>
 #include <List.h>
 #include <Lambda.h>
 #include <Global.h>
@@ -500,16 +502,18 @@ hx::RegisterResources( hx::GetResources() );
 ::XmlType_obj::__register();
 ::Type_obj::__register();
 ::ValueType_obj::__register();
+::Tree_obj::__register();
 ::StringTools_obj::__register();
 ::StringBuf_obj::__register();
+::SimpleMap_obj::__register();
 ::Reflect_obj::__register();
 ::Player_obj::__register();
 ::PlayState_obj::__register();
 ::flixel::FlxState_obj::__register();
+::ObjectsGroup_obj::__register();
 ::flixel::group::FlxGroup_obj::__register();
 ::flixel::group::FlxTypedGroup_obj::__register();
 ::IMap_obj::__register();
-::MakeMap_obj::__register();
 ::List_obj::__register();
 ::Lambda_obj::__register();
 ::Global_obj::__register();
@@ -599,16 +603,18 @@ hx::RegisterResources( hx::GetResources() );
 ::Global_obj::__boot();
 ::Lambda_obj::__boot();
 ::List_obj::__boot();
-::MakeMap_obj::__boot();
 ::IMap_obj::__boot();
 ::flixel::group::FlxTypedGroup_obj::__boot();
 ::flixel::group::FlxGroup_obj::__boot();
+::ObjectsGroup_obj::__boot();
 ::flixel::FlxState_obj::__boot();
 ::PlayState_obj::__boot();
 ::Player_obj::__boot();
 ::Reflect_obj::__boot();
+::SimpleMap_obj::__boot();
 ::StringBuf_obj::__boot();
 ::StringTools_obj::__boot();
+::Tree_obj::__boot();
 ::ValueType_obj::__boot();
 ::Type_obj::__boot();
 ::XmlType_obj::__boot();

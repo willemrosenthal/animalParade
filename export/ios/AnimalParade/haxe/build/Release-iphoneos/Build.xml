@@ -1881,11 +1881,22 @@
   <file name="src/ValueType.cpp">
    <depend name="include/ValueType.h"/>
   </file>
+  <file name="src/Tree.cpp">
+   <depend name="include/Tree.h"/>
+   <depend name="include/flixel/FlxBasic.h"/>
+   <depend name="include/flixel/FlxObject.h"/>
+   <depend name="include/flixel/FlxSprite.h"/>
+   <depend name="include/flixel/IDestroyable.h"/>
+   <depend name="include/flixel/util/FlxPoint.h"/>
+  </file>
   <file name="src/StringTools.cpp">
    <depend name="include/StringTools.h"/>
   </file>
   <file name="src/StringBuf.cpp">
    <depend name="include/StringBuf.h"/>
+  </file>
+  <file name="src/SimpleMap.cpp">
+   <depend name="include/SimpleMap.h"/>
   </file>
   <file name="src/Reflect.cpp">
    <depend name="include/Reflect.h"/>
@@ -1908,9 +1919,11 @@
   </file>
   <file name="src/PlayState.cpp">
    <depend name="include/Animal.h"/>
-   <depend name="include/MakeMap.h"/>
+   <depend name="include/ObjectsGroup.h"/>
    <depend name="include/PlayState.h"/>
    <depend name="include/Player.h"/>
+   <depend name="include/SimpleMap.h"/>
+   <depend name="include/Tree.h"/>
    <depend name="include/flixel/FlxBasic.h"/>
    <depend name="include/flixel/FlxCamera.h"/>
    <depend name="include/flixel/FlxG.h"/>
@@ -1947,6 +1960,14 @@
    <depend name="include/flixel/system/input/mouse/FlxMouse.h"/>
    <depend name="include/flixel/util/FlxPoint.h"/>
   </file>
+  <file name="src/ObjectsGroup.cpp">
+   <depend name="include/ObjectsGroup.h"/>
+   <depend name="include/flixel/FlxBasic.h"/>
+   <depend name="include/flixel/FlxObject.h"/>
+   <depend name="include/flixel/IDestroyable.h"/>
+   <depend name="include/flixel/group/FlxGroup.h"/>
+   <depend name="include/flixel/group/FlxTypedGroup.h"/>
+  </file>
   <file name="src/flixel/group/FlxGroup.cpp">
    <depend name="include/flixel/FlxBasic.h"/>
    <depend name="include/flixel/IDestroyable.h"/>
@@ -1967,10 +1988,6 @@
   </file>
   <file name="src/IMap.cpp">
    <depend name="include/IMap.h"/>
-  </file>
-  <file name="src/MakeMap.cpp">
-   <depend name="include/MakeMap.h"/>
-   <depend name="include/Std.h"/>
   </file>
   <file name="src/List.cpp">
    <depend name="include/List.h"/>

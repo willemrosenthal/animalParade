@@ -2,6 +2,7 @@ package ;
 
 import flixel.FlxG;
 import flixel.FlxSprite;
+import flixel.util.FlxPoint;
 
 class Tree extends FlxSprite
 {
@@ -15,7 +16,15 @@ class Tree extends FlxSprite
 
 		loadGraphic(image, false, false, 28,52);
 
-		offset.y += height;
+		scale= new FlxPoint(1.75,1.75);
+		offset.y += height * 0.70 * scale.y;
+		offset.x += width * 0.5 - 5.5;
+		width = 8;
+		height = 10;
+
+
+		moves = false;
+		immovable = true;
 	}
 
 

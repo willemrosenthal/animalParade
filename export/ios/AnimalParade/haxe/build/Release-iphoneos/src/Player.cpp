@@ -54,11 +54,29 @@ HX_STACK_PUSH("Player::new","Player.hx",11);
 	this->deadzone = 0.13;
 	HX_STACK_LINE(18)
 	super::__construct(X,Y);
+	HX_STACK_LINE(19)
+	{
+		HX_STACK_LINE(19)
+		::flixel::util::FlxPoint _g = this->offset;		HX_STACK_VAR(_g,"_g");
+		HX_STACK_LINE(19)
+		_g->set_y((_g->y + ((this->height - (int)6))));
+	}
+	HX_STACK_LINE(20)
+	{
+		HX_STACK_LINE(20)
+		::flixel::util::FlxPoint _g = this->offset;		HX_STACK_VAR(_g,"_g");
+		HX_STACK_LINE(20)
+		_g->set_x((_g->x + (((this->width * 0.5) - (int)7))));
+	}
 	HX_STACK_LINE(21)
-	Dynamic data = ::openfl::ui::Accelerometer_obj::get();		HX_STACK_VAR(data,"data");
+	this->set_width((int)12);
 	HX_STACK_LINE(22)
+	this->set_height((int)8);
+	HX_STACK_LINE(25)
+	Dynamic data = ::openfl::ui::Accelerometer_obj::get();		HX_STACK_VAR(data,"data");
+	HX_STACK_LINE(26)
 	this->zeroPoint = ::flixel::util::FlxPoint_obj::__new(data->__Field(HX_CSTRING("x"),true),data->__Field(HX_CSTRING("y"),true));
-	HX_STACK_LINE(23)
+	HX_STACK_LINE(27)
 	::Global_obj::zeroPoint = this->zeroPoint;
 }
 ;
@@ -80,87 +98,87 @@ Dynamic Player_obj::__Create(hx::DynamicArray inArgs)
 
 Void Player_obj::update( ){
 {
-		HX_STACK_PUSH("Player::update","Player.hx",28);
+		HX_STACK_PUSH("Player::update","Player.hx",32);
 		HX_STACK_THIS(this);
-		HX_STACK_LINE(29)
-		this->super::update();
-		HX_STACK_LINE(31)
-		Dynamic data = ::openfl::ui::Accelerometer_obj::get();		HX_STACK_VAR(data,"data");
 		HX_STACK_LINE(33)
+		this->super::update();
+		HX_STACK_LINE(35)
+		Dynamic data = ::openfl::ui::Accelerometer_obj::get();		HX_STACK_VAR(data,"data");
+		HX_STACK_LINE(37)
 		if (((::Math_obj::abs((data->__Field(HX_CSTRING("x"),true) - this->zeroPoint->x)) > this->deadzone))){
-			HX_STACK_LINE(34)
+			HX_STACK_LINE(38)
 			::Player _g = hx::ObjectPtr<OBJ_>(this);		HX_STACK_VAR(_g,"_g");
-			HX_STACK_LINE(34)
+			HX_STACK_LINE(38)
 			_g->set_x((_g->x + (((data->__Field(HX_CSTRING("x"),true) - this->zeroPoint->x)) * (int)8)));
 		}
-		HX_STACK_LINE(35)
+		HX_STACK_LINE(39)
 		if (((::Math_obj::abs((data->__Field(HX_CSTRING("y"),true) - this->zeroPoint->y)) > (this->deadzone * 0.7)))){
-			HX_STACK_LINE(36)
+			HX_STACK_LINE(40)
 			::Player _g = hx::ObjectPtr<OBJ_>(this);		HX_STACK_VAR(_g,"_g");
-			HX_STACK_LINE(36)
+			HX_STACK_LINE(40)
 			_g->set_y((_g->y - (((data->__Field(HX_CSTRING("y"),true) - this->zeroPoint->y)) * (int)12)));
 		}
-		HX_STACK_LINE(38)
+		HX_STACK_LINE(42)
 		if (((data->__Field(HX_CSTRING("x"),true) < this->zeroPoint->x))){
-			HX_STACK_LINE(39)
+			HX_STACK_LINE(43)
 			this->set_facing((int)1);
 		}
 		else{
-			HX_STACK_LINE(40)
+			HX_STACK_LINE(44)
 			if (((data->__Field(HX_CSTRING("x"),true) > this->zeroPoint->x))){
-				HX_STACK_LINE(41)
+				HX_STACK_LINE(45)
 				this->set_facing((int)16);
 			}
 		}
 		struct _Function_1_1{
 			inline static bool Block( ){
-				HX_STACK_PUSH("*::closure","Player.hx",44);
+				HX_STACK_PUSH("*::closure","Player.hx",48);
 				{
-					HX_STACK_LINE(44)
+					HX_STACK_LINE(48)
 					::flixel::system::input::mouse::FlxMouseButton _this = ::flixel::FlxG_obj::mouse->_leftButton;		HX_STACK_VAR(_this,"_this");
-					HX_STACK_LINE(44)
+					HX_STACK_LINE(48)
 					return (bool((_this->current == (int)2)) || bool((_this->current == (int)-2)));
 				}
 				return null();
 			}
 		};
-		HX_STACK_LINE(44)
+		HX_STACK_LINE(48)
 		if ((_Function_1_1::Block())){
-			HX_STACK_LINE(45)
+			HX_STACK_LINE(49)
 			this->zeroPoint = ::flixel::util::FlxPoint_obj::__new(data->__Field(HX_CSTRING("x"),true),data->__Field(HX_CSTRING("y"),true));
-			HX_STACK_LINE(46)
+			HX_STACK_LINE(50)
 			::Global_obj::zeroPoint = this->zeroPoint;
 		}
-		HX_STACK_LINE(50)
+		HX_STACK_LINE(54)
 		if ((::flixel::FlxG_obj::keyboard->pressed(HX_CSTRING("LEFT"),HX_CSTRING("A")))){
-			HX_STACK_LINE(51)
+			HX_STACK_LINE(55)
 			::Player _g = hx::ObjectPtr<OBJ_>(this);		HX_STACK_VAR(_g,"_g");
-			HX_STACK_LINE(51)
-			_g->set_x((_g->x - (int)3));
+			HX_STACK_LINE(55)
+			_g->set_x((_g->x - (int)2));
 		}
 		else{
-			HX_STACK_LINE(52)
+			HX_STACK_LINE(56)
 			if ((::flixel::FlxG_obj::keyboard->pressed(HX_CSTRING("RIGHT"),HX_CSTRING("D")))){
-				HX_STACK_LINE(53)
+				HX_STACK_LINE(57)
 				::Player _g = hx::ObjectPtr<OBJ_>(this);		HX_STACK_VAR(_g,"_g");
-				HX_STACK_LINE(53)
-				_g->set_x((_g->x + (int)3));
+				HX_STACK_LINE(57)
+				_g->set_x((_g->x + (int)2));
 			}
 		}
-		HX_STACK_LINE(55)
+		HX_STACK_LINE(59)
 		if ((::flixel::FlxG_obj::keyboard->pressed(HX_CSTRING("UP"),HX_CSTRING("W")))){
-			HX_STACK_LINE(56)
+			HX_STACK_LINE(60)
 			::Player _g = hx::ObjectPtr<OBJ_>(this);		HX_STACK_VAR(_g,"_g");
-			HX_STACK_LINE(56)
-			_g->set_y((_g->y - (int)3));
+			HX_STACK_LINE(60)
+			_g->set_y((_g->y - (int)2));
 		}
 		else{
-			HX_STACK_LINE(57)
+			HX_STACK_LINE(61)
 			if ((::flixel::FlxG_obj::keyboard->pressed(HX_CSTRING("DOWN"),HX_CSTRING("S")))){
-				HX_STACK_LINE(58)
+				HX_STACK_LINE(62)
 				::Player _g = hx::ObjectPtr<OBJ_>(this);		HX_STACK_VAR(_g,"_g");
-				HX_STACK_LINE(58)
-				_g->set_y((_g->y + (int)3));
+				HX_STACK_LINE(62)
+				_g->set_y((_g->y + (int)2));
 			}
 		}
 	}

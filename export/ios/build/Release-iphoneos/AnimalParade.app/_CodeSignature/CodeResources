@@ -88,9 +88,21 @@
 		<data>
 		1DEOQHD+Yhv9hFmRxAGjw5JVZYw=
 		</data>
+		<key>assets/assets_simple_tile_png</key>
+		<data>
+		5tK/IujFBz3zoJ4X3FW+UiKFp+w=
+		</data>
 		<key>assets/assets_spaceman_png</key>
 		<data>
 		rfqA8Y1nMz4OY0drOqO0KzwEjS0=
+		</data>
+		<key>assets/assets_tree_green_png</key>
+		<data>
+		Gh6Bwr7aWoAgZWbadhDBVzFlQ1Q=
+		</data>
+		<key>assets/assets_tree_orange_png</key>
+		<data>
+		5qnT2LA5MIHGFyWQuGWsDnVZ5nU=
 		</data>
 		<key>assets/flixel_img_debugger_buttons_console_png</key>
 		<data>
@@ -246,7 +258,7 @@
 		</data>
 		<key>assets/manifest</key>
 		<data>
-		15kSpaPhfQiud2xMAMsI+mgcpIY=
+		sZi6rGQ+fhj/bf4C3vjx1EVkDxE=
 		</data>
 		<key>embedded.mobileprovision</key>
 		<data>
@@ -339,9 +351,21 @@
 		<data>
 		1DEOQHD+Yhv9hFmRxAGjw5JVZYw=
 		</data>
+		<key>assets/assets_simple_tile_png</key>
+		<data>
+		5tK/IujFBz3zoJ4X3FW+UiKFp+w=
+		</data>
 		<key>assets/assets_spaceman_png</key>
 		<data>
 		rfqA8Y1nMz4OY0drOqO0KzwEjS0=
+		</data>
+		<key>assets/assets_tree_green_png</key>
+		<data>
+		Gh6Bwr7aWoAgZWbadhDBVzFlQ1Q=
+		</data>
+		<key>assets/assets_tree_orange_png</key>
+		<data>
+		5qnT2LA5MIHGFyWQuGWsDnVZ5nU=
 		</data>
 		<key>assets/flixel_img_debugger_buttons_console_png</key>
 		<data>
@@ -497,7 +521,7 @@
 		</data>
 		<key>assets/manifest</key>
 		<data>
-		15kSpaPhfQiud2xMAMsI+mgcpIY=
+		sZi6rGQ+fhj/bf4C3vjx1EVkDxE=
 		</data>
 		<key>embedded.mobileprovision</key>
 		<data>

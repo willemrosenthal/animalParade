@@ -52,6 +52,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/empty_tiles.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("assets/fox.png", __ASSET__assets_fox_png);
 		type.set ("assets/fox.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("assets/fox.psb", __ASSET__assets_fox_psb);
+		type.set ("assets/fox.psb", Reflect.field (AssetType, "binary".toUpperCase ()));
 		className.set ("assets/ground.png", __ASSET__assets_ground_png);
 		type.set ("assets/ground.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("assets/ground_edges.png", __ASSET__assets_ground_edges_png);
@@ -62,6 +64,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/ground_full2.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("assets/p1.png", __ASSET__assets_p1_png);
 		type.set ("assets/p1.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("assets/simple_tile.png", __ASSET__assets_simple_tile_png);
+		type.set ("assets/simple_tile.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("assets/spaceman.png", __ASSET__assets_spaceman_png);
 		type.set ("assets/spaceman.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("assets/tree_green.png", __ASSET__assets_tree_green_png);
@@ -164,6 +168,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/empty_tiles.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		path.set ("assets/fox.png", "assets/fox.png");
 		type.set ("assets/fox.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("assets/fox.psb", "assets/fox.psb");
+		type.set ("assets/fox.psb", Reflect.field (AssetType, "binary".toUpperCase ()));
 		path.set ("assets/ground.png", "assets/ground.png");
 		type.set ("assets/ground.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		path.set ("assets/ground_edges.png", "assets/ground_edges.png");
@@ -174,6 +180,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/ground_full2.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		path.set ("assets/p1.png", "assets/p1.png");
 		type.set ("assets/p1.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("assets/simple_tile.png", "assets/simple_tile.png");
+		type.set ("assets/simple_tile.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		path.set ("assets/spaceman.png", "assets/spaceman.png");
 		type.set ("assets/spaceman.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		path.set ("assets/tree_green.png", "assets/tree_green.png");
@@ -638,11 +646,13 @@ class __ASSET__assets_default_auto_txt extends flash.utils.ByteArray { }
 class __ASSET__assets_default_empty_txt extends flash.utils.ByteArray { }
 class __ASSET__assets_empty_tiles_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__assets_fox_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__assets_fox_psb extends flash.utils.ByteArray { }
 class __ASSET__assets_ground_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__assets_ground_edges_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__assets_ground_full_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__assets_ground_full2_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__assets_p1_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__assets_simple_tile_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__assets_spaceman_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__assets_tree_green_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__assets_tree_orange_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
@@ -687,6 +697,8 @@ class __ASSET__flixel_snd_flixel_wav extends flash.media.Sound { }
 
 
 #elseif html5
+
+
 
 
 

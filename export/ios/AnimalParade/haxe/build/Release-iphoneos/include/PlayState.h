@@ -7,6 +7,7 @@
 
 #include <flixel/FlxState.h>
 HX_DECLARE_CLASS0(Animal)
+HX_DECLARE_CLASS0(ObjectsGroup)
 HX_DECLARE_CLASS0(PlayState)
 HX_DECLARE_CLASS0(Player)
 HX_DECLARE_CLASS1(flixel,FlxBasic)
@@ -40,9 +41,10 @@ class HXCPP_CLASS_ATTRIBUTES  PlayState_obj : public ::flixel::FlxState_obj{
 		void __Visit(HX_VISIT_PARAMS);
 		::String __ToString() const { return HX_CSTRING("PlayState"); }
 
-		virtual Void draw( );
-
 		virtual Void update( );
+
+		virtual Void placeTrees( int NumTrees);
+		Dynamic placeTrees_dyn();
 
 		virtual Void buildMap( );
 		Dynamic buildMap_dyn();
@@ -50,9 +52,10 @@ class HXCPP_CLASS_ATTRIBUTES  PlayState_obj : public ::flixel::FlxState_obj{
 		virtual Void create( );
 
 		::Player player;
-		::flixel::group::FlxGroup gameObjects;
+		::ObjectsGroup gameObjects;
+		::flixel::group::FlxGroup treeGroup;
 		::flixel::util::FlxPoint zeroPoint;
-		::flixel::tile::FlxTilemap _levelMap;
+		::flixel::tile::FlxTilemap levelMap;
 };
 
 

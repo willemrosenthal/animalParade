@@ -4,7 +4,6 @@
 -cp src
 -D FLX_NO_FOCUS_LOST_SCREEN
 -D tools=1.1.6
--D FLX_NO_DEBUG
 -D openfl=1.1
 -D FLX_NO_SOUND_TRAY
 -D web

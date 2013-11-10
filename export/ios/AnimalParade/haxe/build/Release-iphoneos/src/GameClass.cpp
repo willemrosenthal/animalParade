@@ -70,7 +70,7 @@ HX_STACK_PUSH("GameClass::new","GameClass.hx",10);
 	HX_STACK_LINE(12)
 	int stageHeight = ::flash::Lib_obj::get_current()->get_stage()->get_stageHeight();		HX_STACK_VAR(stageHeight,"stageHeight");
 	HX_STACK_LINE(14)
-	Float zoom = (int)1;		HX_STACK_VAR(zoom,"zoom");
+	Float zoom = (int)4;		HX_STACK_VAR(zoom,"zoom");
 	HX_STACK_LINE(15)
 	Float ratioX = (Float(stageWidth) / Float(zoom));		HX_STACK_VAR(ratioX,"ratioX");
 	HX_STACK_LINE(16)

@@ -62,8 +62,14 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/ground_full2.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("assets/p1.png", __ASSET__assets_p1_png);
 		type.set ("assets/p1.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("assets/simple_tile.png", __ASSET__assets_simple_tile_png);
+		type.set ("assets/simple_tile.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("assets/spaceman.png", __ASSET__assets_spaceman_png);
 		type.set ("assets/spaceman.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("assets/tree_green.png", __ASSET__assets_tree_green_png);
+		type.set ("assets/tree_green.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("assets/tree_orange.png", __ASSET__assets_tree_orange_png);
+		type.set ("assets/tree_orange.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("flixel/img/debugger/buttons/console.png", __ASSET__flixel_img_debugger_buttons_console_png);
 		type.set ("flixel/img/debugger/buttons/console.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("flixel/img/debugger/buttons/logDebug.png", __ASSET__flixel_img_debugger_buttons_logdebug_png);
@@ -172,8 +178,14 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/ground_full2.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		path.set ("assets/p1.png", "assets_p1_png");
 		type.set ("assets/p1.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("assets/simple_tile.png", "assets_simple_tile_png");
+		type.set ("assets/simple_tile.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		path.set ("assets/spaceman.png", "assets_spaceman_png");
 		type.set ("assets/spaceman.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("assets/tree_green.png", "assets_tree_green_png");
+		type.set ("assets/tree_green.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("assets/tree_orange.png", "assets_tree_orange_png");
+		type.set ("assets/tree_orange.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		path.set ("flixel/img/debugger/buttons/console.png", "flixel_img_debugger_buttons_console_png");
 		type.set ("flixel/img/debugger/buttons/console.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		path.set ("flixel/img/debugger/buttons/logDebug.png", "flixel_img_debugger_buttons_logdebug_png");
@@ -639,7 +651,10 @@ class __ASSET__assets_ground_edges_png extends flash.display.BitmapData { public
 class __ASSET__assets_ground_full_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__assets_ground_full2_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__assets_p1_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__assets_simple_tile_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__assets_spaceman_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__assets_tree_green_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__assets_tree_orange_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__flixel_img_debugger_buttons_console_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__flixel_img_debugger_buttons_logdebug_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__flixel_img_debugger_buttons_open_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
@@ -682,6 +697,9 @@ class __ASSET__manifest extends null { }
 
 
 #elseif html5
+
+
+
 
 
 

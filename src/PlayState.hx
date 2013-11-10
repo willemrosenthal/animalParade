@@ -27,11 +27,12 @@ class PlayState extends FlxState
 		/**
          * The FlxTilemap we're using
          */
-	private var _levelMap:FlxTilemap;
+	private var levelMap:FlxTilemap;
 
 
 	private var zeroPoint:FlxPoint;
 
+	public var treeGroup:FlxGroup;
 	public var gameObjects:ObjectsGroup;
 
 	private var player:Player;
@@ -48,44 +49,39 @@ class PlayState extends FlxState
 		player = new Player(0,0);
 		gameObjects.add(player);
 
-		_levelMap.x = player.x - _levelMap.width * 0.5;
-		_levelMap.y = player.y - _levelMap.height * 0.5;
+		levelMap.x = player.x - levelMap.width * 0.5;
+		levelMap.y = player.y - levelMap.height * 0.5;
 
 		FlxG.camera.follow(player, 1.3);
-		FlxG.camera.bounds = _levelMap.getBounds();
-		FlxG.worldBounds.copyFrom(_levelMap.getBounds());
+		FlxG.camera.bounds = levelMap.getBounds();
+		FlxG.worldBounds.copyFrom(levelMap.getBounds());
 
-		placeTrees(1000);
+		placeTrees(600);
 	}
 
 	private function buildMap():Void {
-		_levelMap = new FlxTilemap();
-		_levelMap.tileScaleHack = 1.0;
-		_levelMap.loadMap(MakeMap.newMap(50,50,60,120,5,1), "assets/ground_full2.png", TILE_WIDTH, TILE_HEIGHT, FlxTilemap.OFF);
-		add(_levelMap);
+		levelMap = new FlxTilemap();
+		levelMap.tileScaleHack = 1.0;
+		levelMap.loadMap(SimpleMap.newMap(50,50), "assets/simple_tile.png", TILE_WIDTH, TILE_HEIGHT, FlxTilemap.OFF);
+		//levelMap.loadMap(MakeMap.newMap(50,50,60,120,5,1), "assets/ground_full2.png", TILE_WIDTH, TILE_HEIGHT, FlxTilemap.OFF);
+		add(levelMap);
 	}
 
 	private function placeTrees(NumTrees:Int){
-		var lr:FlxRect = _levelMap.getBounds();
+		var lr:FlxRect = levelMap.getBounds();
+		treeGroup = new FlxGroup();
 
 		for (n in 0...NumTrees) {
 			var tree:Tree = new Tree(Math.random()*lr.width + lr.x, Math.random()*lr.height + lr.y);
+			treeGroup.add(tree);
 			gameObjects.add(tree);
 		}
-
 	}
 
 	override public function update():Void
 	{
 		super.update();
 		gameObjects.zSort();
-	}
-
-	override public function draw():Void
-	{
-		super.draw();
-		#if !FLX_NO_DEBUG
-                _highlightBox.drawDebugOnCamera(FlxG.camera);
-		#end
+		FlxG.collide(player, treeGroup);
 	}
 }
