@@ -1,5 +1,6 @@
 package;
 
+import flash.Lib;
 import flixel.FlxG;
 import flixel.util.FlxRect;
 import flixel.group.FlxGroup;
@@ -35,6 +36,9 @@ class PlayState extends FlxState
 	public var treeGroup:FlxGroup;
 	public var animalGroup:FlxGroup;
 	public var gameObjects:ObjectsGroup;
+	public var hud:FlxGroup;
+
+	private var joystick:Joystick;
 
 	private var player:Player;
 
@@ -59,6 +63,20 @@ class PlayState extends FlxState
 
 		placeTrees(300);
 		placeAnimals(40);
+
+		setupHud();
+	}
+
+	private function setupHud():Void {
+		hud = new FlxGroup();
+		add(hud);
+
+		joystick = new Joystick(Lib.current.stage.stageWidth * 0.5, Lib.current.stage.stageHeight * 0.8);
+		joystick.scale = new FlxPoint(1,1);
+		hud.add(joystick);
+
+		hud.setAll("scrollFactor", new FlxPoint(0, 0));
+		hud.setAll("cameras", [FlxG.camera]);
 	}
 
 	private function buildMap():Void {

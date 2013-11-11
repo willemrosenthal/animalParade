@@ -43,6 +43,7 @@ class Player extends Animal
 
 		// removes last + adds new
 
+	/*
 		#if cpp
 		var data = Accelerometer.get();
 
@@ -82,6 +83,10 @@ class Player extends Animal
 			velocity.x = 0;
 		if (velocity.y < 2 && velocity.y > -2)
 			velocity.y = 0;
+		*/
+
+		velocity.x = Global.move.x;
+		velocity.y = Global.move.y;
 
 		if (Math.abs(velocity.x) > Math.abs(velocity.y)) {
 			if (velocity.x < 0)
