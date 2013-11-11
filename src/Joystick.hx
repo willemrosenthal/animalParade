@@ -1,15 +1,11 @@
 package ;
 
-import flash.display.Sprite;
-import flash.events.MouseEvent;
-import flash.events.TouchEvent;
-
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.util.FlxPoint;
 import flixel.FlxObject;
 
-class Joystick extends Sprite {
+class Joystick extends FlxSprite {
 
 	public var maxDistance:Float = 60;
 	public var moveIgnoreRange:Int = 3;
@@ -22,80 +18,14 @@ class Joystick extends Sprite {
 	private var moveDirs:FlxPoint;
 	private var mouseDown:Bool = false;
 
-	private var s:Sprite;
-
 	public function new(X:Float, Y:Float) {
 		super(X, Y);
 		originPoint = new FlxPoint(X,Y);
 		moveDirs = new FlxPoint(0,0);
 
-
-		s = new Sprite();
-		s.graphics.beginFill(0x000ff0,1);
-		s.graphics.drawCircle(0,0,130);
-		//s.graphics.drawRect(0,0,FlxG.width * FlxCamera.defaultZoom,FlxG.height * FlxCamera.defaultZoom);
-		s.graphics.endFill();
-		addChild(s);
-
-		s.addEventListener(TouchEvent.TOUCH_BEGIN, onBegin);
-		s.addEventListener(TouchEvent.TOUCH_MOVE, onMove);
-		s.addEventListener(TouchEvent.TOUCH_END, onEnd);
-		s.alpha = 0;
-	}
-
-	private function onBegin(e:TouchEvent):Void
-	{
-		if (Global.firstTouchId != -1 && Global.secondTouchId != -1)
-			return;
-
-		if (Global.firstTouchId == -1)
-		{
-			Global.firstTouchId = e.touchPointID;
-			Global.moveTouched = true;
-			Global.firstTouch = new FlxPoint(e.stageX,e.stageY);
-			Global.firstTouchTo = new FlxPoint(e.stageX,e.stageY);
-		}
-		else if (Global.firstTouchId != -1 && e.touchPointID != Global.firstTouchId && Global.secondTouchId == -1)
-		{
-			if (e.stageX < Global.firstTouchTo.x + ignoreRange && e.stageX > Global.firstTouchTo.x - ignoreRange && e.stageY < Global.firstTouchTo.y + ignoreRange && e.stageY > Global.firstTouchTo.y - ignoreRange)
-				return;
-			Global.secondTouchId = e.touchPointID;
-			Global.dash = true;
-		}
-	}
-
-
-	private function onMove(e:TouchEvent):Void
-	{
-		if (e.touchPointID != Global.firstTouchId)
-			return;
-
-		Global.firstTouchTo.x = e.stageX;
-		Global.firstTouchTo.y = e.stageY;
-	}
-
-	private function onEnd(e:TouchEvent):Void
-	{
-		if (e.touchPointID == Global.firstTouchId)
-		{
-			Global.firstTouchId = -1;
-			Global.moveTouched = false;
-			Global.firstTouch = new FlxPoint(-10,-10);
-		}
-		else if (e.touchPointID == Global.secondTouchId)
-		{
-			Global.secondTouchId = -1;
-			Global.dash = false;
-		}
-	}
-
-	public function kill():Void
-	{
-		s.removeEventListener(TouchEvent.TOUCH_BEGIN, onBegin);
-		s.removeEventListener(TouchEvent.TOUCH_MOVE, onMove);
-		s.removeEventListener(TouchEvent.TOUCH_END, onEnd);
-
-		removeChild(s);
+		loadGraphic("assets/joystick.png", false, false, 130,130);
+		offset.y = height * 0.5;
+		offset.x = width * 0.5;
 	}
 
 	override public function update():Void {
