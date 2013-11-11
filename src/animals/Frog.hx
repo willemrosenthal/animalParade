@@ -5,7 +5,7 @@ class Frog extends Animal
 	{
 		super(X, Y);
 
-		followDistance = 10;
+		followDistance = 18;
 
 		loadGraphic("assets/frog.png", true, true, 17,17);
 		animation.add("sit", [0]);
