@@ -22,13 +22,7 @@ class Player extends Animal
 		Global.paradeX.push(X);
 		Global.paradeX.push(Y);
 
-		// adds first animal's place in line
-		Global.linePlace.push(followDistance);
-		for(i in 0...followDistance)
-		{
-			Global.paradeX.push(last.x);
-			Global.paradeY.push(last.y);
-		}
+		visible = false;
 
 		#if cpp
 			var data = Accelerometer.get();
@@ -85,8 +79,18 @@ class Player extends Animal
 			velocity.y = 0;
 		*/
 
-		velocity.x = Global.move.x;
-		velocity.y = Global.move.y;
+		if (Math.abs(Global.move.x) > 0 || Math.abs(Global.move.y) > 0) {
+			velocity.x = Global.move.x;
+			velocity.y = Global.move.y;
+		}
+		else if (Math.abs(Global.move.x) == 0 && Math.abs(Global.move.y) == 0) {
+			velocity.x *= 0.65;
+			velocity.y *= 0.65;
+			if (Math.abs(velocity.x) < 0.1 &&  Math.abs(velocity.x) > -0.1 && Math.abs(velocity.y) < 0.1 &&  Math.abs(velocity.y) > -0.1) {
+				velocity.x = 0;
+				velocity.y = 0;
+			}
+		}
 
 		if (Math.abs(velocity.x) > Math.abs(velocity.y)) {
 			if (velocity.x < 0)
@@ -117,8 +121,5 @@ class Player extends Animal
 
 		x += velocity.x*FlxG.elapsed;
 		y += velocity.y*FlxG.elapsed;
-
-		velocity.x *= 0.9;
-		velocity.y *= 0.9;
 	}
 }

@@ -9,7 +9,7 @@ class Joystick extends FlxSprite {
 
 	public var maxDistance:Float = 60;
 	public var moveIgnoreRange:Int = 3;
-	public var moveSpeed:Float = 80;
+	public var moveSpeed:Float = 50;
 
 	private var originPoint:FlxPoint;
 	private var xDif:Float = 0;

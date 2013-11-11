@@ -3,6 +3,7 @@ package;
 import flash.Lib;
 import flixel.FlxGame;
 import flixel.FlxG;
+import flixel.FlxCamera;
 
 class GameClass extends FlxGame
 {
@@ -19,7 +20,6 @@ class GameClass extends FlxGame
 		var fps:Int = 60;
 
 		super(Std.int(Math.ceil(ratioX)), Std.int(Math.ceil(ratioY)), PlayState, zoom, fps, fps);
-
 		//FlxG.debugger.visualDebug = true;
 	}
 }

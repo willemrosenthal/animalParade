@@ -1,7 +1,6 @@
 package ;
 import flixel.util.FlxPoint;
 import flixel.FlxG;
-import flixel.util.FlxPoint;
 
 class Global {
 
