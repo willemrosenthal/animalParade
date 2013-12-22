@@ -19,7 +19,7 @@ class GameClass extends FlxGame
 
 		var fps:Int = 60;
 
-		super(Std.int(Math.ceil(ratioX)), Std.int(Math.ceil(ratioY)), PlayState, zoom, fps, fps);
+		super(Std.int(Math.ceil(ratioX)), Std.int(Math.ceil(ratioY)), PlayState, zoom, fps, fps,true);
 		//FlxG.debugger.visualDebug = true;   // dont forget to turn debugging on in the nmml file!!!
 	}
 }
