@@ -17,6 +17,8 @@ import openfl.Assets;
 import animals.Frog;
 import animals.Fox;
 import animals.Skunk;
+import animals.Bunny;
+import animals.Bee;
 
 #if cpp
 import openfl.ui.Accelerometer;
@@ -27,8 +29,8 @@ class PlayState extends FlxState
 		/**
          * Some static constants for the size of the tilemap tiles
          */
-	inline static private var TILE_WIDTH:Int = 32;
-	inline static private var TILE_HEIGHT:Int = 32;
+	inline static private var TILE_WIDTH:Int = 16;
+	inline static private var TILE_HEIGHT:Int = 16;
 
 		/**
          * The FlxTilemap we're using
@@ -40,6 +42,7 @@ class PlayState extends FlxState
 
 	public var treeGroup:FlxGroup;
 	public var animalGroup:FlxGroup;
+	public var shadowGroup:FlxGroup;
 	public var gameObjects:ObjectsGroup;
 	public var hud:FlxGroup;
 
@@ -55,7 +58,7 @@ class PlayState extends FlxState
 	{
 		buildMap();
 
-		animals = ["Frog", "Skunk"];
+		animals = ["Bunny","Bee"]; //"Frog", "Skunk",
 
 		gameObjects = new ObjectsGroup();
 		add(gameObjects);
@@ -70,8 +73,8 @@ class PlayState extends FlxState
 		FlxG.camera.bounds = levelMap.getBounds();
 		FlxG.worldBounds.copyFrom(levelMap.getBounds());
 
-		placeTrees(300);
-		placeAnimals(40);
+		placeTrees(15);
+		placeAnimals(10);
 
 		setupHud();
 	}
@@ -95,7 +98,8 @@ class PlayState extends FlxState
 	private function buildMap():Void {
 		levelMap = new FlxTilemap();
 		levelMap.tileScaleHack = 1.0;
-		levelMap.loadMap(SimpleMap.newMap(50,50), "assets/simple_tile.png", TILE_WIDTH, TILE_HEIGHT, FlxTilemap.OFF);
+
+		levelMap.loadMap(Assets.getText("assets/spring/spring_map1.txt"), "assets/spring/spring_tiles.png", TILE_WIDTH, TILE_HEIGHT, FlxTilemap.OFF);
 		//levelMap.loadMap(MakeMap.newMap(50,50,60,120,5,1), "assets/ground_full2.png", TILE_WIDTH, TILE_HEIGHT, FlxTilemap.OFF);
 		add(levelMap);
 	}
@@ -105,7 +109,7 @@ class PlayState extends FlxState
 		treeGroup = new FlxGroup();
 
 		for (n in 0...NumTrees) {
-			var tree:Tree = new Tree(Math.random()*lr.width + lr.x, Math.random()*lr.height + lr.y);
+			var tree:Tree = new Tree(Math.random()*lr.width + lr.x, Math.random()*lr.height + lr.y, 1);
 			treeGroup.add(tree);
 			gameObjects.add(tree);
 		}
@@ -123,7 +127,7 @@ class PlayState extends FlxState
 			gameObjects.add(animal);
 		}
 
-		animal = new Frog(player.x, player.y);
+		animal = new Bunny(player.x, player.y);
 		animalGroup.add(animal);
 		gameObjects.add(animal);
 	}
