@@ -7,7 +7,7 @@ class Bee extends Animal
 
 		followDistance = 12;
 
-		loadGraphic("assets/spring/bee.png", true, true, 9,9);
+		loadGraphic("assets/spring/bee2.png", true, true, 9,18);
 		animation.add("idleside", [0,1,2,1],6);
 		animation.add("idledown", [3,4,5,4],6);
 		animation.add("idleup", [6,7,8,7],6);
