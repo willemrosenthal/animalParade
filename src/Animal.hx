@@ -18,6 +18,11 @@ class Animal extends FlxSprite
 	public var linePlace:Int; // place in line (line number)
 	public var fd:Int; // what point in the parade array to use as x,y
 
+	public var wander:Bool = true;
+	private var wTimer:Int = 0;
+	private var wTimerMax:Int = 10;
+
+
 	private var lastPos:FlxPoint;
 
 	private var goTo:FlxPoint;
@@ -41,12 +46,39 @@ class Animal extends FlxSprite
 		super.update();
 
 		if (pickedUp) {
-		x = Global.paradeX[fd];
-		y = Global.paradeY[fd];
+		    x = Global.paradeX[fd];
+		    y = Global.paradeY[fd];
 		}
+        else if(wander)
+            {
+            wTimer ++;
+            if (wTimer == wTimerMax)
+                {
+                wTimer = 0;
+                wTimerMax = Math.round(Math.random() * 100 + 50);
+                if (Math.random() < 0.5)
+                    {
+                    acceleration.x = 0;
+                    acceleration.y = 0;
+                    velocity.x = 0;
+                    velocity.y = 0;
+                    }
+                else
+                    {
+                    velocity.x = Calcs.plusOrMinus(20) * Math.round(Math.random());
+                    velocity.y = Calcs.plusOrMinus(19.5) * Math.round(Math.random());
+                    }
+                }
+            if (x > FlxG.worldBounds.width - 5 && velocity.x > 0)
+                velocity.x *= -1;
+            if (x < 5 && velocity.x < 0)
+                velocity.x *= -1;
+            if (y > FlxG.worldBounds.height - 5 && velocity.y > 0)
+                velocity.y *= -1;
+            if (y < 10 && velocity.y < 0)
+                velocity.y *= -1;
 
-		//trace(lastPos.x + " x " + x);
-		//trace(lastPos.y + " y " + y);
+             }
 
 		moveDifX = x - lastPos.x;
 		moveDifY = y - lastPos.y;

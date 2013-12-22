@@ -63,7 +63,7 @@ class PlayState extends FlxState
 
 	private var gameZoom:Float = 5;
 
-	private var animalTotal:Int = 150;
+	private var animalTotal:Int = 13;
 	private var animalsCollected:Int = -1;
 
 	override public function create():Void
@@ -71,6 +71,7 @@ class PlayState extends FlxState
 		buildMap();
 
 		animals = ["Bunny","Bee"]; //"Frog", "Skunk",
+		Global.gameZoom = gameZoom;
 
         collideGroup = new FlxGroup();
         add(collideGroup);
@@ -132,12 +133,19 @@ class PlayState extends FlxState
 
 
 	private function setupWeather():Void {
+		var lr:FlxRect = levelMap.getBounds();
+
 		weatherGroup = new FlxGroup();
 		add(weatherGroup);
 
+        for (n in 0...60) {
+        	//var pollen:Pollen = new Pollen(Math.random()* FlxG.width, Math.random()* FlxG.height);
+			var pollen:Pollen = new Pollen(Math.random()*lr.width + lr.x, Math.random()*lr.height + lr.y);
+        	weatherGroup.add(pollen);
+        }
 
-		weatherGroup.setAll("scrollFactor", new FlxPoint(0, 0));
-		weatherGroup.setAll("cameras", [FlxG.camera]);
+		//weatherGroup.setAll("scrollFactor", new FlxPoint(0, 0));
+		//weatherGroup.setAll("cameras", [FlxG.camera]);
 	}
 
 

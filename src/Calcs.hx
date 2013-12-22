@@ -1,6 +1,6 @@
 package ;
-import org.flixel.util.FlxPoint;
-import org.flixel.FlxG;
+import flixel.util.FlxPoint;
+import flixel.FlxG;
 
 class Calcs {
 

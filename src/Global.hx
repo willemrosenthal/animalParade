@@ -21,6 +21,8 @@ class Global {
 	static public var firstTouch:FlxPoint;
 	static public var firstTouchTo:FlxPoint;
 
+	static public var gameZoom:Float;
+
 	static public var move:FlxPoint = new FlxPoint(0,0);
 
 /*
