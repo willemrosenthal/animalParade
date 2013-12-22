@@ -18,7 +18,7 @@ class Bee extends Animal
 		offset.y += height;
 		offset.x += width * 0.5;
 		width = 4;
-		height = 4;
+		height = 9;
 
 		if (Math.random() < 0.5)
 			animation.play("idleside");

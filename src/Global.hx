@@ -1,6 +1,7 @@
 package ;
 import flixel.util.FlxPoint;
 import flixel.FlxG;
+import flixel.group.FlxGroup;
 
 class Global {
 
@@ -22,6 +23,7 @@ class Global {
 	static public var firstTouchTo:FlxPoint;
 
 	static public var gameZoom:Float;
+	static public var game:FlxGroup;
 
 	static public var move:FlxPoint = new FlxPoint(0,0);
 

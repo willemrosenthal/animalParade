@@ -4,6 +4,7 @@ import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.util.FlxPoint;
 import flixel.FlxObject;
+import flixel.effects.particles.FlxEmitter;
 
 class Animal extends FlxSprite
 {
@@ -22,6 +23,9 @@ class Animal extends FlxSprite
 	private var wTimer:Int = 0;
 	private var wTimerMax:Int = 10;
 
+	public var musicOn:Bool = true;
+	public var music:FlxEmitter;
+
 
 	private var lastPos:FlxPoint;
 
@@ -32,6 +36,7 @@ class Animal extends FlxSprite
 	{
 		super(X, Y);
 		lastPos = new FlxPoint(X,Y);
+		emitter();
 	}
 
 	public function joinParade():Void {
@@ -48,6 +53,11 @@ class Animal extends FlxSprite
 		if (pickedUp) {
 		    x = Global.paradeX[fd];
 		    y = Global.paradeY[fd];
+
+            if (musicOn)  {
+                music.x = x - music.width * 0.5;
+                music.y = y - music.height * 0.5 - height * 2;
+            }
 		}
         else if(wander)
             {
@@ -112,4 +122,21 @@ class Animal extends FlxSprite
 		// get to your position in line.
 		//if (pickedUp == true && inParade == false){
 	}
+
+    private function emitter():Void {
+    	 music = new FlxEmitter(x,y);
+         music.setSize(5,5);
+         music.setXSpeed(-20,20);
+         music.setYSpeed(-35,-75);
+         music.gravity = 0;
+         music.setRotation(0,0);
+         music.bounce = 0;
+         music.makeParticles("assets/music.png",50,0,true,0);
+         if (Math.random() < 0.5)
+            music.setColor(0xffff00,0x00ffff);
+         else
+            music.setColor(0x00ffff,0xff00ff);
+         //music.setAlpha(0.5, 0.5, 1, 1);
+         Global.game.add(music);
+     }
 }

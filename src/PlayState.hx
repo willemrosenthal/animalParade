@@ -15,6 +15,7 @@ import flixel.tile.FlxTilemap;
 import flixel.ui.FlxButton;
 import flixel.util.FlxSpriteUtil;
 import openfl.Assets;
+import flixel.effects.particles.FlxEmitter;
 
 import animals.Frog;
 import animals.Fox;
@@ -66,9 +67,13 @@ class PlayState extends FlxState
 	private var animalTotal:Int = 13;
 	private var animalsCollected:Int = -1;
 
+	private var music:FlxEmitter;
+
 	override public function create():Void
 	{
 		buildMap();
+
+		Global.game = this;
 
 		animals = ["Bunny","Bee"]; //"Frog", "Skunk",
 		Global.gameZoom = gameZoom;
@@ -98,7 +103,22 @@ class PlayState extends FlxState
 
 		setupWeather();
 		setupHud();
+		//emitter();
 	}
+
+	private function emitter():Void {
+    	 music = new FlxEmitter(player.x,player.y);
+         music.setSize(5,5);
+         music.setXSpeed(-10,10);
+         music.setYSpeed(-15,-45);
+         music.gravity = 0;
+         music.setRotation(0,0);
+         music.bounce = 0;
+         music.makeParticles("assets/music.png",50,0,true,0);
+         music.start(false,2,0.4);
+         music.setColor(0xffff00,0x00ffff);
+         add(music);
+    	}
 
 	private function setupHud():Void {
 		hud = new FlxGroup();
@@ -201,6 +221,7 @@ class PlayState extends FlxState
 		super.update();
 		gameObjects.zSort();
 
+
 		getter.x = player.x - getter.width * 0.5;
 		getter.y = player.y - getter.height * 0.5;
 
@@ -243,6 +264,8 @@ class PlayState extends FlxState
 		Animal.linePlace = Global.linePlace.length - 1;
 		Animal.fd = getTotalFollowDistance(Animal.linePlace);
 		Animal.pickedUp = true;
+		if (Animal.musicOn)
+            Animal.music.start(false,0.6,0.6);
 
 		//zoomControl.setZoom(zoomControl.nextZoom * 0.95, 0.001);
 	}
