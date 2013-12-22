@@ -7,6 +7,8 @@ import flixel.group.FlxGroup;
 import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.FlxState;
+import flixel.text.FlxText;
+import flixel.util.FlxColor;
 import flixel.util.FlxPoint;
 import flixel.text.FlxText;
 import flixel.tile.FlxTilemap;
@@ -41,18 +43,28 @@ class PlayState extends FlxState
 	private var zeroPoint:FlxPoint;
 
 	public var treeGroup:FlxGroup;
+	public var collideGroup:FlxGroup;
 	public var animalGroup:FlxGroup;
-	public var shadowGroup:FlxGroup;
+	public var weatherGroup:FlxGroup;
 	public var gameObjects:ObjectsGroup;
 	public var hud:FlxGroup;
 
+	private var joystickBG:FlxSprite;
 	private var joystick:Joystick;
 
+    private var animalCount:FlxText;
+
 	private var player:Player;
+	private var getter:FlxSprite;
 
 	private var zoomControl:ZoomCamera;
 
 	private var animals:Array<String>;
+
+	private var gameZoom:Float = 5;
+
+	private var animalTotal:Int = 11;
+	private var animalsCollected:Int = -1;
 
 	override public function create():Void
 	{
@@ -60,22 +72,30 @@ class PlayState extends FlxState
 
 		animals = ["Bunny","Bee"]; //"Frog", "Skunk",
 
+        collideGroup = new FlxGroup();
+        add(collideGroup);
+
 		gameObjects = new ObjectsGroup();
 		add(gameObjects);
 
-		player = new Player(0,0);
+		player = new Player(levelMap.width * 0.5,levelMap.height * 0.5);
 		gameObjects.add(player);
 
-		levelMap.x = player.x - levelMap.width * 0.5;
-		levelMap.y = player.y - levelMap.height * 0.5;
+		getter = new FlxSprite(player.x, player.y,"assets/getter.png");
+        getter.visible = false;
+        add(getter);
+
+		//levelMap.x = player.x - levelMap.width * 0.5;
+		//levelMap.y = player.y - levelMap.height * 0.5;
 
 		//FlxG.camera.follow(player, 1.3);
 		FlxG.camera.bounds = levelMap.getBounds();
 		FlxG.worldBounds.copyFrom(levelMap.getBounds());
 
 		placeTrees(15);
-		placeAnimals(10);
+		placeAnimals(animalTotal);
 
+		//setupWeather();
 		setupHud();
 	}
 
@@ -83,9 +103,24 @@ class PlayState extends FlxState
 		hud = new FlxGroup();
 		add(hud);
 
-		joystick = new Joystick(Lib.current.stage.stageWidth * 0.5, Lib.current.stage.stageHeight * 0.8);
+		var stageMidX:Float = Lib.current.stage.stageWidth * 0.5 / gameZoom;
+		var stageMidY:Float = Lib.current.stage.stageHeight * 0.5 / gameZoom;
+
+        joystickBG = new FlxSprite(stageMidX, stageMidY * 1.5,"assets/joystick_ring_med.png");   //"assets/joystick_ring_big.png"
+        joystickBG.x -=  joystickBG.width * 0.5;
+        joystickBG.y -=  joystickBG.height * 0.5;
+        hud.add(joystickBG);
+
+		joystick = new Joystick(stageMidX, stageMidY * 1.5, gameZoom);
 		joystick.scale = new FlxPoint(1,1);
 		hud.add(joystick);
+
+		animalCount = new FlxText(0, 2, 128, "0/" + animalTotal);
+        animalCount.setFormat(null, 8, FlxColor.WHITE, "center", FlxText.BORDER_NONE, FlxColor.BLACK);
+        hud.add(animalCount);
+
+        //_status = new FlxText(FlxG.width - 160 - 2, 2, 160, "Collect coins.");
+        //_status.setFormat(null, 8, FlxColor.WHITE, "right", FlxText.BORDER_NONE, FlxColor.BLACK);
 
 		zoomControl = new ZoomCamera(player);
 		add(zoomControl);
@@ -94,6 +129,24 @@ class PlayState extends FlxState
 		hud.setAll("scrollFactor", new FlxPoint(0, 0));
 		hud.setAll("cameras", [FlxG.camera]);
 	}
+
+
+	private function setupWeather():Void {
+		weatherGroup = new FlxGroup();
+		add(weatherGroup);
+
+		//joystick = new Joystick(Lib.current.stage.stageWidth * 0.5, Lib.current.stage.stageHeight * 0.8);
+		//joystick.scale = new FlxPoint(1,1);
+		//hud.add(joystick);
+
+		//zoomControl = new ZoomCamera(player);
+		//add(zoomControl);
+		//zoomControl.setZoom()
+
+		hud.setAll("scrollFactor", new FlxPoint(0, 0));
+		hud.setAll("cameras", [FlxG.camera]);
+	}
+
 
 	private function buildMap():Void {
 		levelMap = new FlxTilemap();
@@ -112,6 +165,8 @@ class PlayState extends FlxState
 			var tree:Tree = new Tree(Math.random()*lr.width + lr.x, Math.random()*lr.height + lr.y, 1);
 			treeGroup.add(tree);
 			gameObjects.add(tree);
+			var treeShadow:CollideShadow = new CollideShadow(tree.x, tree.y, 1);
+			collideGroup.add(treeShadow);
 		}
 	}
 
@@ -141,25 +196,35 @@ class PlayState extends FlxState
 	override public function update():Void {
 		super.update();
 		gameObjects.zSort();
-		FlxG.collide(player, treeGroup);
-		FlxG.overlap(player, animalGroup, getAnimal);
 
+		getter.x = player.x - getter.width * 0.5;
+		getter.y = player.y - getter.height * 0.5;
+
+		//FlxG.collide(player, treeGroup);
+		FlxG.collide(player, collideGroup);
+		FlxG.overlap(getter, animalGroup, getAnimal);
+
+        /*
 		wait ++;
 		if (wait < 5)
 			return;
 		if (wait == 5) {
-			FlxG.camera.zoom = 5;
+			FlxG.camera.zoom = gameZoom;
 			FlxG.camera.width = Math.ceil(Lib.current.stage.stageWidth/FlxG.camera.zoom);
 			FlxG.camera.height = Math.ceil(Lib.current.stage.stageHeight/FlxG.camera.zoom);
 		}
+		*/
 
 	}
 
-	private function getAnimal(Player:Player,Animal:Animal):Void {
+	private function getAnimal(Player:FlxSprite,Animal:Animal):Void {
 		if (Animal.pickedUp)
 			return;
 
 		animalGroup.remove(Animal);
+
+        animalsCollected ++;
+		animalCount.text =   animalsCollected + "/" + (animalTotal -1);
 
 		var last:FlxPoint = new FlxPoint(Global.paradeX[Global.paradeX.length -1],Global.paradeY[Global.paradeY.length -1]);
 		var followDistance = Animal.followDistance;

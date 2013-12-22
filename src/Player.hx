@@ -17,10 +17,13 @@ class Player extends Animal
 	public function new(X:Float, Y:Float)
 	{
 		super(X, Y);
-		//offset.y += height * 0.5;
 
 		Global.paradeX.push(X);
 		Global.paradeX.push(Y);
+
+		width = 4;
+		height = 2;
+		offset.y += height * 0.5;
 
 		visible = false;
 
@@ -36,6 +39,7 @@ class Player extends Animal
 		super.update();
 
 		// removes last + adds new
+		offset.y += height * 0.5;
 
 	/*
 		#if cpp
@@ -92,6 +96,7 @@ class Player extends Animal
 			}
 		}
 
+        /*
 		if (Math.abs(velocity.x) > Math.abs(velocity.y)) {
 			if (velocity.x < 0)
 				facing = FlxObject.RIGHT;
@@ -111,6 +116,7 @@ class Player extends Animal
 		else if (pfacing == "side" && velocity.x == 0 && velocity.y == 0) animation.play("idleside");
 		else if (pfacing == "down" && velocity.x == 0 && velocity.y == 0) animation.play("idledown");
 		else if (pfacing == "up" && velocity.x == 0 && velocity.y == 0) animation.play("idleup");
+		*/
 
 		if (velocity.x != 0 || velocity.y != 0) {
 			Global.paradeX.unshift(x);
@@ -118,6 +124,11 @@ class Player extends Animal
 			Global.paradeX.pop();
 			Global.paradeY.pop();
 		}
+
+		if (x + velocity.x*FlxG.elapsed < 5 || x + velocity.x*FlxG.elapsed > FlxG.worldBounds.width - 5)
+		      velocity.x = 0;
+		if (y + velocity.y*FlxG.elapsed < 5 || y + velocity.y*FlxG.elapsed > FlxG.worldBounds.height - 5)
+		      velocity.y = 0;
 
 		x += velocity.x*FlxG.elapsed;
 		y += velocity.y*FlxG.elapsed;

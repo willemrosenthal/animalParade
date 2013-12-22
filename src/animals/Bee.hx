@@ -5,7 +5,7 @@ class Bee extends Animal
 	{
 		super(X, Y);
 
-		followDistance = 12;
+		followDistance = 14;
 
 		loadGraphic("assets/spring/bee2.png", true, true, 9,18);
 		animation.add("idleside", [0,1,2,1],6);
@@ -15,8 +15,8 @@ class Bee extends Animal
 		animation.add("rundown", [3,4,5,4],12);
 		animation.add("runup", [6,7,8,7],12);
 
-		offset.y += height * 0.5;
-		offset.x += width * 0.5 - 10;
+		offset.y += height;
+		offset.x += width * 0.5;
 		width = 4;
 		height = 4;
 

@@ -7,7 +7,7 @@ import flixel.FlxObject;
 
 class Joystick extends FlxSprite {
 
-	public var maxDistance:Float = 60;
+	public var maxDistance:Float = 25;
 	public var moveIgnoreRange:Int = 3;
 	public var moveSpeed:Float = 50;
 
@@ -17,13 +17,15 @@ class Joystick extends FlxSprite {
 	private var hyp:Float = 0;
 	private var moveDirs:FlxPoint;
 	private var mouseDown:Bool = false;
+	private var gameZoom:Float = 1;
 
-	public function new(X:Float, Y:Float) {
+	public function new(X:Float, Y:Float, GameZoom) {
 		super(X, Y);
+		gameZoom = GameZoom;
 		originPoint = new FlxPoint(X,Y);
 		moveDirs = new FlxPoint(0,0);
 
-		loadGraphic("assets/joystick.png", false, false, 130,130);
+		loadGraphic("assets/joystick2.png", false, false, 20,20);
 		offset.y = height * 0.5;
 		offset.x = width * 0.5;
 	}
@@ -50,8 +52,8 @@ class Joystick extends FlxSprite {
 	}
 
 	private function calculateJoystick():FlxPoint {
-		xDif = originPoint.x - FlxG.stage.mouseX;
-		yDif = originPoint.y - FlxG.stage.mouseY;
+		xDif = originPoint.x - FlxG.stage.mouseX / gameZoom;
+		yDif = originPoint.y - FlxG.stage.mouseY / gameZoom;
 
 		moveDirs.x = 0;
 		moveDirs.y = 0;
@@ -86,8 +88,8 @@ class Joystick extends FlxSprite {
 
 	private function positionJostick():Void {
 		if (Math.abs(hyp) < maxDistance) {
-			x = FlxG.stage.mouseX;
-			y = FlxG.stage.mouseY;
+			x = FlxG.stage.mouseX / gameZoom;
+			y = FlxG.stage.mouseY / gameZoom;
 		}
 		else {
 			x = maxDistance/hyp * xDif * -1 + originPoint.x;

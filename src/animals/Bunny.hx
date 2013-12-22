@@ -5,9 +5,9 @@ class Bunny extends Animal
 	{
 		super(X, Y);
 
-		followDistance = 16;
+		followDistance = 14;
 
-		loadGraphic("assets/spring/bunny.png", true, true, 13,14);
+		loadGraphic("assets/spring/bunny2.png", true, true, 15,15);
 		animation.add("idleside", [0,1,2,1,2,1,0],5);
 		animation.add("idledown", [8,9,10,9,10,9,8],5);
 		animation.add("idleup", [16,17,18,17,18,17,16],5);
@@ -15,8 +15,9 @@ class Bunny extends Animal
 		animation.add("rundown", [11, 12,12, 13,13, 14,14, 15], 16);
 		animation.add("runup", [19, 20,20, 21,21, 22,22, 23], 16);
 
-		offset.y += height * 0.5;
-		offset.x += width * 0.5 - 10;
+		offset.y += height;
+		offset.x += width * 0.5;
+
 		width = 6;
 		height = 6;
 
