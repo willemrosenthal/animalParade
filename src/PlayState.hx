@@ -144,7 +144,7 @@ class PlayState extends FlxState
 		if (wait < 5)
 			return;
 		if (wait == 5) {
-			FlxG.camera.zoom = 8;
+			FlxG.camera.zoom = 5;
 			FlxG.camera.width = Math.ceil(Lib.current.stage.stageWidth/FlxG.camera.zoom);
 			FlxG.camera.height = Math.ceil(Lib.current.stage.stageHeight/FlxG.camera.zoom);
 		}
@@ -171,7 +171,7 @@ class PlayState extends FlxState
 		Animal.fd = getTotalFollowDistance(Animal.linePlace);
 		Animal.pickedUp = true;
 
-		zoomControl.setZoom(zoomControl.nextZoom * 0.95, 0.001);
+		//zoomControl.setZoom(zoomControl.nextZoom * 0.95, 0.001);
 	}
 
 	private function getTotalFollowDistance(LinePos:Int):Int {
