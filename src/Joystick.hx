@@ -7,7 +7,7 @@ import flixel.FlxObject;
 
 class Joystick extends FlxSprite {
 
-	public var maxDistance:Float = 25;
+	public var maxDistance:Float = 20;
 	public var moveIgnoreRange:Int = 3;
 	public var moveSpeed:Float = 50;
 

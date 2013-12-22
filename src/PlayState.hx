@@ -106,12 +106,12 @@ class PlayState extends FlxState
 		var stageMidX:Float = Lib.current.stage.stageWidth * 0.5 / gameZoom;
 		var stageMidY:Float = Lib.current.stage.stageHeight * 0.5 / gameZoom;
 
-        joystickBG = new FlxSprite(stageMidX, stageMidY * 1.5,"assets/joystick_ring_med.png");   //"assets/joystick_ring_big.png"
+        joystickBG = new FlxSprite(stageMidX, stageMidY * 1.6,"assets/joystick_ring_small.png");   //"assets/joystick_ring_big.png"
         joystickBG.x -=  joystickBG.width * 0.5;
         joystickBG.y -=  joystickBG.height * 0.5;
         hud.add(joystickBG);
 
-		joystick = new Joystick(stageMidX, stageMidY * 1.5, gameZoom);
+		joystick = new Joystick(stageMidX, stageMidY * 1.6, gameZoom);
 		joystick.scale = new FlxPoint(1,1);
 		hud.add(joystick);
 
