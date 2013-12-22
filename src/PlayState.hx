@@ -63,7 +63,7 @@ class PlayState extends FlxState
 
 	private var gameZoom:Float = 5;
 
-	private var animalTotal:Int = 11;
+	private var animalTotal:Int = 150;
 	private var animalsCollected:Int = -1;
 
 	override public function create():Void
@@ -95,7 +95,7 @@ class PlayState extends FlxState
 		placeTrees(15);
 		placeAnimals(animalTotal);
 
-		//setupWeather();
+		setupWeather();
 		setupHud();
 	}
 
@@ -135,16 +135,9 @@ class PlayState extends FlxState
 		weatherGroup = new FlxGroup();
 		add(weatherGroup);
 
-		//joystick = new Joystick(Lib.current.stage.stageWidth * 0.5, Lib.current.stage.stageHeight * 0.8);
-		//joystick.scale = new FlxPoint(1,1);
-		//hud.add(joystick);
 
-		//zoomControl = new ZoomCamera(player);
-		//add(zoomControl);
-		//zoomControl.setZoom()
-
-		hud.setAll("scrollFactor", new FlxPoint(0, 0));
-		hud.setAll("cameras", [FlxG.camera]);
+		weatherGroup.setAll("scrollFactor", new FlxPoint(0, 0));
+		weatherGroup.setAll("cameras", [FlxG.camera]);
 	}
 
 
@@ -175,9 +168,12 @@ class PlayState extends FlxState
 		animalGroup = new FlxGroup();
 
 		var animal:Animal;
+		var margine:Float = 20;
+		var widthRange:Float = lr.width + lr.x - margine;
+		var heightRange:Float = lr.height + lr.y - margine;
 
 		for (n in 0...NumAnimals) {
-			animal = Type.createInstance(Type.resolveClass(chooseAnimal()),[Math.random()*lr.width + lr.x,Math.random()*lr.height + lr.y]);
+			animal = Type.createInstance(Type.resolveClass(chooseAnimal()),[Math.random()*widthRange + (margine*0.5),Math.random()*heightRange + (margine*0.5)]);
 			animalGroup.add(animal);
 			gameObjects.add(animal);
 		}
@@ -224,7 +220,7 @@ class PlayState extends FlxState
 		animalGroup.remove(Animal);
 
         animalsCollected ++;
-		animalCount.text =   animalsCollected + "/" + (animalTotal -1);
+		animalCount.text =   animalsCollected + "/" + animalTotal;
 
 		var last:FlxPoint = new FlxPoint(Global.paradeX[Global.paradeX.length -1],Global.paradeY[Global.paradeY.length -1]);
 		var followDistance = Animal.followDistance;
