@@ -46,6 +46,7 @@ class PlayState extends FlxState
 	public var treeGroup:FlxGroup;
 	public var collideGroup:FlxGroup;
 	public var animalGroup:FlxGroup;
+	public var collectedAnimals:FlxGroup;
 	public var weatherGroup:FlxGroup;
 	public var gameObjects:ObjectsGroup;
 	public var hud:FlxGroup;
@@ -60,7 +61,14 @@ class PlayState extends FlxState
 
 	private var zoomControl:ZoomCamera;
 
+    // level data
+    public var level:String = "spring1";
 	private var animals:Array<String>;
+	private var levelMapData:String;
+	private var tileSet:String;
+	private var playerAnimal:String;
+	private var treeNumber:Int;
+
 
 	private var gameZoom:Float = 5;
 
@@ -71,11 +79,10 @@ class PlayState extends FlxState
 
 	override public function create():Void
 	{
+	    levelPresets();
 		buildMap();
 
 		Global.game = this;
-
-		animals = ["Bunny","Bee"]; //"Frog", "Skunk",
 		Global.gameZoom = gameZoom;
 
         collideGroup = new FlxGroup();
@@ -98,27 +105,13 @@ class PlayState extends FlxState
 		FlxG.camera.bounds = levelMap.getBounds();
 		FlxG.worldBounds.copyFrom(levelMap.getBounds());
 
-		placeTrees(15);
-		placeAnimals(animalTotal);
 
-		setupWeather();
 		setupHud();
-		//emitter();
-	}
 
-	private function emitter():Void {
-    	 music = new FlxEmitter(player.x,player.y);
-         music.setSize(5,5);
-         music.setXSpeed(-10,10);
-         music.setYSpeed(-15,-45);
-         music.gravity = 0;
-         music.setRotation(0,0);
-         music.bounce = 0;
-         music.makeParticles("assets/music.png",50,0,true,0);
-         music.start(false,2,0.4);
-         music.setColor(0xffff00,0x00ffff);
-         add(music);
-    	}
+		placeAnimals(animalTotal);
+		placeTrees(treeNumber);
+		setupWeather();
+	}
 
 	private function setupHud():Void {
 		hud = new FlxGroup();
@@ -158,10 +151,12 @@ class PlayState extends FlxState
 		weatherGroup = new FlxGroup();
 		add(weatherGroup);
 
-        for (n in 0...60) {
-        	//var pollen:Pollen = new Pollen(Math.random()* FlxG.width, Math.random()* FlxG.height);
-			var pollen:Pollen = new Pollen(Math.random()*lr.width + lr.x, Math.random()*lr.height + lr.y);
-        	weatherGroup.add(pollen);
+        if (level == "spring1") {
+            for (n in 0...60) {
+                //var pollen:Pollen = new Pollen(Math.random()* FlxG.width, Math.random()* FlxG.height);
+                var pollen:Pollen = new Pollen(Math.random()*lr.width + lr.x, Math.random()*lr.height + lr.y);
+                weatherGroup.add(pollen);
+            }
         }
 
 		//weatherGroup.setAll("scrollFactor", new FlxPoint(0, 0));
@@ -173,7 +168,7 @@ class PlayState extends FlxState
 		levelMap = new FlxTilemap();
 		levelMap.tileScaleHack = 1.0;
 
-		levelMap.loadMap(Assets.getText("assets/spring/spring_map1.txt"), "assets/spring/spring_tiles.png", TILE_WIDTH, TILE_HEIGHT, FlxTilemap.OFF);
+		levelMap.loadMap(Assets.getText(levelMapData), tileSet, TILE_WIDTH, TILE_HEIGHT, FlxTilemap.OFF);
 		//levelMap.loadMap(MakeMap.newMap(50,50,60,120,5,1), "assets/ground_full2.png", TILE_WIDTH, TILE_HEIGHT, FlxTilemap.OFF);
 		add(levelMap);
 	}
@@ -194,6 +189,7 @@ class PlayState extends FlxState
 	private function placeAnimals(NumAnimals:Int) {
 		var lr:FlxRect = levelMap.getBounds();
 		animalGroup = new FlxGroup();
+		collectedAnimals = new FlxGroup();
 
 		var animal:Animal;
 		var margine:Float = 20;
@@ -206,9 +202,11 @@ class PlayState extends FlxState
 			gameObjects.add(animal);
 		}
 
-		animal = new Bunny(player.x, player.y);
+        // player animal
+		animal = Type.createInstance(Type.resolveClass("animals." + playerAnimal),[getter.x,getter.y]);
 		animalGroup.add(animal);
 		gameObjects.add(animal);
+		getAnimal(getter,animal);
 	}
 
 	private function chooseAnimal():String {
@@ -247,6 +245,7 @@ class PlayState extends FlxState
 			return;
 
 		animalGroup.remove(Animal);
+		collectedAnimals.add(Animal);
 
         animalsCollected ++;
 		animalCount.text =   animalsCollected + "/" + animalTotal;
@@ -278,4 +277,16 @@ class PlayState extends FlxState
 		}
 		return totalDistance;
 	}
+
+
+	private function levelPresets():Void {
+        if (level == "spring1") {
+            animals = ["Bunny","Bee"];
+            levelMapData = "assets/spring/spring_map1.txt";
+            tileSet = "assets/spring/spring_tiles.png";
+            playerAnimal = "Bunny";
+            treeNumber = 15;
+            animalTotal = 13;
+        }
+    }
 }

@@ -131,7 +131,7 @@ class Animal extends FlxSprite
          music.gravity = 0;
          music.setRotation(0,0);
          music.bounce = 0;
-         music.makeParticles("assets/music.png",50,0,true,0);
+         music.makeParticles("assets/music.png",4,0,true,0);
          if (Math.random() < 0.5)
             music.setColor(0xffff00,0x00ffff);
          else

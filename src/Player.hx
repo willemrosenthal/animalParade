@@ -25,6 +25,7 @@ class Player extends Animal
 		height = 2;
 		offset.y += height * 0.5;
 
+		wander = false;
 		visible = false;
 
 		#if cpp
