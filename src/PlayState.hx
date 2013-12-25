@@ -46,6 +46,7 @@ class PlayState extends FlxState
 
 	private var zeroPoint:FlxPoint;
 
+	public var groundGroup:FlxGroup;
 	public var treeGroup:FlxGroup;
 	public var collideGroup:FlxGroup;
 	public var animalGroup:FlxGroup;
@@ -89,11 +90,20 @@ class PlayState extends FlxState
 		Global.game = this;
 		Global.gameZoom = gameZoom;
 
+        groundGroup = new FlxGroup();
+        add(groundGroup);
+
         collideGroup = new FlxGroup();
         add(collideGroup);
 
 		gameObjects = new ObjectsGroup();
 		add(gameObjects);
+
+		weatherGroup = new FlxGroup();
+		add(weatherGroup);
+
+		hud = new FlxGroup();
+		add(hud);
 
 		player = new Player(levelMap.width * 0.5,levelMap.height * 0.5);
 		gameObjects.add(player);
@@ -110,6 +120,8 @@ class PlayState extends FlxState
 		FlxG.worldBounds.copyFrom(levelMap.getBounds());
 
 
+        animatingTiles();
+
 		setupHud();
 
 		placeAnimals(animalTotal);
@@ -118,9 +130,6 @@ class PlayState extends FlxState
 	}
 
 	private function setupHud():Void {
-		hud = new FlxGroup();
-		add(hud);
-
 		var stageMidX:Float = Lib.current.stage.stageWidth * 0.5 / gameZoom;
 		var stageMidY:Float = Lib.current.stage.stageHeight * 0.5 / gameZoom;
 
@@ -151,9 +160,6 @@ class PlayState extends FlxState
 
 	private function setupWeather():Void {
 		var lr:FlxRect = levelMap.getBounds();
-
-		weatherGroup = new FlxGroup();
-		add(weatherGroup);
 
         if (level == "spring1") {
             for (n in 0...60) {
@@ -196,6 +202,27 @@ class PlayState extends FlxState
 
 		//specialTiles();
 		Global.cMap = levelMap;
+	}
+
+	private function animatingTiles() {
+        var tile:AnimatedTile;
+        var loc:Array<FlxPoint>;
+        var tiles:Array<Int>;
+
+        if (level == "fall1") {
+            tiles = [43,48,49,55,56];
+
+            for (n in 0...tiles.length) {
+                if (levelMap.getTileInstances(tiles[n]) != null) {
+                    loc = levelMap.getTileCoords(tiles[n],false);
+                    for (i in 0...loc.length) {
+                        tile = new AnimatedTile(loc[i].x + 1,loc[i].y + 1,tiles[n]);
+                        groundGroup.add(tile);
+                    }
+                }
+            }
+
+        }
 	}
 
 	private function specialTiles() {
