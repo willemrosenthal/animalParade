@@ -5986,10 +5986,10 @@
 							<uid>3</uid>
 						</item>
 						<item>
-							<tile>1</tile>
+							<tile>60</tile>
 							<empty>0</empty>
 							<pattern>-1</pattern>
-							<uid>3</uid>
+							<uid>0</uid>
 						</item>
 						<item>
 							<tile>1</tile>
@@ -6250,10 +6250,10 @@
 							<uid>0</uid>
 						</item>
 						<item>
-							<tile>1</tile>
+							<tile>60</tile>
 							<empty>0</empty>
 							<pattern>-1</pattern>
-							<uid>3</uid>
+							<uid>0</uid>
 						</item>
 						<item>
 							<tile>58</tile>
@@ -6280,10 +6280,10 @@
 							<uid>3</uid>
 						</item>
 						<item>
-							<tile>1</tile>
+							<tile>60</tile>
 							<empty>0</empty>
 							<pattern>-1</pattern>
-							<uid>3</uid>
+							<uid>0</uid>
 						</item>
 						<item>
 							<tile>1</tile>
@@ -6520,10 +6520,10 @@
 							<uid>3</uid>
 						</item>
 						<item>
-							<tile>1</tile>
+							<tile>58</tile>
 							<empty>0</empty>
 							<pattern>-1</pattern>
-							<uid>3</uid>
+							<uid>0</uid>
 						</item>
 						<item>
 							<tile>58</tile>
@@ -7330,10 +7330,10 @@
 							<uid>3</uid>
 						</item>
 						<item>
-							<tile>1</tile>
+							<tile>58</tile>
 							<empty>0</empty>
 							<pattern>-1</pattern>
-							<uid>3</uid>
+							<uid>0</uid>
 						</item>
 						<item>
 							<tile>1</tile>
@@ -7600,10 +7600,10 @@
 							<uid>0</uid>
 						</item>
 						<item>
-							<tile>1</tile>
+							<tile>60</tile>
 							<empty>0</empty>
 							<pattern>-1</pattern>
-							<uid>3</uid>
+							<uid>0</uid>
 						</item>
 						<item>
 							<tile>58</tile>

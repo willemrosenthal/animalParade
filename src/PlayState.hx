@@ -366,10 +366,10 @@ class PlayState extends FlxState
             treeTypes = ["cherry"];
         }
         if (level == "fall1") {
-            animals = ["Turtle","Frog"]; //"Skunk"
+            animals = ["Turtle","Frog","Skunk"]; //"Skunk"
             levelMapData = "assets/fall/fall_map1.txt";
             tileSet = "assets/fall/fall_tiles.png";
-            playerAnimal = "Turtle";
+            playerAnimal = "Skunk";
             treeNumber = 25;
             animalTotal = 13;
             Global.waterTiles = [41,42,43,46,48,49,55,56];
