@@ -31,14 +31,14 @@ class WeatherParticle extends FlxSprite
         }
 
         if (!stickToScreen) {
-            if (x < - 10)
-                 x = FlxG.worldBounds.width + 10;
-            if (x > FlxG.worldBounds.width + 10)
-                x = - 10;
-            if (y < - 10)
-                 y = FlxG.worldBounds.height + 10;
-            if (y > FlxG.worldBounds.height + 10)
-                y = - 10;
+            if (x < width * -1)
+                 x = FlxG.worldBounds.width;
+            if (x > FlxG.worldBounds.width)
+                x = width * -1;
+            if (y < height * -1)
+                 y = FlxG.worldBounds.height;
+            if (y > FlxG.worldBounds.height)
+                y = height * -1;
 		}
 	}
 }

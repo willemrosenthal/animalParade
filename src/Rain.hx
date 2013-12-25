@@ -8,7 +8,7 @@ class Rain extends WeatherParticle
 {
 
     var timer:Int = 0;
-    var timerMax:Int = 50;
+    var timerMax:Int = 130;
 
 	public function new(X:Float, Y:Float, Spd:Float = 20)
 	{
@@ -27,17 +27,21 @@ class Rain extends WeatherParticle
 	}
 
 
-    /*
+
 	override public function update():Void
 	{
 		super.update();
 
-        timer++;
-		if (timer >= timerMax) {
-			visible = !visible;
-			timer = 0;
+		if (onScreen(FlxG.camera)) {
+		    timer++;
+		    if (timer >= timerMax) {
+			    visible = false;
+			    timer = Math.round(Math.random() * timerMax) + 5;
+			}
 		}
+		else if (!visible)
+		    visible = true;
 	}
-	*/
+
 
 }

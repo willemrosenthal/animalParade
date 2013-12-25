@@ -164,14 +164,21 @@ class PlayState extends FlxState
         }
 
         if (level == "fall1") {
+
             for (n in 0...180) {
                 var rain:Rain = new Rain(Math.random()*lr.width + lr.x, Math.random()*lr.height + lr.y, Math.random() * 30 + 60);
                 weatherGroup.add(rain);
             }
+            for (n in 0...2) {
+                var cloud:Clouds = new Clouds(Math.random()*(lr.width * 0.25) + lr.x, Math.random()*(lr.height * 0.25) + lr.y, 5);
+                cloud.x += (lr.width * 0.5) * n ;
+                cloud.y += (lr.height * 0.5) * n;
+                weatherGroup.add(cloud);
+            }
             for (n in 0...50) {
                 var rainDrop:RainDrop = new RainDrop(Math.random()*lr.width + lr.x, Math.random()*lr.height + lr.y);
                 rainDrop.alpha = 0.8;
-                weatherGroup.add(rainDrop);
+                gameObjects.add(rainDrop);
             }
         }
 
