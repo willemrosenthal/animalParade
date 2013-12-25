@@ -19,7 +19,7 @@ class Player extends Animal
 		super(X, Y);
 
 		Global.paradeX.push(X);
-		Global.paradeX.push(Y);
+		Global.paradeY.push(Y);
 
 		width = 4;
 		height = 2;

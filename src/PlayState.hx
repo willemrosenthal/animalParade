@@ -12,6 +12,8 @@ import flixel.util.FlxColor;
 import flixel.util.FlxPoint;
 import flixel.text.FlxText;
 import flixel.tile.FlxTilemap;
+import flixel.addons.tile.FlxTilemapExt;
+import flixel.addons.tile.FlxTileSpecial;
 import flixel.ui.FlxButton;
 import flixel.util.FlxSpriteUtil;
 import openfl.Assets;
@@ -22,6 +24,7 @@ import animals.Fox;
 import animals.Skunk;
 import animals.Bunny;
 import animals.Bee;
+import animals.Turtle;
 
 #if cpp
 import openfl.ui.Accelerometer;
@@ -38,7 +41,7 @@ class PlayState extends FlxState
 		/**
          * The FlxTilemap we're using
          */
-	private var levelMap:FlxTilemap;
+	private var levelMap:FlxTilemapExt;
 
 
 	private var zeroPoint:FlxPoint;
@@ -62,7 +65,7 @@ class PlayState extends FlxState
 	private var zoomControl:ZoomCamera;
 
     // level data
-    public var level:String = "spring1";
+    public var level:String = "fall1";
 	private var animals:Array<String>;
 	private var levelMapData:String;
 	private var tileSet:String;
@@ -165,13 +168,41 @@ class PlayState extends FlxState
 
 
 	private function buildMap():Void {
-		levelMap = new FlxTilemap();
-		levelMap.tileScaleHack = 1.0;
+		levelMap = new FlxTilemapExt();
+		//levelMap.tileScaleHack = 1.0;
 
-		levelMap.loadMap(Assets.getText(levelMapData), tileSet, TILE_WIDTH, TILE_HEIGHT, FlxTilemap.OFF);
-		//levelMap.loadMap(MakeMap.newMap(50,50,60,120,5,1), "assets/ground_full2.png", TILE_WIDTH, TILE_HEIGHT, FlxTilemap.OFF);
+		levelMap.loadMap(Assets.getText(levelMapData), tileSet, TILE_WIDTH, TILE_HEIGHT, FlxTilemap.OFF,0);
 		add(levelMap);
+
+		specialTiles();
+		Global.cMap = levelMap;
+		//levelMap.getTile(4,4);
+		trace(levelMap.getTile(4,4));
 	}
+
+	private function specialTiles() {
+	    var sa:Array<FlxTileSpecial> = new Array<FlxTileSpecial>();
+        if (level == "fall1") {
+            var s:FlxTileSpecial = new FlxTileSpecial(43,false,false,0);
+            s.addAnimation([43,44,45,44],4);
+            sa.push(s);
+            var s:FlxTileSpecial = new FlxTileSpecial(48,false,false,0);
+            s.addAnimation([48,50,52,50],4);
+            sa.push(s);
+            var s:FlxTileSpecial = new FlxTileSpecial(49,false,false,0);
+            s.addAnimation([49,51,53,51],4);
+            sa.push(s);
+            var s:FlxTileSpecial = new FlxTileSpecial(54,false,false,0);
+            s.addAnimation([55,57,59,57],4);
+            sa.push(s);
+            var s:FlxTileSpecial = new FlxTileSpecial(56,false,false,0);
+            s.addAnimation([56,58,60,58],4);
+            sa.push(s);
+            levelMap.setSpecialTiles(sa);
+
+        }
+	}
+
 
 	private function placeTrees(NumTrees:Int) {
 		var lr:FlxRect = levelMap.getBounds();
@@ -212,6 +243,7 @@ class PlayState extends FlxState
 	private function chooseAnimal():String {
 		return "animals." + animals[Math.round(Math.random() * (animals.length - 1))];
 	}
+
 
 
 	var wait:Int = 0;
@@ -287,6 +319,16 @@ class PlayState extends FlxState
             playerAnimal = "Bunny";
             treeNumber = 15;
             animalTotal = 13;
+        }
+        if (level == "fall1") {
+            animals = ["Turtle","Frog","Skunk"];
+            levelMapData = "assets/fall/fall_map1.txt";
+            tileSet = "assets/fall/fall_tiles.png";
+            playerAnimal = "Turtle";
+            treeNumber = 5;
+            animalTotal = 0;
+            Global.waterTiles = [41,42,43,46,48,49,55,56];
+            Global.waterEdges = [29,30,35,36];
         }
     }
 }

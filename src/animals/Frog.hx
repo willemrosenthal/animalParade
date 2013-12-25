@@ -7,7 +7,7 @@ class Frog extends Animal
 
 		followDistance = 18;
 
-		loadGraphic("assets/frog.png", true, true, 17,17);
+		loadGraphic("assets/fall/frog.png", true, true, 17,17);
 		animation.add("sit", [0]);
 		animation.add("idleside", [0]);
 		animation.add("idledown", [4]);
@@ -16,8 +16,20 @@ class Frog extends Animal
 		animation.add("rundown", [4, 5, 6, 7], 6);
 		animation.add("runup", [8, 9, 10, 11], 6);
 
-		offset.y += height * 0.5;
-		offset.x += width * 0.5 - 10;
+
+		animation.add("idlesides", [12]);
+		animation.add("idledowns", [15]);
+		animation.add("idleups", [18]);
+		animation.add("runsides", [12, 13, 14], 6);
+		animation.add("rundowns", [15, 16, 17], 6);
+		animation.add("runups",   [18, 19, 20], 6);
+
+
+		swimming = true;
+
+		offset.y += height;
+		offset.x += width * 0.5;
+
 		width = 6;
 		height = 6;
 

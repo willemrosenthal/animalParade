@@ -26,11 +26,14 @@ class Animal extends FlxSprite
 	public var musicOn:Bool = true;
 	public var music:FlxEmitter;
 
+    public var swimming:Bool = false;
+    public var sink:Bool = false;
 
 	private var lastPos:FlxPoint;
 
 	private var goTo:FlxPoint;
 	private var afacing:String = "sit";
+	private var still = true;
 
 	public function new(X:Float, Y:Float)
 	{
@@ -93,25 +96,36 @@ class Animal extends FlxSprite
 		moveDifX = x - lastPos.x;
 		moveDifY = y - lastPos.y;
 
-		if (Math.abs(moveDifX) > Math.abs(moveDifY)) {
-			if (moveDifX < 0)
-				facing = FlxObject.RIGHT;
-			if (moveDifX > 0)
-				facing = FlxObject.LEFT;
-			animation.play("runside");
-			afacing = "side";
-		}
-		else if (Math.abs(moveDifX) < Math.abs(moveDifY) && moveDifY > 0) {
-			animation.play("rundown");
-			afacing = "down";
-		}
-		else if (Math.abs(moveDifX) < Math.abs(moveDifY) && moveDifY < 0) {
-			animation.play("runup");
-			afacing = "up";
-		}
-		else if (afacing == "side" && moveDifX == 0 && moveDifY == 0) animation.play("idleside");
-		else if (afacing == "down" && moveDifX == 0 && moveDifY == 0) animation.play("idledown");
-		else if (afacing == "up" && moveDifX == 0 && moveDifY == 0) animation.play("idleup");
+
+        if (moveDifX == 0 && moveDifY == 0)
+            still = true;
+        else still = false;
+
+		if (swimming)
+		    swimCheck();
+
+        if (!sink) {
+            if (Math.abs(moveDifX) > Math.abs(moveDifY)) {
+                if (moveDifX < 0)
+                    facing = FlxObject.RIGHT;
+                if (moveDifX > 0)
+                    facing = FlxObject.LEFT;
+                animation.play("runside");
+                afacing = "side";
+            }
+            else if (Math.abs(moveDifX) < Math.abs(moveDifY) && moveDifY > 0) {
+                animation.play("rundown");
+                afacing = "down";
+            }
+            else if (Math.abs(moveDifX) < Math.abs(moveDifY) && moveDifY < 0) {
+                animation.play("runup");
+                afacing = "up";
+            }
+            else if (afacing == "side" && still) animation.play("idleside");
+            else if (afacing == "down" && still) animation.play("idledown");
+            else if (afacing == "up" && still) animation.play("idleup");
+        }
+
 
 		lastPos.x = x;
 		lastPos.y = y;
@@ -122,6 +136,62 @@ class Animal extends FlxSprite
 		// get to your position in line.
 		//if (pickedUp == true && inParade == false){
 	}
+
+    var loc:Int;
+    private function swimCheck():Void {
+        if (Global.waterTiles.length == 0)
+            return;
+        loc = Global.cMap.getTile(Math.floor(x/16),Math.floor(y/16));
+
+        for (t in Global.waterTiles) {
+            if( t == loc ) {
+                sink = true;
+                break;
+            }
+            sink = false;
+        }
+        if (!sink) {
+            if (loc == Global.waterEdges[0]) {
+                if (Math.abs(Math.floor(x/16) - (x/16)) > 0.5 && Math.abs(Math.floor(y/16) - (y/16)) > 0.5)
+                sink = true;
+            }
+            if (loc == Global.waterEdges[1]) {
+                if (Math.abs(Math.floor(x/16) - (x/16)) < 0.5 && Math.abs(Math.floor(y/16) - (y/16)) > 0.5)
+                sink = true;
+            }
+            if (loc == Global.waterEdges[2]) {
+                if (Math.abs(Math.floor(x/16) - (x/16)) > 0.4 && Math.abs(Math.floor(y/16) - (y/16)) < 0.6)
+                sink = true;
+            }
+            if (loc == Global.waterEdges[3]) {
+                if (Math.abs(Math.floor(x/16) - (x/16)) < 0.6 && Math.abs(Math.floor(y/16) - (y/16)) < 0.5)
+                sink = true;
+            }
+        }
+        if (sink) {
+            if (Math.abs(moveDifX) > Math.abs(moveDifY)) {
+                if (moveDifX < 0)
+                    facing = FlxObject.RIGHT;
+                if (moveDifX > 0)
+                    facing = FlxObject.LEFT;
+                animation.play("runsides");
+                afacing = "side";
+        	}
+        	else if (Math.abs(moveDifX) < Math.abs(moveDifY) && moveDifY > 0) {
+        		animation.play("rundowns");
+        		afacing = "down";
+        	}
+        	else if (Math.abs(moveDifX) < Math.abs(moveDifY) && moveDifY < 0) {
+        		animation.play("runups");
+        		afacing = "up";
+        	}
+        	else if (afacing == "side" && still) animation.play("idlesides");
+        	else if (afacing == "down" && still) animation.play("idledowns");
+        	else if (afacing == "up" && still) animation.play("idleups");
+
+        }
+    }
+
 
     private function emitter():Void {
     	 music = new FlxEmitter(x,y);
