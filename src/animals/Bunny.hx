@@ -21,8 +21,14 @@ class Bunny extends Animal
 		width = 6;
 		height = 6;
 
-		if (Math.random() < 0.5)
+
+		if (Math.random() < 0.5)  {
 			animation.play("idleside");
-		else animation.play("idledown");
+			afacing  = "side";
+		}
+		else {
+		    animation.play("idledown");
+			afacing  = "down";
+		}
 	}
 }

@@ -41,7 +41,7 @@ class PlayState extends FlxState
 		/**
          * The FlxTilemap we're using
          */
-	private var levelMap:FlxTilemapExt;
+	private var levelMap:FlxTilemap; //FlxTilemapExt;
 
 
 	private var zeroPoint:FlxPoint;
@@ -71,6 +71,7 @@ class PlayState extends FlxState
 	private var tileSet:String;
 	private var playerAnimal:String;
 	private var treeNumber:Int;
+	private var treeTypes:Array<String>;
 
 
 	private var gameZoom:Float = 5;
@@ -162,22 +163,32 @@ class PlayState extends FlxState
             }
         }
 
+        if (level == "fall1") {
+            for (n in 0...180) {
+                var rain:Rain = new Rain(Math.random()*lr.width + lr.x, Math.random()*lr.height + lr.y, Math.random() * 30 + 60);
+                weatherGroup.add(rain);
+            }
+            for (n in 0...50) {
+                var rainDrop:RainDrop = new RainDrop(Math.random()*lr.width + lr.x, Math.random()*lr.height + lr.y);
+                rainDrop.alpha = 0.8;
+                weatherGroup.add(rainDrop);
+            }
+        }
+
 		//weatherGroup.setAll("scrollFactor", new FlxPoint(0, 0));
 		//weatherGroup.setAll("cameras", [FlxG.camera]);
 	}
 
 
 	private function buildMap():Void {
-		levelMap = new FlxTilemapExt();
-		//levelMap.tileScaleHack = 1.0;
+		levelMap = new FlxTilemap();
+		levelMap.tileScaleHack = 1.0;
 
 		levelMap.loadMap(Assets.getText(levelMapData), tileSet, TILE_WIDTH, TILE_HEIGHT, FlxTilemap.OFF,0);
 		add(levelMap);
 
-		specialTiles();
+		//specialTiles();
 		Global.cMap = levelMap;
-		//levelMap.getTile(4,4);
-		trace(levelMap.getTile(4,4));
 	}
 
 	private function specialTiles() {
@@ -198,8 +209,7 @@ class PlayState extends FlxState
             var s:FlxTileSpecial = new FlxTileSpecial(56,false,false,0);
             s.addAnimation([56,58,60,58],4);
             sa.push(s);
-            levelMap.setSpecialTiles(sa);
-
+            //levelMap.setSpecialTiles(sa);
         }
 	}
 
@@ -209,10 +219,10 @@ class PlayState extends FlxState
 		treeGroup = new FlxGroup();
 
 		for (n in 0...NumTrees) {
-			var tree:Tree = new Tree(Math.random()*lr.width + lr.x, Math.random()*lr.height + lr.y, 1);
+			var tree:Tree = new Tree(Math.random()*lr.width + lr.x, Math.random()*lr.height + lr.y, treeTypes);
 			treeGroup.add(tree);
 			gameObjects.add(tree);
-			var treeShadow:CollideShadow = new CollideShadow(tree.x, tree.y, 1);
+			var treeShadow:CollideShadow = new CollideShadow(tree.x, tree.y, tree.tree);
 			collideGroup.add(treeShadow);
 		}
 	}
@@ -319,16 +329,18 @@ class PlayState extends FlxState
             playerAnimal = "Bunny";
             treeNumber = 15;
             animalTotal = 13;
+            treeTypes = ["cherry"];
         }
         if (level == "fall1") {
-            animals = ["Turtle","Frog","Skunk"];
+            animals = ["Turtle","Frog"]; //"Skunk"
             levelMapData = "assets/fall/fall_map1.txt";
             tileSet = "assets/fall/fall_tiles.png";
             playerAnimal = "Turtle";
-            treeNumber = 5;
-            animalTotal = 0;
+            treeNumber = 25;
+            animalTotal = 13;
             Global.waterTiles = [41,42,43,46,48,49,55,56];
             Global.waterEdges = [29,30,35,36];
+            treeTypes = ["cattail1","cattail2"];
         }
     }
 }

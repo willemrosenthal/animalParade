@@ -20,6 +20,14 @@ class Skunk extends Animal
 		width = 12;
 		height = 6;
 
-		animation.play("idleside");
+
+		if (Math.random() < 0.5)  {
+			animation.play("idleside");
+			afacing  = "side";
+		}
+		else {
+		    animation.play("idledown");
+			afacing  = "down";
+		}
 	}
 }

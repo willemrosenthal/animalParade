@@ -33,6 +33,13 @@ class Frog extends Animal
 		width = 6;
 		height = 6;
 
-		animation.play("sit");
+		if (Math.random() < 0.5)  {
+			animation.play("idleside");
+			afacing  = "side";
+		}
+		else {
+		    animation.play("idledown");
+			afacing  = "down";
+		}
 	}
 }

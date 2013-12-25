@@ -13,6 +13,7 @@ class Player extends Animal
 	private var deadzone:Float = 0.13;
 	private var zeroPoint:FlxPoint;
 	private var pfacing:String = "sit";
+	private var vMax:Float = 100;
 
 	public function new(X:Float, Y:Float)
 	{
@@ -34,6 +35,43 @@ class Player extends Animal
 			Global.zeroPoint = zeroPoint;
 		#end
 	}
+
+    function playerSwimming():Void {
+        if (Global.waterTiles.length == 0)
+            return;
+
+        loc = Global.cMap.getTile(Math.floor(x/16),Math.floor(y/16));
+
+        for (t in Global.waterTiles) {
+            if( t == loc ) {
+                sink = true;
+                break;
+            }
+            sink = false;
+        }
+        if (!sink) {
+            if (loc == Global.waterEdges[0]) {
+                if (Math.abs(Math.floor(x/16) - (x/16)) > 0.5 && Math.abs(Math.floor(y/16) - (y/16)) > 0.5)
+                sink = true;
+            }
+            if (loc == Global.waterEdges[1]) {
+                if (Math.abs(Math.floor(x/16) - (x/16)) < 0.5 && Math.abs(Math.floor(y/16) - (y/16)) > 0.5)
+                sink = true;
+            }
+            if (loc == Global.waterEdges[2]) {
+                if (Math.abs(Math.floor(x/16) - (x/16)) > 0.4 && Math.abs(Math.floor(y/16) - (y/16)) < 0.6)
+                sink = true;
+            }
+            if (loc == Global.waterEdges[3]) {
+                if (Math.abs(Math.floor(x/16) - (x/16)) < 0.6 && Math.abs(Math.floor(y/16) - (y/16)) < 0.5)
+                sink = true;
+            }
+        }
+        if (sink) {
+           velocity.x *= 0.6;
+           velocity.y *= 0.6;
+        }
+    }
 
 	override public function update():Void
 	{
@@ -67,7 +105,6 @@ class Player extends Animal
 		else if (FlxG.keyboard.pressed("DOWN", "S"))
 			velocity.y += 3;
 
-
 		if (velocity.x > velocityMax)
 			velocity.x = velocityMax;
 		if (velocity.x < velocityMax * -1)
@@ -84,6 +121,7 @@ class Player extends Animal
 			velocity.y = 0;
 		*/
 
+
 		if (Math.abs(Global.move.x) > 0 || Math.abs(Global.move.y) > 0) {
 			velocity.x = Global.move.x;
 			velocity.y = Global.move.y;
@@ -96,6 +134,8 @@ class Player extends Animal
 				velocity.y = 0;
 			}
 		}
+
+        playerSwimming();
 
         /*
 		if (Math.abs(velocity.x) > Math.abs(velocity.y)) {

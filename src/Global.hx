@@ -2,6 +2,7 @@ package ;
 import flixel.util.FlxPoint;
 import flixel.FlxG;
 import flixel.group.FlxGroup;
+import flixel.tile.FlxTilemap;
 import flixel.addons.tile.FlxTilemapExt;
 
 class Global {
@@ -26,7 +27,7 @@ class Global {
 	static public var gameZoom:Float;
 	static public var game:FlxGroup;
 
-	static public var cMap:FlxTilemapExt;   // current level
+	static public var cMap:FlxTilemap;   // current level
 	static public var waterTiles:Array<Int> = [];
 	static public var waterEdges:Array<Int> = [];
 

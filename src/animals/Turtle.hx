@@ -32,8 +32,13 @@ class Turtle extends Animal
 		//width = 9;
 		//height = 6;
 
-		if (Math.random() < 0.5)
+		if (Math.random() < 0.5)  {
 			animation.play("idleside");
-		else animation.play("idledown");
+			afacing  = "side";
+		}
+		else {
+		    animation.play("idledown");
+			afacing  = "down";
+		}
 	}
 }
