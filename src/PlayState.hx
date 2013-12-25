@@ -54,9 +54,11 @@ class PlayState extends FlxState
 	public var weatherGroup:FlxGroup;
 	public var gameObjects:ObjectsGroup;
 	public var hud:FlxGroup;
+	public var buttons:FlxGroup;
 
 	private var joystickBG:FlxSprite;
 	private var joystick:Joystick;
+	private var more:MoreButton;
 
     private var animalCount:FlxText;
 
@@ -66,7 +68,7 @@ class PlayState extends FlxState
 	private var zoomControl:ZoomCamera;
 
     // level data
-    public var level:String = "fall1";
+    public var level:String = "spring1";
 	private var animals:Array<String>;
 	private var levelMapData:String;
 	private var tileSet:String;
@@ -74,6 +76,7 @@ class PlayState extends FlxState
 	private var treeNumber:Int;
 	private var treeTypes:Array<String>;
 
+    private var levelButtons:Array<LevelButton>;
 
 	private var gameZoom:Float = 5;
 
@@ -81,6 +84,19 @@ class PlayState extends FlxState
 	private var animalsCollected:Int = -1;
 
 	private var music:FlxEmitter;
+
+    public function new(Level:String = "spring1") {
+        super();
+	    level = Level;
+	    clearData();
+    }
+
+    private function clearData():Void {
+        Global.move = new FlxPoint(0,0);
+	    Global.paradeX = [];
+	    Global.paradeY = [];
+	    Global.linePlace = [];
+    }
 
 	override public function create():Void
 	{
@@ -104,6 +120,9 @@ class PlayState extends FlxState
 
 		hud = new FlxGroup();
 		add(hud);
+
+		buttons = new FlxGroup();
+        add(buttons);
 
 		player = new Player(levelMap.width * 0.5,levelMap.height * 0.5);
 		gameObjects.add(player);
@@ -146,6 +165,17 @@ class PlayState extends FlxState
         animalCount.setFormat(null, 8, FlxColor.WHITE, "center", FlxText.BORDER_NONE, FlxColor.BLACK);
         hud.add(animalCount);
 
+        levelButtons = new Array<LevelButton>();
+        var ba:Array<FlxPoint> = [new FlxPoint(7,33), new FlxPoint(68,33)];
+        for (n in 0...Global.levels.length) {
+            levelButtons.push(new LevelButton(ba[n].x,ba[n].y,Global.levels[n]));
+            buttons.add(levelButtons[n]);
+        }
+        buttons.visible = false;
+
+        more = new MoreButton(113,4,buttons);
+        hud.add(more);
+
         //_status = new FlxText(FlxG.width - 160 - 2, 2, 160, "Collect coins.");
         //_status.setFormat(null, 8, FlxColor.WHITE, "right", FlxText.BORDER_NONE, FlxColor.BLACK);
 
@@ -155,6 +185,10 @@ class PlayState extends FlxState
 
 		hud.setAll("scrollFactor", new FlxPoint(0, 0));
 		hud.setAll("cameras", [FlxG.camera]);
+
+
+		buttons.setAll("scrollFactor", new FlxPoint(0, 0));
+		buttons.setAll("cameras", [FlxG.camera]);
 	}
 
 

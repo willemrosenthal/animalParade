@@ -30,8 +30,8 @@ class Skunk extends Animal
 		//offset.y += height;
 		//offset.x += width * 0.5;
 
-		offset.y += height * 0.5;
-		offset.x += width * 0.5; //- 10;
+		offset.y += height * 0.78;
+		offset.x += width * 0.5; - 5;
 		width = 12;
 		height = 6;
 

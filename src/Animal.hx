@@ -23,7 +23,7 @@ class Animal extends FlxSprite
 	private var wTimer:Int = 0;
 	private var wTimerMax:Int = 10;
 
-	public var musicOn:Bool = false;
+	public var musicOn:Bool = true;
 	public var music:FlxEmitter;
 
     public var swimming:Bool = false;

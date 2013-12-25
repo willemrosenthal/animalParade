@@ -33,10 +33,15 @@ class Joystick extends FlxSprite {
 	override public function update():Void {
 		super.update();
 
+
 		if (FlxG.mouse.justPressed && !mouseDown)
 			mouseDown = true;
 		if (FlxG.mouse.justReleased)
 			mouseDown = false;
+
+
+		if (noMove())
+		   return;
 
 		if (!mouseDown) {
 			x = originPoint.x;
@@ -96,4 +101,20 @@ class Joystick extends FlxSprite {
 			y = maxDistance/hyp * yDif * -1 + originPoint.y;
 		}
 	}
+
+	private function noMove():Bool {
+		if (Global.UIopen) {
+		    Global.move.x = 0;
+		    Global.move.y = 0;
+		    mouseDown = false;
+		    return true;
+		}
+
+		// for + button
+		if (FlxG.mouse.screenX > 113 && FlxG.mouse.screenX < 113 + 11 && FlxG.mouse.screenY > 4 && FlxG.mouse.screenY < 4 + 11) {
+		   return true;
+        }
+        return false;
+	}
+
 }

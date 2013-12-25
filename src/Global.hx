@@ -33,6 +33,10 @@ class Global {
 
 	static public var move:FlxPoint = new FlxPoint(0,0);
 
+	static public var UIopen:Bool = false;
+
+    static public var levels:Array<String> = ["spring1","fall1"];
+
 /*
 	static public function playMusic(Music:String):Void
 	{
