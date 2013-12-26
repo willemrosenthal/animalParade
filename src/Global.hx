@@ -30,12 +30,13 @@ class Global {
 	static public var cMap:FlxTilemap;   // current level
 	static public var waterTiles:Array<Int> = [];
 	static public var waterEdges:Array<Int> = [];
+	static public var groundSetA:Array<Int> = [];
 
 	static public var move:FlxPoint = new FlxPoint(0,0);
 
 	static public var UIopen:Bool = false;
 
-    static public var levels:Array<String> = ["spring1","fall1"];
+    static public var levels:Array<String> = ["spring1","fall1","summer1"];
 
 /*
 	static public function playMusic(Music:String):Void

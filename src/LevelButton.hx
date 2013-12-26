@@ -28,7 +28,7 @@ class LevelButton extends Button
 		    animation.play("spring");
 		if (level == "fall1")
 		    animation.play("fall");
-		if (level == "summer")
+		if (level == "summer1")
 		    animation.play("summer");
 		if (level == "winter")
 		    animation.play("winter");
@@ -43,7 +43,7 @@ class LevelButton extends Button
 	{
 		super.update();
 
-        if (released && visible) {
+        if (released && visible && Global.UIopen) {
             Global.UIopen = false;
             FlxG.switchState(new PlayState(level));
         }

@@ -48,6 +48,7 @@ class PlayState extends FlxState
 
 	public var groundGroup:FlxGroup;
 	public var treeGroup:FlxGroup;
+	public var collidingObjects:FlxGroup;
 	public var collideGroup:FlxGroup;
 	public var animalGroup:FlxGroup;
 	public var collectedAnimals:FlxGroup;
@@ -75,6 +76,8 @@ class PlayState extends FlxState
 	private var playerAnimal:String;
 	private var treeNumber:Int;
 	private var treeTypes:Array<String>;
+	private var objectNumber:Int;
+	private var objectTypes:Array<String>;
 
     private var levelButtons:Array<LevelButton>;
 
@@ -85,7 +88,7 @@ class PlayState extends FlxState
 
 	private var music:FlxEmitter;
 
-    public function new(Level:String = "spring1") {
+    public function new(Level:String = "summer1") {
         super();
 	    level = Level;
 	    clearData();
@@ -102,6 +105,8 @@ class PlayState extends FlxState
 	{
 	    levelPresets();
 		buildMap();
+
+        collidingObjects = new FlxGroup();
 
 		Global.game = this;
 		Global.gameZoom = gameZoom;
@@ -145,6 +150,7 @@ class PlayState extends FlxState
 
 		placeAnimals(animalTotal);
 		placeTrees(treeNumber);
+		placeObjects(objectNumber);
 		setupWeather();
 	}
 
@@ -166,7 +172,7 @@ class PlayState extends FlxState
         hud.add(animalCount);
 
         levelButtons = new Array<LevelButton>();
-        var ba:Array<FlxPoint> = [new FlxPoint(7,33), new FlxPoint(68,33)];
+        var ba:Array<FlxPoint> = [new FlxPoint(7,33), new FlxPoint(68,33), new FlxPoint(7,93)];
         for (n in 0...Global.levels.length) {
             levelButtons.push(new LevelButton(ba[n].x,ba[n].y,Global.levels[n]));
             buttons.add(levelButtons[n]);
@@ -222,6 +228,17 @@ class PlayState extends FlxState
             }
         }
 
+
+
+        if (level == "summer1") {
+            var ray:LightRays = new LightRays(0,0);
+            weatherGroup.add(ray);
+            ray = new LightRays(0,0,1);
+            weatherGroup.add(ray);
+            weatherGroup.setAll("scrollFactor", new FlxPoint(0.7, 0));
+            weatherGroup.setAll("cameras", [FlxG.camera]);
+        }
+
 		//weatherGroup.setAll("scrollFactor", new FlxPoint(0, 0));
 		//weatherGroup.setAll("cameras", [FlxG.camera]);
 	}
@@ -241,22 +258,25 @@ class PlayState extends FlxState
 	private function animatingTiles() {
         var tile:AnimatedTile;
         var loc:Array<FlxPoint>;
-        var tiles:Array<Int>;
+        var tiles:Array<Int> = [];
 
-        if (level == "fall1") {
+        if (level == "fall1")
             tiles = [43,48,49,55,56];
+        if (level == "summer1")
+            tiles = [38,40,41,42,43,44,45,46,47,48];
 
+        if (tiles.length > 0) {
             for (n in 0...tiles.length) {
                 if (levelMap.getTileInstances(tiles[n]) != null) {
                     loc = levelMap.getTileCoords(tiles[n],false);
                     for (i in 0...loc.length) {
-                        tile = new AnimatedTile(loc[i].x + 1,loc[i].y + 1,tiles[n]);
+                        tile = new AnimatedTile(loc[i].x + 1,loc[i].y + 1,tiles[n],level);
                         groundGroup.add(tile);
                     }
                 }
             }
-
         }
+
 	}
 
 	private function specialTiles() {
@@ -288,10 +308,27 @@ class PlayState extends FlxState
 
 		for (n in 0...NumTrees) {
 			var tree:Tree = new Tree(Math.random()*lr.width + lr.x, Math.random()*lr.height + lr.y, treeTypes);
-			treeGroup.add(tree);
+			//treeGroup.add(tree);
 			gameObjects.add(tree);
 			var treeShadow:CollideShadow = new CollideShadow(tree.x, tree.y, tree.tree);
 			collideGroup.add(treeShadow);
+		}
+	}
+
+	private function placeObjects(NumObjects:Int) {
+		var lr:FlxRect = levelMap.getBounds();
+        var nextObj:String;
+        var object:WorldObject = new WorldObject(0,0);
+
+        if (objectTypes != null) {
+            for (n in 0...NumObjects) {
+                nextObj = objectTypes[Math.round(Math.random() * (objectTypes.length - 1))];
+                if (nextObj == "innerTube")
+                    object = new InnerTube(Math.random()*lr.width + lr.x, Math.random()*lr.height + lr.y);
+                //gameObjects.add(object);
+                collidingObjects.add(object);
+                collideGroup.add(object);
+            }
 		}
 	}
 
@@ -335,6 +372,8 @@ class PlayState extends FlxState
 
 		//FlxG.collide(player, treeGroup);
 		FlxG.collide(player, collideGroup);
+		FlxG.collide(collidingObjects,collideGroup, bounce);
+		FlxG.collide(player,collidingObjects, bounce);
 		FlxG.overlap(getter, animalGroup, getAnimal);
 
         /*
@@ -348,6 +387,30 @@ class PlayState extends FlxState
 		}
 		*/
 
+	}
+
+	private function bounce(Obj1:FlxSprite,Obj2:FlxSprite):Void {
+	    if ((Std.is(Obj1, InnerTube) || (Std.is(Obj1, Player))) && Std.is(Obj2, InnerTube)) {
+            if (Obj1.x < Obj2.x && Obj1.velocity.x > 0)
+                Obj1.velocity.x *= -1;
+            if (Obj1.x < Obj2.x && Obj2.velocity.x < 0)
+                Obj2.velocity.x *= -1;
+
+            if (Obj1.x > Obj2.x && Obj1.velocity.x < 0)
+                Obj1.velocity.x *= -1;
+            if (Obj1.x > Obj2.x && Obj2.velocity.x > 0)
+                Obj2.velocity.x *= -1;
+
+            if (Obj1.y < Obj2.y && Obj1.velocity.y > 0)
+                Obj1.velocity.y *= -1;
+            if (Obj1.y < Obj2.y && Obj2.velocity.y < 0)
+                Obj2.velocity.y *= -1;
+
+            if (Obj1.y > Obj2.y && Obj1.velocity.y < 0)
+                Obj1.velocity.y *= -1;
+            if (Obj1.y > Obj2.y && Obj2.velocity.y > 0)
+                Obj2.velocity.y *= -1;
+        }
 	}
 
 	private function getAnimal(Player:FlxSprite,Animal:Animal):Void {
@@ -403,12 +466,26 @@ class PlayState extends FlxState
             animals = ["Turtle","Frog","Skunk"]; //"Skunk"
             levelMapData = "assets/fall/fall_map1.txt";
             tileSet = "assets/fall/fall_tiles.png";
-            playerAnimal = "Skunk";
+            playerAnimal = "Frog";
             treeNumber = 25;
             animalTotal = 13;
             Global.waterTiles = [41,42,43,46,48,49,55,56];
             Global.waterEdges = [29,30,35,36];
             treeTypes = ["cattail1","cattail2"];
+        }
+        if (level == "summer1") {
+            animals = ["Turtle","Frog"];
+            levelMapData = "assets/summer/summer_map1.txt";
+            tileSet = "assets/summer/summer_tiles.png";
+            playerAnimal = "Frog";
+            treeNumber = 8;
+            objectNumber = 9;
+            animalTotal = 13;
+            Global.waterTiles = [39,48];
+            Global.groundSetA = [1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36];
+            //Global.waterEdges = [29,30,35,36];
+            treeTypes = ["palm"];
+            objectTypes = ["innerTube"];
         }
     }
 }

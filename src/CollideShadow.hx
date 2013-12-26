@@ -6,10 +6,13 @@ import flixel.util.FlxPoint;
 
 class CollideShadow extends FlxSprite
 {
+    private var type:String;
+
 	public function new(X:Float, Y:Float, Type:String)
 	{
 		super(X, Y);
 
+        type = Type;
 
 		var image:String = "";
 		if (Type == "summer") {
@@ -28,14 +31,25 @@ class CollideShadow extends FlxSprite
 		    //animation.add("flow",   [0, 1], 1);
 		    //animation.play("flow");
 		}
+		if (Type == "palm") {
+			image = "assets/summer/palm_shadow.png";
+			loadGraphic(image, false, false, 19,8);
+		}
 
 		x -= width * 0.5;
 		y -= height * 0.5;
+
+        adjustments();
 
 		moves = false;
 		immovable = true;
 	}
 
+    private function adjustments():Void {
+		if (type == "palm") {
+			//y -= 1;
+		}
+    }
 
 	override public function update():Void
 	{

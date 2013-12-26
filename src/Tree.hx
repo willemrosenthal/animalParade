@@ -49,6 +49,14 @@ class Tree extends FlxSprite
 			}
 
 		}
+		if (tree == "palm") {
+			image = "assets/summer/palm2.png";
+			loadGraphic(image, false, false, 62,67);
+			while (!onlyOnTheseTiles(x,y,Global.groundSetA) && !onlyOnTheseTiles(x+16,y,Global.groundSetA))  {
+			    x = Math.random()*lr.width + lr.x;
+			    y = Math.random()*lr.height + lr.y;
+			}
+		}
 
 		//scale= new FlxPoint(1.5,1.5);
 		offset.y += height;
