@@ -64,8 +64,8 @@ class Joystick extends FlxSprite {
 		moveDirs.y = 0;
 
 		if (xDif==0 || yDif==0) {
-			moveDirs.x = xDif;
-			moveDirs.y = yDif;
+			moveDirs.x = xDif * -1;
+			moveDirs.y = yDif * -1;
 			return moveDirs;
 		}
 

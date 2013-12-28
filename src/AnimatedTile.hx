@@ -93,6 +93,48 @@ class AnimatedTile extends FlxSprite
                 loadGraphic(image, true, false, 16,16);
                 animation.add("animate",   [0,1,2,1], 2);
             }
+
+            // blue water
+            if (Type == 51) {
+                image = "assets/summer/shimmer2.png";
+                loadGraphic(image, true, false, 16,16);
+                animation.add("animate",   [0,1,2,1], 3);
+            }
+            if (Type == 49) { // left water
+                image = "assets/summer/wave_blue.png";
+                loadGraphic(image, true, false, 16,16);
+                animation.add("animate",   [0,2,4,6,6,4,2,0], 3);
+            }
+            if (Type == 57) {
+                image = "assets/summer/wave_blue.png";
+                loadGraphic(image, true, false, 16,16);
+                animation.add("animate",   [8,10,12,14,14,12,10,8], 3);
+            }
+            if (Type == 53) {
+                image = "assets/summer/wave_blue.png";
+                loadGraphic(image, true, false, 16,16);
+                animation.add("animate",   [18,18,20,22,22,20,18,18], 3);
+            }
+            if (Type == 59) {
+                image = "assets/summer/wave_blue.png";
+                loadGraphic(image, true, false, 16,16);
+                animation.add("animate",   [24,26,28,30,30,28,26,24], 3);
+            }
+            if (Type == 55) {
+                image = "assets/summer/wave_blue.png";
+                loadGraphic(image, true, false, 16,16);
+                animation.add("animate",   [44,44,42,40,40,42,44,44], 3);
+            }
+            if (Type == 63) {
+                image = "assets/summer/wave_blue.png";
+                loadGraphic(image, true, false, 16,16);
+                animation.add("animate",   [38,36,34,32,32,34,36,38,], 3);
+            }
+            if (Type == 61) {
+                image = "assets/summer/wave_blue.png";
+                loadGraphic(image, true, false, 16,16);
+                animation.add("animate",   [52,50,48,46,46,48,50,52], 3);
+            }
 		}
 
 		animation.play("animate");

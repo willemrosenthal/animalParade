@@ -235,7 +235,7 @@ class PlayState extends FlxState
             weatherGroup.add(ray);
             ray = new LightRays(0,0,1);
             weatherGroup.add(ray);
-            weatherGroup.setAll("scrollFactor", new FlxPoint(0.7, 0));
+            weatherGroup.setAll("scrollFactor", new FlxPoint(0.25, .1));
             weatherGroup.setAll("cameras", [FlxG.camera]);
         }
 
@@ -263,7 +263,7 @@ class PlayState extends FlxState
         if (level == "fall1")
             tiles = [43,48,49,55,56];
         if (level == "summer1")
-            tiles = [38,40,41,42,43,44,45,46,47,48];
+            tiles = [38,40,41,42,43,44,45,46,47,48,49,51,52,53,54,55,56,57,58,59,60,61,62,63,64];
 
         if (tiles.length > 0) {
             for (n in 0...tiles.length) {
@@ -460,6 +460,9 @@ class PlayState extends FlxState
             playerAnimal = "Bunny";
             treeNumber = 15;
             animalTotal = 13;
+            Global.waterTiles = [];
+            Global.waterEdges = [];
+            Global.groundSetA = [];
             treeTypes = ["cherry"];
         }
         if (level == "fall1") {
@@ -471,6 +474,7 @@ class PlayState extends FlxState
             animalTotal = 13;
             Global.waterTiles = [41,42,43,46,48,49,55,56];
             Global.waterEdges = [29,30,35,36];
+            Global.groundSetA = [];
             treeTypes = ["cattail1","cattail2"];
         }
         if (level == "summer1") {
@@ -478,12 +482,12 @@ class PlayState extends FlxState
             levelMapData = "assets/summer/summer_map1.txt";
             tileSet = "assets/summer/summer_tiles.png";
             playerAnimal = "Frog";
-            treeNumber = 8;
+            treeNumber = 20;
             objectNumber = 9;
             animalTotal = 13;
-            Global.waterTiles = [39,48];
+            Global.waterTiles = [39,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64];
+            Global.waterEdges = [];
             Global.groundSetA = [1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36];
-            //Global.waterEdges = [29,30,35,36];
             treeTypes = ["palm"];
             objectTypes = ["innerTube"];
         }
