@@ -484,7 +484,7 @@ class PlayState extends FlxState
             levelMapData = "assets/summer/summer_map1.txt";
             tileSet = "assets/summer/summer_tiles.png";
             playerAnimal = "Monkey";
-            treeNumber = 20;
+            treeNumber = 30;
             objectNumber = 9;
             animalTotal = 13;
             Global.waterTiles = [39,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64];
