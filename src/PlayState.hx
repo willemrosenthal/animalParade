@@ -26,6 +26,7 @@ import animals.Bunny;
 import animals.Bee;
 import animals.Turtle;
 import animals.Monkey;
+import animals.Bird;
 
 #if cpp
 import openfl.ui.Accelerometer;
@@ -479,7 +480,7 @@ class PlayState extends FlxState
             treeTypes = ["cattail1","cattail2"];
         }
         if (level == "summer1") {
-            animals = ["Turtle","Monkey"];
+            animals = ["Bird","Monkey"];
             levelMapData = "assets/summer/summer_map1.txt";
             tileSet = "assets/summer/summer_tiles.png";
             playerAnimal = "Monkey";
