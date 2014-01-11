@@ -7,7 +7,7 @@ class Bird extends Animal
 
 		followDistance = 18;
 
-		loadGraphic("assets/summer/bird.png", true, true, 13,20);
+		loadGraphic("assets/summer/bird.png", true, true, 13,16);
 		animation.add("sit", [0]);
 		animation.add("idleside", [9]);
 		animation.add("idledown", [10]);
