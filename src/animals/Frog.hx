@@ -41,5 +41,10 @@ class Frog extends Animal
 		    animation.play("idledown");
 			afacing  = "down";
 		}
-	}
+
+        soundTimer = 40;
+        soundTime = 60;
+        soundMoving = 40;
+        soundArray = ["assets/sounds/e/e1.wav","assets/sounds/e/e2.wav","assets/sounds/e/e3.wav","assets/sounds/e/e4.wav","assets/sounds/e/e5.wav","assets/sounds/e/e6.wav","assets/sounds/e/e7.wav","assets/sounds/e/e8.wav","assets/sounds/e/e9.wav","assets/sounds/e/e10.wav"];
+    }
 }

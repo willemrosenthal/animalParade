@@ -44,5 +44,9 @@ class Skunk extends Animal
 		    animation.play("idledown");
 			afacing  = "down";
 		}
+        soundTimer = 80;
+        soundTime = 120;
+        soundMoving = 80;
+        soundArray = ["assets/sounds/d/d1.wav","assets/sounds/d/d2.wav","assets/sounds/d/d3.wav","assets/sounds/d/d4.wav","assets/sounds/d/d5.wav","assets/sounds/d/d6.wav","assets/sounds/d/d7.wav","assets/sounds/d/d8.wav"];
 	}
 }

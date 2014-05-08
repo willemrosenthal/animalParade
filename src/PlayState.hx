@@ -12,12 +12,12 @@ import flixel.util.FlxColor;
 import flixel.util.FlxPoint;
 import flixel.text.FlxText;
 import flixel.tile.FlxTilemap;
-import flixel.addons.tile.FlxTilemapExt;
-import flixel.addons.tile.FlxTileSpecial;
+//import flixel.addons.tile.FlxTileSpecial;
 import flixel.ui.FlxButton;
 import flixel.util.FlxSpriteUtil;
 import openfl.Assets;
 import flixel.effects.particles.FlxEmitter;
+import flixel.system.FlxSound;
 
 import animals.Frog;
 import animals.Fox;
@@ -94,6 +94,7 @@ class PlayState extends FlxState
         super();
 	    level = Level;
 	    clearData();
+        setMusic();
     }
 
     private function clearData():Void {
@@ -281,6 +282,7 @@ class PlayState extends FlxState
 
 	}
 
+    /*
 	private function specialTiles() {
 	    var sa:Array<FlxTileSpecial> = new Array<FlxTileSpecial>();
         if (level == "fall1") {
@@ -302,6 +304,7 @@ class PlayState extends FlxState
             //levelMap.setSpecialTiles(sa);
         }
 	}
+	*/
 
 
 	private function placeTrees(NumTrees:Int) {
@@ -453,6 +456,34 @@ class PlayState extends FlxState
 		return totalDistance;
 	}
 
+    private function setMusic():Void
+    {
+        if (level == "summer1") {                       // ["spring1","fall1","summer1"]
+            playMusic("assets/sounds/ambiant/beach.mp3",1.4);
+            playMusic("assets/sounds/ambiant/beach2.mp3",1.4);
+        }
+        if (level == "fall1")
+            playMusic("assets/sounds/ambiant/rain4_l.mp3",0.5);
+
+         if (level == "spring1") {
+             playMusic("assets/sounds/ambiant/spring1.wav",0.8);
+             playMusic("assets/sounds/ambiant/spring3.mp3",0.8);
+        }
+
+    }
+
+    private var bgmusic:FlxSound;
+    private function playMusic(Music:String, Vol:Float = 1):Void
+    {
+        bgmusic = new FlxSound();
+        add(bgmusic);
+
+        bgmusic.loadEmbedded(Music, true);
+        bgmusic.survive = true;
+        bgmusic.fadeIn(0.5);
+        bgmusic.play();
+        bgmusic.volume = Vol;
+    }
 
 	private function levelPresets():Void {
         if (level == "spring1") {

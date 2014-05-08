@@ -20,8 +20,22 @@
     <haxelib name="openfl" />
     <haxelib name="flixel"/>
 
-    <icon path="assets/icon.png" size="57" ></icon>
-    <icon path="assets/Icon@2x.png" size="114" ></icon>
+
+    <icon path="assets/Icon.png" size="57" unless="android"></icon>
+    <icon path="assets/Icon@2x.png" size="114" unless="android"></icon>
+    <icon path="assets/Icon-60.png" size="60" unless="android"></icon>
+    <icon path="assets/Icon-60@2x.png" size="120" unless="android"></icon>
+    <icon path="assets/Icon-72.png" size="72" unless="android"></icon>
+    <icon path="assets/Icon-72@2x.png" size="144" unless="android"></icon>
+    <icon path="assets/Icon-76.png" size="76" unless="android"></icon>
+    <icon path="assets/Icon-76@2x.png" size="152" unless="android"></icon>
+
+
+    <icon path="assets/36.png" size="36" if="android"></icon>
+    <icon path="assets/48.png" size="48" if="android"></icon>
+    <icon path="assets/72.png" size="72" if="android"></icon>
+    <icon path="assets/96.png" size="96" if="android"></icon>
+    <icon path="assets/android_artwork.png" size="512" if="android"></icon>
 
     <!--In case you want to use the addons package-->
     <!--<haxelib name="flixel-addons" />-->

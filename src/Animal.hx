@@ -35,8 +35,15 @@ class Animal extends FlxSprite
 	private var afacing:String = "sit";
 	private var still = true;
 
+    public var soundTimer:Int = 40;
+    public var soundTime:Int = 40;
+    public var soundMoving:Int = 20;
+    public var soundArray:Array<String>;
+    public var vol:Float = 0.5;
+
 	public function new(X:Float, Y:Float)
 	{
+        soundArray = [""];
 		super(X, Y);
 		lastPos = new FlxPoint(X,Y);
 		emitter();
@@ -52,6 +59,9 @@ class Animal extends FlxSprite
 	private var moveDifY:Float;
 	override public function update():Void {
 		super.update();
+
+        if (pickedUp)
+            soundCounter();
 
 		if (pickedUp) {
 		    x = Global.paradeX[fd];
@@ -209,4 +219,20 @@ class Animal extends FlxSprite
          //music.setAlpha(0.5, 0.5, 1, 1);
          Global.game.add(music);
      }
+
+    private function soundCounter():Void {
+        soundTimer --;
+        if (soundTimer == 0) {
+            chooseSound();
+            soundTimer = soundTime;
+            if (!still)
+                soundTimer = soundMoving;
+        }
+    }
+
+    private function chooseSound():Void {
+        if (soundArray.length <= 1)
+            return;
+        FlxG.sound.play(soundArray[Math.round(Math.random() * (soundArray.length - 1))], vol, false);
+    }
 }

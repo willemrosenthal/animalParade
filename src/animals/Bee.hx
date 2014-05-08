@@ -1,4 +1,5 @@
 package animals;
+import flixel.FlxG;
 class Bee extends Animal
 {
 	public function new(X:Float = 0, Y:Float = 0)
@@ -23,5 +24,10 @@ class Bee extends Animal
 		if (Math.random() < 0.5)
 			animation.play("idleside");
 		else animation.play("idledown");
+
+        soundTimer = 50;
+        soundTime = 80;
+        soundMoving = 50;
+        soundArray = ["assets/sounds/b/b1.wav","assets/sounds/b/b2.wav","assets/sounds/b/b3.wav","assets/sounds/b/b4.wav","assets/sounds/b/b5.wav","assets/sounds/b/b6.wav"];
 	}
 }

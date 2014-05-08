@@ -40,5 +40,9 @@ class Turtle extends Animal
 		    animation.play("idledown");
 			afacing  = "down";
 		}
-	}
+        soundTimer = 140;
+        soundTime = 140;
+        soundMoving = 100;
+        soundArray = ["assets/sounds/f/f1.wav","assets/sounds/f/f2.wav","assets/sounds/f/f3.wav","assets/sounds/f/f4.wav"];
+    }
 }

@@ -3,7 +3,7 @@ import flixel.util.FlxPoint;
 import flixel.FlxG;
 import flixel.group.FlxGroup;
 import flixel.tile.FlxTilemap;
-import flixel.addons.tile.FlxTilemapExt;
+//import flixel.addons.tile.FlxTilemapExt;
 
 class Global {
 
