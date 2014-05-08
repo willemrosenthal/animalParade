@@ -28,6 +28,6 @@ class Bee extends Animal
         soundTimer = 50;
         soundTime = 80;
         soundMoving = 50;
-        soundArray = ["assets/sounds/b/b1.wav","assets/sounds/b/b2.wav","assets/sounds/b/b3.wav","assets/sounds/b/b4.wav","assets/sounds/b/b5.wav","assets/sounds/b/b6.wav"];
+        soundArray = ["assets/sounds/b/b3.wav","assets/sounds/b/b4.wav","assets/sounds/b/b5.wav","assets/sounds/b/b6.wav"];
 	}
 }
