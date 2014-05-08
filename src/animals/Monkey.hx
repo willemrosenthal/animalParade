@@ -60,5 +60,9 @@ class Monkey extends Animal
 		    animation.play("idledown");
 			afacing  = "down";
 		}
-	}
+        soundTimer = 100;
+        soundTime = 150;
+        soundMoving = 65;
+        soundArray = ["assets/sounds/g/g1.wav","assets/sounds/g/g2.wav","assets/sounds/g/g3.wav","assets/sounds/g/g4.wav","assets/sounds/g/g5.wav","assets/sounds/g/g6.wav","assets/sounds/g/g7.wav","assets/sounds/g/g8.wav","assets/sounds/g/g9.wav","assets/sounds/g/g10.wav","assets/sounds/g/g11.wav","assets/sounds/g/g12.wav","assets/sounds/g/g13.wav","assets/sounds/g/g14.wav"];
+    }
 }

@@ -44,6 +44,6 @@ class Bird extends Animal
         soundTimer = 100;
         soundTime = 140;
         soundMoving = 100;
-        soundArray = ["assets/sounds/b/b1.wav","assets/sounds/b/b2.wav","assets/sounds/b/b3.wav","assets/sounds/b/b4.wav","assets/sounds/b/b5.wav","assets/sounds/b/b6.wav"];
+        soundArray = ["assets/sounds/b/b3.wav","assets/sounds/b/b4.wav","assets/sounds/b/b5.wav","assets/sounds/b/b6.wav"];
     }
 }
