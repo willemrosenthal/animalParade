@@ -487,10 +487,12 @@ class PlayState extends FlxState
         if (level == "fall1")
             playMusic("assets/sounds/ambiant/rain4_l.mp3",0.5);
 
-         if (level == "spring1") {
+        if (level == "spring1") {
              playMusic("assets/sounds/ambiant/spring1.wav",0.8);
              playMusic("assets/sounds/ambiant/spring3.mp3",0.8);
         }
+        if (level == "winter1")
+            playMusic("assets/sounds/ambiant/wintermix.mp3",0.5);
 
     }
 
