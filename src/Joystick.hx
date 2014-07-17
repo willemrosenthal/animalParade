@@ -39,6 +39,9 @@ class Joystick extends FlxSprite {
 		if (FlxG.mouse.justReleased)
 			mouseDown = false;
 
+        if (Global.UIopen)
+            visible = false;
+        else visible = true;
 
 		if (noMove())
 		   return;

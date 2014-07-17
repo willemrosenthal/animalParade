@@ -374,6 +374,11 @@ class PlayState extends FlxState
 		gameObjects.zSort();
 
 
+        // hide joystick while buttons are up
+        if (Global.UIopen)
+            joystickBG.visible = false;
+        else joystickBG.visible = true;
+
 		getter.x = player.x - getter.width * 0.5;
 		getter.y = player.y - getter.height * 0.5;
 

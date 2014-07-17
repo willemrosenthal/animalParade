@@ -21,6 +21,13 @@ class MoreButton extends Button
 		animation.add("plus", [0]);
 		animation.add("x", [1]);
 		animation.play("plus");
+
+        offset.x -= width * 0.4;
+        offset.y -= height * 0.4;
+        x -= width * 0.4;
+        y -= height * 0.4;
+        width *= 1.8;
+        height *= 1.8;
 	}
 
 
