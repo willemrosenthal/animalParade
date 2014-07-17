@@ -139,16 +139,12 @@ class Player extends Animal
         else { // winter controlls
             iceCheck();
             if ((Math.abs(Global.move.x) > 0 || Math.abs(Global.move.y) > 0) && !Global.onIce) {
-                velocity.x += Global.move.x * 0.1;
-                velocity.y += Global.move.y * 0.1;
-                if (velocity.x > 50)
-                    velocity.x = 50;
-                if (velocity.x < -50)
-                    velocity.x = -50;
-                if (velocity.y > 50)
-                    velocity.y = 50;
-                if (velocity.y < -50)
-                    velocity.y = -50;
+                velocity.x += Global.move.x * 0.25;
+                velocity.y += Global.move.y * 0.25;
+                if ((Global.move.x > 0 && velocity.x > Global.move.x) || (Global.move.x < 0 && velocity.x < Global.move.x))
+                    velocity.x = Global.move.x;
+                if ((Global.move.y > 0 && velocity.y > Global.move.y) || (Global.move.y < 0 && velocity.y < Global.move.y))
+                    velocity.y = Global.move.y;
             }
             else if (Math.abs(Global.move.x) == 0 && Math.abs(Global.move.y) == 0 && !Global.onIce) {
                 velocity.x *= 0.65;
@@ -159,16 +155,12 @@ class Player extends Animal
                 }
             }
             if ((Math.abs(Global.move.x) > 0 || Math.abs(Global.move.y) > 0) && Global.onIce) {
-                velocity.x += Global.move.x * 0.025;
-                velocity.y += Global.move.y * 0.025;
-                if (velocity.x > 50)
-                    velocity.x = 50;
-                if (velocity.x < -50)
-                    velocity.x = -50;
-                if (velocity.y > 50)
-                    velocity.y = 50;
-                if (velocity.y < -50)
-                    velocity.y = -50;
+                velocity.x += Global.move.x * 0.032;
+                velocity.y += Global.move.y * 0.032;
+                if ((Global.move.x > 0 && velocity.x > Global.move.x) || (Global.move.x < 0 && velocity.x < Global.move.x))
+                    velocity.x = Global.move.x;
+                if ((Global.move.y > 0 && velocity.y > Global.move.y) || (Global.move.y < 0 && velocity.y < Global.move.y))
+                    velocity.y = Global.move.y;
             }
             else if (Math.abs(Global.move.x) == 0 && Math.abs(Global.move.y) == 0 && Global.onIce) {
                 velocity.x *= 0.98;

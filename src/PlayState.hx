@@ -28,6 +28,7 @@ import animals.Turtle;
 import animals.Monkey;
 import animals.Bird;
 import animals.Boar;
+import animals.Hedgehog;
 
 #if cpp
 import openfl.ui.Accelerometer;
@@ -541,7 +542,7 @@ class PlayState extends FlxState
             objectTypes = ["innerTube"];
         }
         if (level == "winter1") {
-            animals = ["Boar","Monkey"];
+            animals = ["Boar","Hedgehog"];
             levelMapData = "assets/winter/winter.txt";
             tileSet = "assets/winter/winterset.png";
             playerAnimal = "Boar";

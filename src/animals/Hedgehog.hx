@@ -1,19 +1,19 @@
 package animals;
-class Boar extends Animal
+class Hedgehog extends Animal
 {
 	public function new(X:Float = 0, Y:Float = 0)
 	{
 		super(X, Y);
 
-		followDistance = 18;
+		followDistance = 12;
 
-		loadGraphic("assets/winter/boar.png", true, true, 22,14);
-		animation.add("idleside", [12,13],5);
-		animation.add("idledown", [14]);
-		animation.add("idleup",   [15]);
-		animation.add("runside", [0,1,2,3], 7);
-		animation.add("rundown", [4,5,6,7], 7);
-		animation.add("runup",   [8,9,10,11], 7);
+		loadGraphic("assets/winter/hedgehog.png", true, true, 14,9);
+		animation.add("idleside", [12]);
+		animation.add("idledown", [13]);
+		animation.add("idleup",   [14]);
+		animation.add("runside", [0,1,2,3], 15);
+		animation.add("rundown", [4,5,6,7], 15);
+		animation.add("runup",   [8,9,10,11], 15);
 
 
 		swimming = false;
