@@ -122,18 +122,63 @@ class Player extends Animal
 		*/
 
 
-		if (Math.abs(Global.move.x) > 0 || Math.abs(Global.move.y) > 0) {
-			velocity.x = Global.move.x;
-			velocity.y = Global.move.y;
-		}
-		else if (Math.abs(Global.move.x) == 0 && Math.abs(Global.move.y) == 0) {
-			velocity.x *= 0.65;
-			velocity.y *= 0.65;
-			if (Math.abs(velocity.x) < 0.1 &&  Math.abs(velocity.x) > -0.1 && Math.abs(velocity.y) < 0.1 &&  Math.abs(velocity.y) > -0.1) {
-				velocity.x = 0;
-				velocity.y = 0;
-			}
-		}
+        if (Global.iceTiles.length == 0) {
+            if (Math.abs(Global.move.x) > 0 || Math.abs(Global.move.y) > 0) {
+                velocity.x = Global.move.x;
+                velocity.y = Global.move.y;
+            }
+            else if (Math.abs(Global.move.x) == 0 && Math.abs(Global.move.y) == 0) {
+                velocity.x *= 0.65;
+                velocity.y *= 0.65;
+                if (Math.abs(velocity.x) < 0.1 &&  Math.abs(velocity.x) > -0.1 && Math.abs(velocity.y) < 0.1 &&  Math.abs(velocity.y) > -0.1) {
+                    velocity.x = 0;
+                    velocity.y = 0;
+                }
+            }
+        }
+        else { // winter controlls
+            iceCheck();
+            if ((Math.abs(Global.move.x) > 0 || Math.abs(Global.move.y) > 0) && !Global.onIce) {
+                velocity.x += Global.move.x * 0.1;
+                velocity.y += Global.move.y * 0.1;
+                if (velocity.x > 50)
+                    velocity.x = 50;
+                if (velocity.x < -50)
+                    velocity.x = -50;
+                if (velocity.y > 50)
+                    velocity.y = 50;
+                if (velocity.y < -50)
+                    velocity.y = -50;
+            }
+            else if (Math.abs(Global.move.x) == 0 && Math.abs(Global.move.y) == 0 && !Global.onIce) {
+                velocity.x *= 0.65;
+                velocity.y *= 0.65;
+                if (Math.abs(velocity.x) < 0.1 &&  Math.abs(velocity.x) > -0.1 && Math.abs(velocity.y) < 0.1 &&  Math.abs(velocity.y) > -0.1) {
+                    velocity.x = 0;
+                    velocity.y = 0;
+                }
+            }
+            if ((Math.abs(Global.move.x) > 0 || Math.abs(Global.move.y) > 0) && Global.onIce) {
+                velocity.x += Global.move.x * 0.025;
+                velocity.y += Global.move.y * 0.025;
+                if (velocity.x > 50)
+                    velocity.x = 50;
+                if (velocity.x < -50)
+                    velocity.x = -50;
+                if (velocity.y > 50)
+                    velocity.y = 50;
+                if (velocity.y < -50)
+                    velocity.y = -50;
+            }
+            else if (Math.abs(Global.move.x) == 0 && Math.abs(Global.move.y) == 0 && Global.onIce) {
+                velocity.x *= 0.98;
+                velocity.y *= 0.98;
+                if (Math.abs(velocity.x) < 0.1 &&  Math.abs(velocity.x) > -0.1 && Math.abs(velocity.y) < 0.1 &&  Math.abs(velocity.y) > -0.1) {
+                    velocity.x = 0;
+                    velocity.y = 0;
+                }
+            }
+        }
 
         playerSwimming();
 
@@ -166,12 +211,64 @@ class Player extends Animal
 			Global.paradeY.pop();
 		}
 
+
+
+        if ((x < 5 && velocity.x < 0) || (x > FlxG.worldBounds.width - 5 && velocity.x > 0))
+            velocity.x = 0;
+        if ((y < 5 && velocity.y < 0) || (y > FlxG.worldBounds.height - 5 && velocity.y > 0))
+            velocity.y = 0;
+        /*
 		if (x + velocity.x*FlxG.elapsed < 5 || x + velocity.x*FlxG.elapsed > FlxG.worldBounds.width - 5)
 		      velocity.x = 0;
 		if (y + velocity.y*FlxG.elapsed < 5 || y + velocity.y*FlxG.elapsed > FlxG.worldBounds.height - 5)
 		      velocity.y = 0;
+		*/
 
 		x += velocity.x*FlxG.elapsed;
 		y += velocity.y*FlxG.elapsed;
 	}
+
+
+
+
+    override function iceCheck():Void {
+        if (Global.iceTiles.length == 0)
+            return;
+
+        loc = Global.cMap.getTile(Math.floor(x/16),Math.floor(y/16));
+
+        for (t in Global.iceTiles) {
+            if( t == loc ) {
+                Global.onIce = true;
+                break;
+            }
+            Global.onIce = false;
+        }
+        /*
+        if (!sink) {
+            if (loc == Global.waterEdges[0]) {
+                if (Math.abs(Math.floor(x/16) - (x/16)) > 0.5 && Math.abs(Math.floor(y/16) - (y/16)) > 0.5)
+                    sink = true;
+            }
+            if (loc == Global.waterEdges[1]) {
+                if (Math.abs(Math.floor(x/16) - (x/16)) < 0.5 && Math.abs(Math.floor(y/16) - (y/16)) > 0.5)
+                    sink = true;
+            }
+            if (loc == Global.waterEdges[2]) {
+                if (Math.abs(Math.floor(x/16) - (x/16)) > 0.4 && Math.abs(Math.floor(y/16) - (y/16)) < 0.6)
+                    sink = true;
+            }
+            if (loc == Global.waterEdges[3]) {
+                if (Math.abs(Math.floor(x/16) - (x/16)) < 0.6 && Math.abs(Math.floor(y/16) - (y/16)) < 0.5)
+                    sink = true;
+            }
+        }
+        if (sink) {
+            velocity.x *= 0.6;
+            velocity.y *= 0.6;
+        }
+        */
+    }
+
+
 }

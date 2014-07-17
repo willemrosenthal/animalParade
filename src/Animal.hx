@@ -41,6 +41,8 @@ class Animal extends FlxSprite
     public var soundArray:Array<String>;
     public var vol:Float = 0.5;
 
+    private var onIce:Bool = false;
+
 	public function new(X:Float, Y:Float)
 	{
         soundArray = [""];
@@ -114,7 +116,10 @@ class Animal extends FlxSprite
 		if (swimming)
 		    swimCheck();
 
-        if (!sink) {
+        if (Global.iceTiles.length > 0 && pickedUp)
+            iceCheck();
+
+        if (!sink && !onIce) {
             if (Math.abs(moveDifX) > Math.abs(moveDifY)) {
                 if (moveDifX < 0)
                     facing = FlxObject.RIGHT;
@@ -135,7 +140,6 @@ class Animal extends FlxSprite
             else if (afacing == "down" && still) animation.play("idledown");
             else if (afacing == "up" && still) animation.play("idleup");
         }
-
 
 		lastPos.x = x;
 		lastPos.y = y;
@@ -199,6 +203,26 @@ class Animal extends FlxSprite
         	else if (afacing == "down" && still) animation.play("idledowns");
         	else if (afacing == "up" && still) animation.play("idleups");
 
+        }
+    }
+
+    function iceCheck():Void {
+        if (Global.iceTiles.length == 0)
+            return;
+        loc = Global.cMap.getTile(Math.floor(x/16),Math.floor(y/16));
+
+        onIce = false;
+
+        if (Global.move.x == 0 && Global.move.y == 0) {
+            for (t in Global.iceTiles) {
+                if( t == loc ) {
+                    onIce = true;
+                    if (afacing == "side") animation.play("idleside");
+                    else if (afacing == "down") animation.play("idledown");
+                    else if (afacing == "up") animation.play("idleup");
+                    break;
+                }
+            }
         }
     }
 

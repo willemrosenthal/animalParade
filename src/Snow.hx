@@ -40,6 +40,7 @@ class Snow extends WeatherParticle
         timerMax = Math.round(Math.random() * 200 + 100);
 
 		moves = true;
+        //stickToScreen = true;
 	}
 
 

@@ -103,6 +103,8 @@ class PlayState extends FlxState
 	    Global.paradeX = [];
 	    Global.paradeY = [];
 	    Global.linePlace = [];
+        Global.onIce = false;
+        Global.iceTiles = [];
     }
 
 	override public function create():Void
@@ -245,17 +247,16 @@ class PlayState extends FlxState
         }
 
         if (level == "winter1") {
-            for (n in 0...Math.round(Math.random() * 500 + 300)) {
-                //var pollen:Pollen = new Pollen(Math.random()* FlxG.width, Math.random()* FlxG.height);
+            for (n in 0...Math.round(Math.random() * 600 + 300)) {
                 var snow:Snow = new Snow(Math.random()*lr.width + lr.x, Math.random()*lr.height + lr.y);
+                //var snow:Snow = new Snow(Math.random()*FlxG.width, Math.random()*FlxG.height);
                 weatherGroup.add(snow);
             }
+            //weatherGroup.setAll("scrollFactor", new FlxPoint(0, 0));
+            //weatherGroup.setAll("cameras", [FlxG.camera]);
         }
 
-		//weatherGroup.setAll("scrollFactor", new FlxPoint(0, 0));
-		//weatherGroup.setAll("cameras", [FlxG.camera]);
 	}
-
 
 	private function buildMap():Void {
 		levelMap = new FlxTilemap();
@@ -547,7 +548,7 @@ class PlayState extends FlxState
             treeNumber = 30;
             objectNumber = 9;
             animalTotal = 13;
-            Global.waterTiles = [];
+            Global.iceTiles = [13,16,17,18,19,20,21,25,26,27,28,30,31,32,33];
             Global.waterEdges = [];
             Global.groundSetA = [1,3,4,5];
             treeTypes = ["evergreen"];

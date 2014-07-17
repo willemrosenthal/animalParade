@@ -31,12 +31,15 @@ class Global {
 	static public var waterTiles:Array<Int> = [];
 	static public var waterEdges:Array<Int> = [];
 	static public var groundSetA:Array<Int> = [];
+    static public var iceTiles:Array<Int> = [];
 
 	static public var move:FlxPoint = new FlxPoint(0,0);
 
 	static public var UIopen:Bool = false;
 
     static public var levels:Array<String> = ["spring1","fall1","summer1","winter1"];
+
+    static public var onIce:Bool = false;
 
 /*
 	static public function playMusic(Music:String):Void
