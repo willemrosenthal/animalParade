@@ -35,6 +35,11 @@ class CollideShadow extends FlxSprite
 			image = "assets/summer/palm_shadow.png";
 			loadGraphic(image, false, false, 19,8);
 		}
+        if (Type == "evergreen") {
+            image = "assets/winter/evergreen_shadow.png";
+            loadGraphic(image, false, false, 27,12);
+            y -= 2;
+        }
 
 		x -= width * 0.5;
 		y -= height * 0.5;

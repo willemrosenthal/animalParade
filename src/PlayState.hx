@@ -71,7 +71,7 @@ class PlayState extends FlxState
 	private var zoomControl:ZoomCamera;
 
     // level data
-    public var level:String = "spring1";
+    public var level:String = "winter1";
 	private var animals:Array<String>;
 	private var levelMapData:String;
 	private var tileSet:String;
@@ -90,7 +90,7 @@ class PlayState extends FlxState
 
 	private var music:FlxEmitter;
 
-    public function new(Level:String = "summer1") {
+    public function new(Level:String = "winter1") {
         super();
 	    level = Level;
 	    clearData();
@@ -523,6 +523,19 @@ class PlayState extends FlxState
             Global.groundSetA = [1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36];
             treeTypes = ["palm"];
             objectTypes = ["innerTube"];
+        }
+        if (level == "winter1") {
+            animals = ["Bird","Monkey"];
+            levelMapData = "assets/winter/winter.txt";
+            tileSet = "assets/winter/winterset.png";
+            playerAnimal = "Monkey";
+            treeNumber = 30;
+            objectNumber = 9;
+            animalTotal = 13;
+            Global.waterTiles = [];
+            Global.waterEdges = [];
+            Global.groundSetA = [1,3,4,5];
+            treeTypes = ["evergreen"];
         }
     }
 }

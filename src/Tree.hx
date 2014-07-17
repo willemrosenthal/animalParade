@@ -57,6 +57,15 @@ class Tree extends FlxSprite
 			    y = Math.random()*lr.height + lr.y;
 			}
 		}
+        if (tree == "evergreen") {
+            image = "assets/winter/evergreen.png";
+            loadGraphic(image, false, false, 47,53);
+            while (!onlyOnTheseTiles(x,y,Global.groundSetA))  {
+                x = Math.random()*lr.width + lr.x;
+                y = Math.random()*lr.height + lr.y;
+            }
+
+        }
 
 		//scale= new FlxPoint(1.5,1.5);
 		offset.y += height;
