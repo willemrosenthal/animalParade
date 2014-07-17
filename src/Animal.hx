@@ -241,7 +241,7 @@ class Animal extends FlxSprite
          else
             music.setColor(0x00ffff,0xff00ff);
          //music.setAlpha(0.5, 0.5, 1, 1);
-         Global.game.add(music);
+         Global.musicLayer.add(music);
      }
 
     private function soundCounter():Void {

@@ -26,6 +26,7 @@ class Global {
 
 	static public var gameZoom:Float;
 	static public var game:FlxGroup;
+    static public var musicLayer:FlxGroup;
 
 	static public var cMap:FlxTilemap;   // current level
 	static public var waterTiles:Array<Int> = [];

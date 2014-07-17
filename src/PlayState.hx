@@ -56,6 +56,7 @@ class PlayState extends FlxState
 	public var collideGroup:FlxGroup;
 	public var animalGroup:FlxGroup;
 	public var collectedAnimals:FlxGroup;
+    public var musicLayer:FlxGroup;
 	public var weatherGroup:FlxGroup;
 	public var gameObjects:ObjectsGroup;
 	public var hud:FlxGroup;
@@ -126,6 +127,10 @@ class PlayState extends FlxState
 
 		gameObjects = new ObjectsGroup();
 		add(gameObjects);
+
+        musicLayer = new FlxGroup();
+        add(musicLayer);
+        Global.musicLayer = musicLayer;
 
 		weatherGroup = new FlxGroup();
 		add(weatherGroup);
@@ -248,7 +253,7 @@ class PlayState extends FlxState
         }
 
         if (level == "winter1") {
-            for (n in 0...Math.round(Math.random() * 600 + 300)) {
+            for (n in 0...Math.round(Math.random() * 1800)) {
                 var snow:Snow = new Snow(Math.random()*lr.width + lr.x, Math.random()*lr.height + lr.y);
                 //var snow:Snow = new Snow(Math.random()*FlxG.width, Math.random()*FlxG.height);
                 weatherGroup.add(snow);

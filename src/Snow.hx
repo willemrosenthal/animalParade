@@ -34,8 +34,8 @@ class Snow extends WeatherParticle
 
         acceleration.y = 300;
         acceleration.x = -50;
-        maxVelocity.y = Math.random() * 25 + 10;
-        maxVelocity.x = Math.random() * 15 + 10;
+        maxVelocity.y = Math.random() * 20 + 7;
+        maxVelocity.x = Math.random() * 10 + 7;
 
         timerMax = Math.round(Math.random() * 200 + 100);
 
