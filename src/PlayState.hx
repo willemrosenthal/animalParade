@@ -176,7 +176,8 @@ class PlayState extends FlxState
         hud.add(animalCount);
 
         levelButtons = new Array<LevelButton>();
-        var ba:Array<FlxPoint> = [new FlxPoint(7,33), new FlxPoint(68,33), new FlxPoint(7,93)];
+
+        var ba:Array<FlxPoint> = [new FlxPoint(7,33), new FlxPoint(68,33), new FlxPoint(7,93), new FlxPoint(68,93)];
         for (n in 0...Global.levels.length) {
             levelButtons.push(new LevelButton(ba[n].x,ba[n].y,Global.levels[n]));
             buttons.add(levelButtons[n]);

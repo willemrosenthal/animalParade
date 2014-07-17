@@ -30,7 +30,7 @@ class LevelButton extends Button
 		    animation.play("fall");
 		if (level == "summer1")
 		    animation.play("summer");
-		if (level == "winter")
+		if (level == "winter1")
 		    animation.play("winter");
 		if (level == "lake")
 		    animation.play("lake");

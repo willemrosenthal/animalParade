@@ -36,7 +36,7 @@ class Global {
 
 	static public var UIopen:Bool = false;
 
-    static public var levels:Array<String> = ["spring1","fall1","summer1"];
+    static public var levels:Array<String> = ["spring1","fall1","summer1","winter1"];
 
 /*
 	static public function playMusic(Music:String):Void
