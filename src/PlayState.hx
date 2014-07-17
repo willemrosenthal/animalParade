@@ -244,6 +244,14 @@ class PlayState extends FlxState
             weatherGroup.setAll("cameras", [FlxG.camera]);
         }
 
+        if (level == "winter1") {
+            for (n in 0...Math.round(Math.random() * 500 + 300)) {
+                //var pollen:Pollen = new Pollen(Math.random()* FlxG.width, Math.random()* FlxG.height);
+                var snow:Snow = new Snow(Math.random()*lr.width + lr.x, Math.random()*lr.height + lr.y);
+                weatherGroup.add(snow);
+            }
+        }
+
 		//weatherGroup.setAll("scrollFactor", new FlxPoint(0, 0));
 		//weatherGroup.setAll("cameras", [FlxG.camera]);
 	}
