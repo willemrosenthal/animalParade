@@ -76,7 +76,7 @@ class PlayState extends FlxState
 	private var zoomControl:ZoomCamera;
 
     // level data
-    public var level:String = "winter1";
+    public var level:String = "spring1";
 	private var animals:Array<String>;
 	private var levelMapData:String;
 	private var tileSet:String;
@@ -95,7 +95,7 @@ class PlayState extends FlxState
 
 	private var music:FlxEmitter;
 
-    public function new(Level:String = "winter1") {
+    public function new(Level:String = "spring1") {
         super();
 	    level = Level;
 	    clearData();
@@ -534,7 +534,7 @@ class PlayState extends FlxState
             tileSet = "assets/spring/spring_tiles.png";
             playerAnimal = "Bunny";
             treeNumber = 15;
-            animalTotal = 13;
+            animalTotal = 14;
             Global.waterTiles = [];
             Global.waterEdges = [];
             Global.groundSetA = [];
@@ -546,7 +546,7 @@ class PlayState extends FlxState
             tileSet = "assets/fall/fall_tiles.png";
             playerAnimal = "Frog";
             treeNumber = 25;
-            animalTotal = 13;
+            animalTotal = 14;
             Global.waterTiles = [41,42,43,46,48,49,55,56];
             Global.waterEdges = [29,30,35,36];
             Global.groundSetA = [];
@@ -559,7 +559,7 @@ class PlayState extends FlxState
             playerAnimal = "Monkey";
             treeNumber = 30;
             objectNumber = 9;
-            animalTotal = 13;
+            animalTotal = 14;
             Global.waterTiles = [39,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64];
             Global.waterEdges = [];
             Global.groundSetA = [1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36];
@@ -573,7 +573,7 @@ class PlayState extends FlxState
             playerAnimal = "Boar";
             treeNumber = 30;
             objectNumber = 9;
-            animalTotal = 13;
+            animalTotal = 14;
             Global.iceTiles = [13,16,17,18,19,20,21,25,26,27,28,30,31,32,33];
             Global.waterEdges = [];
             Global.groundSetA = [1,3,4,5];
