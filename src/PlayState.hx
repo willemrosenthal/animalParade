@@ -1,5 +1,6 @@
 package;
 
+import flixel.effects.particles.FlxEmitterExt;
 import flash.Lib;
 import flixel.FlxG;
 import flixel.util.FlxRect;
@@ -134,6 +135,8 @@ class PlayState extends FlxState
 
 		weatherGroup = new FlxGroup();
 		add(weatherGroup);
+
+        win();
 
 		hud = new FlxGroup();
 		add(hud);
@@ -414,6 +417,11 @@ class PlayState extends FlxState
 		}
 		*/
 
+        if (fireworksHappen > 0 || fireworksForever) {
+            fireworksHappen--;
+            multiFirework();
+        }
+
 	}
 
 	private function bounce(Obj1:FlxSprite,Obj2:FlxSprite):Void {
@@ -444,11 +452,16 @@ class PlayState extends FlxState
 		if (Animal.pickedUp)
 			return;
 
+        //fireworksHappen = 200;
+
 		animalGroup.remove(Animal);
 		collectedAnimals.add(Animal);
 
         animalsCollected ++;
 		animalCount.text =   animalsCollected + "/" + animalTotal;
+
+        if (animalsCollected == animalTotal)
+            fireworksForever = true;
 
 		var last:FlxPoint = new FlxPoint(Global.paradeX[Global.paradeX.length -1],Global.paradeY[Global.paradeY.length -1]);
 		var followDistance = Animal.followDistance;
@@ -465,6 +478,7 @@ class PlayState extends FlxState
 		Animal.pickedUp = true;
 		if (Animal.musicOn)
             Animal.music.start(false,0.6,0.6);
+
 
 		//zoomControl.setZoom(zoomControl.nextZoom * 0.95, 0.001);
 	}
@@ -491,8 +505,8 @@ class PlayState extends FlxState
              playMusic("assets/sounds/ambiant/spring1.wav",0.8);
              playMusic("assets/sounds/ambiant/spring3.mp3",0.8);
         }
-        if (level == "winter1")
-            playMusic("assets/sounds/ambiant/wintermix.mp3",0.5);
+        //if (level == "winter1")
+            //playMusic("assets/sounds/ambiant/wintermix.mp3",0.5);
 
     }
 
@@ -562,4 +576,82 @@ class PlayState extends FlxState
             treeTypes = ["evergreen"];
         }
     }
+
+    private var fireworks:Array<FlxEmitterExt>;
+    private function win():Void {
+
+        fireworks = [];
+        for (n in 0...5) {
+            fireworks.push(new FlxEmitterExt());
+            fireworks[n].setRotation(0, 0);
+            fireworks[n].setRotation(0, 0);
+            fireworks[n].setMotion(0, 85, 0.05, 360, 0, 0);
+            fireworks[n].makeParticles("assets/firework8.png", 35, 0, true, 0);
+            fireworks[n].setAlpha(1, 1, 1, 1);
+            weatherGroup.add(fireworks[n]);
+        }
+        /*
+        _explosion = new FlxEmitterExt();
+        _explosion.setRotation(0, 0);
+        //_explosion.setMotion(0, 5, 0.2, 360, 200, 1.8);
+        _explosion.setMotion(0, 100, 0.05, 360, 0, 0);
+        _explosion.makeParticles("assets/fireworks.png", 40, 0, true, 0);
+        _explosion.setAlpha(1, 1, 1, 1);
+        weatherGroup.add(_explosion);
+        */
+    }
+    private function explode(No:Int = 0, Color:Int = 0xFFFF00):Void
+    {
+        fireworks[No].setColor(fireworkColors[0],fireworkColors[1]);
+        fireworks[No].x = fireworkPos.x;
+        fireworks[No].y = fireworkPos.y;
+        fireworks[No].start(true, fireworkSize , 0, 400);
+        fireworks[No].update();
+        trace(No);
+
+
+    }
+
+
+    var fireworksHappen:Int = 0;
+    var fireworksForever:Bool = false;
+    var fireworkTimer:Int = 0;
+    var currentFireworkLayer:Int = 0;
+    var totalFireworkLayers:Float = 2.9;
+    var layersInThisFirework:Int = 0;
+    var fireworkSize:Float;
+    var fireworkPos:FlxPoint;
+    var fireworkColors:Array<Int>;
+    var fireworkColorOptions:Array<Array<Int>>;
+    private function multiFirework():Void {
+        if (fireworkColorOptions == null) {
+            fireworkColorOptions = [[0xffff00,0x00ffff],[0xff6c4a,0xffff00]];
+        }
+
+        fireworkTimer--;
+        if (fireworkPos == null) {
+            fireworkPos = Calcs.randomOnScreenAccountingForScroll(60,60);
+            layersInThisFirework = Math.ceil(Math.random() * totalFireworkLayers + 0.05);
+            fireworkColors = fireworkColorOptions[Math.floor(Math.random() * (fireworkColorOptions.length - 0.1))];
+            fireworkSize = Math.random() * 0.75 + 0.35;
+        }
+
+        if (fireworkTimer <= 0) {
+            explode(currentFireworkLayer);
+            currentFireworkLayer++;
+            fireworkTimer = 5;
+            if (currentFireworkLayer > layersInThisFirework) {
+                fireworkPos = null;
+                currentFireworkLayer = 0;
+                fireworkTimer += Math.round(Math.random() * 35 + 15);
+            }
+        }
+
+
+    }
+
+
+
+
+
 }
