@@ -59,6 +59,7 @@ class PlayState extends FlxState
 	public var collectedAnimals:FlxGroup;
     public var musicLayer:FlxGroup;
 	public var weatherGroup:FlxGroup;
+    public var fireworksGroup:FlxGroup;
 	public var gameObjects:ObjectsGroup;
 	public var hud:FlxGroup;
 	public var buttons:FlxGroup;
@@ -135,6 +136,9 @@ class PlayState extends FlxState
 
 		weatherGroup = new FlxGroup();
 		add(weatherGroup);
+
+        fireworksGroup = new FlxGroup();
+        add(fireworksGroup);
 
         win();
 
@@ -587,7 +591,7 @@ class PlayState extends FlxState
             fireworks[n].setMotion(0, 85, 0.05, 360, 0, 0);
             fireworks[n].makeParticles("assets/firework8.png", 35, 0, true, 0);
             fireworks[n].setAlpha(1, 1, 1, 1);
-            weatherGroup.add(fireworks[n]);
+            fireworksGroup.add(fireworks[n]);
         }
     }
     private function explode(No:Int = 0, Color:Int = 0xFFFF00):Void
