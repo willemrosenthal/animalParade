@@ -618,7 +618,7 @@ class PlayState extends FlxState
     private function multiFirework():Void {
         if (fireworkColorOptions == null) {
             fireworkColorOptions = [[0xffff00,0x00ffff],[0xff6c4a,0xffff00]];
-            fireworkSounds = ["assets/sounds/firework1_01.wav","assets/sounds/firework2_01.wav","assets/sounds/firework3_01.wav"];
+            fireworkSounds = ["assets/sounds/firework1_01.wav","assets/sounds/firework1_01.wav","assets/sounds/firework2_01.wav","assets/sounds/firework3_01.wav"];
         }
 
         fireworkTimer--;
