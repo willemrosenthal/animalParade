@@ -577,7 +577,6 @@ class PlayState extends FlxState
         }
     }
 
-    private var fireworks:Array<FlxEmitterExt>;
     private function win():Void {
 
         fireworks = [];
@@ -590,15 +589,6 @@ class PlayState extends FlxState
             fireworks[n].setAlpha(1, 1, 1, 1);
             weatherGroup.add(fireworks[n]);
         }
-        /*
-        _explosion = new FlxEmitterExt();
-        _explosion.setRotation(0, 0);
-        //_explosion.setMotion(0, 5, 0.2, 360, 200, 1.8);
-        _explosion.setMotion(0, 100, 0.05, 360, 0, 0);
-        _explosion.makeParticles("assets/fireworks.png", 40, 0, true, 0);
-        _explosion.setAlpha(1, 1, 1, 1);
-        weatherGroup.add(_explosion);
-        */
     }
     private function explode(No:Int = 0, Color:Int = 0xFFFF00):Void
     {
@@ -607,25 +597,24 @@ class PlayState extends FlxState
         fireworks[No].y = fireworkPos.y;
         fireworks[No].start(true, fireworkSize , 0, 400);
         fireworks[No].update();
-        trace(No);
-
-
     }
 
-
-    var fireworksHappen:Int = 0;
-    var fireworksForever:Bool = false;
-    var fireworkTimer:Int = 0;
-    var currentFireworkLayer:Int = 0;
-    var totalFireworkLayers:Float = 2.9;
-    var layersInThisFirework:Int = 0;
-    var fireworkSize:Float;
-    var fireworkPos:FlxPoint;
-    var fireworkColors:Array<Int>;
-    var fireworkColorOptions:Array<Array<Int>>;
+    private var fireworks:Array<FlxEmitterExt>;
+    private var fireworksHappen:Int = 0;
+    private var fireworksForever:Bool = false;
+    private var fireworkTimer:Int = 0;
+    private var currentFireworkLayer:Int = 0;
+    private var totalFireworkLayers:Float = 2.9;
+    private var layersInThisFirework:Int = 0;
+    private var fireworkSize:Float;
+    private var fireworkPos:FlxPoint;
+    private var fireworkColors:Array<Int>;
+    private var fireworkColorOptions:Array<Array<Int>>;
+    private var fireworkSounds:Array<String>;
     private function multiFirework():Void {
         if (fireworkColorOptions == null) {
             fireworkColorOptions = [[0xffff00,0x00ffff],[0xff6c4a,0xffff00]];
+            fireworkSounds = ["assets/sounds/firework1_01.wav","assets/sounds/firework2_01.wav","assets/sounds/firework3_01.wav"];
         }
 
         fireworkTimer--;
@@ -634,6 +623,7 @@ class PlayState extends FlxState
             layersInThisFirework = Math.ceil(Math.random() * totalFireworkLayers + 0.05);
             fireworkColors = fireworkColorOptions[Math.floor(Math.random() * (fireworkColorOptions.length - 0.1))];
             fireworkSize = Math.random() * 0.75 + 0.35;
+            FlxG.sound.play(fireworkSounds[Math.round(Math.random() * (fireworkSounds.length - 1))], 1.5, false);
         }
 
         if (fireworkTimer <= 0) {
