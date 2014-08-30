@@ -21,12 +21,14 @@ class ZoomCamera extends FlxBasic {
 		zoomTo = [];
 	}
 
+    /*
 	public function setZoom(ZoomTo:Float, ZoomSpeed:Float):Void
 	{
 		zoomSpeed = ZoomSpeed;
 		zoomTo.unshift(ZoomTo);
 		zooming = true;
 	}
+	*/
 
 	private function zoom():Void
 	{

@@ -17,6 +17,48 @@
     <!--
 
             FLIXEL VERSION: 3.0.4
+            openfl 1.4.0
+            openfl-native 1.4.0
+            lime-tools 1.4.0
+            lime: 0.9.7
+
+             - - - - - - - -
+            actuate: [1.7.2]
+            flixel-addons: 1.0.0 1.0.1 1.0.2 [1.1.0]
+            flixel-demos: [1.1.1]
+            flixel-templates: [1.0.2]
+            flixel-tools: [1.0.2]
+            flixel-ui: [1.0.2]
+            flixel: 2.0.0-alpha.3 3.0.3 [3.0.4] 3.1.0 3.3.2 3.3.3 3.3.5
+            format: 3.0.4 [3.0.5]
+            gamecenter: [1.0.1]
+            hamcrest: [1.2.1]
+            hxcpp: 3.0.2 3.1.30 3.1.37 [3.1.39]
+            hxlibc: 1.0.0 1.1.2 1.1.3 [1.1.4]
+            hxtools: [1.1.6]
+            iap: [1.0.4]
+            lime-tools: 1.2.4 1.2.5 1.2.8 1.2.9 [1.4.0] 1.5.7
+            lime: 0.9.1 0.9.3 0.9.4 [0.9.7] 1.0.1
+            ls:
+            mconsole: [1.6.0]
+            mcover: [2.0.3]
+            minject: 1.2.3 1.3.0 [dev:/Users/willem/Projects/minject/src]
+            mlib: [2.0.2]
+            msignal: 1.2.1 [1.2.2]
+            munit: [2.1.0]
+            nme-dev: 1.3.2 [dev:/Users/willem/haxe/nme-dev]
+            nme: 3.5.6 4.0.0 4.0.1 4.0.2 5.0.37 [5.1.8]
+            openfl-compatibility: [1.0.1]
+            openfl-html5-dom: 1.2.0 [1.2.2]
+            openfl-html5: 1.0.4 1.0.5 [1.4.2-beta]
+            openfl-native: 1.0.5 1.0.6 1.0.7 1.0.8 1.1.4 1.2.1 1.2.2 [1.4.0]
+            openfl-nme-compatibility: [1.0.2]
+            openfl-samples: 1.0.0 1.2.0 1.2.1 [1.3.0]
+            openfl-tools: [1.0.10] 1.0.6 1.0.9
+            openfl: 1.0.5 1.0.6 1.1.1 1.2.1 1.2.2 [1.4.0] 2.0.1
+            svg: 1.0.7 [1.0.8]
+            swf: 1.0.2 1.2.4 1.4.2 [1.5.2]
+             - - - - - - - - -
 
     -->
 
