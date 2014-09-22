@@ -30,9 +30,10 @@ class Bunny extends Animal
 		    animation.play("idledown");
 			afacing  = "down";
 		}
-        soundTimer = 2000;
-        soundTime = 2000;
-        soundTime = 80;
+        soundTimer = 400;
+        soundTime = 400;
+        soundMoving = 200;
         soundArray = ["assets/sounds/c/c1.wav","assets/sounds/c/c2.wav","assets/sounds/c/c3.wav","assets/sounds/c/c4.wav","assets/sounds/c/c5.wav","assets/sounds/c/c6.wav","assets/sounds/c/c7.wav"];
+        soundArray = ["assets/sounds/spring/spring1.ogg","assets/sounds/spring/spring2.ogg","assets/sounds/spring/spring3.ogg","assets/sounds/spring/spring4.ogg"];
     }
 }

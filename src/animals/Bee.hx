@@ -25,9 +25,10 @@ class Bee extends Animal
 			animation.play("idleside");
 		else animation.play("idledown");
 
-        soundTimer = 50;
-        soundTime = 80;
-        soundMoving = 50;
+        soundTimer = 500;
+        soundTime = 500;
+        soundMoving = 250;
         soundArray = ["assets/sounds/b/b3.wav","assets/sounds/b/b4.wav","assets/sounds/b/b5.wav","assets/sounds/b/b6.wav"];
+        //soundArray = ["assets/sounds/spring/o1.ogg","assets/sounds/spring/o2.ogg","assets/sounds/spring/o3.ogg","assets/sounds/spring/o4.ogg","assets/sounds/spring/o5.ogg","assets/sounds/spring/o6.ogg"];
 	}
 }

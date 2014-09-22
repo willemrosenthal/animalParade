@@ -32,9 +32,10 @@ class Boar extends Animal
 		    animation.play("idledown");
 			afacing  = "down";
 		}
-        soundTimer = 140;
-        soundTime = 140;
-        soundMoving = 100;
+        soundTimer = 300;
+        soundTime = 300;
+        soundMoving = 200;
         soundArray = ["assets/sounds/f/f1.wav","assets/sounds/f/f2.wav","assets/sounds/f/f3.wav","assets/sounds/f/f4.wav"];
+        soundArray = ["assets/sounds/winter/bell_01.ogg","assets/sounds/winter/bell_02.ogg","assets/sounds/winter/bell_03.ogg"];
     }
 }
