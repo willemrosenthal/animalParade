@@ -42,6 +42,10 @@ class Global {
 
     static public var onIce:Bool = false;
 
+
+    static public var noteInterval:Int;
+    static public var maxIntervals:Int;
+
 /*
 	static public function playMusic(Music:String):Void
 	{

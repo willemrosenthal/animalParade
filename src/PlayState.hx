@@ -113,6 +113,7 @@ class PlayState extends FlxState
 
 	override public function create():Void
 	{
+        setupSong();
 	    levelPresets();
 		buildMap();
 
@@ -186,20 +187,24 @@ class PlayState extends FlxState
 		joystick.scale = new FlxPoint(1,1);
 		hud.add(joystick);
 
-		animalCount = new FlxText(0, 2, 128, "0/" + animalTotal);
+        var ratio:Float = (Lib.current.stage.stageWidth/5)/(128);
+
+		animalCount = new FlxText(0, Math.round(2 * ratio), Math.round(128 * ratio), "0/" + animalTotal);
         animalCount.setFormat(null, 8, FlxColor.WHITE, "center", FlxText.BORDER_NONE, FlxColor.BLACK);
         hud.add(animalCount);
 
         levelButtons = new Array<LevelButton>();
 
-        var ba:Array<FlxPoint> = [new FlxPoint(7,33), new FlxPoint(68,33), new FlxPoint(7,93), new FlxPoint(68,93)];
+
+        var ba:Array<FlxPoint> = [new FlxPoint(7 * ratio,33 * ratio), new FlxPoint(68 * ratio,33 * ratio), new FlxPoint(7 * ratio,93 * ratio), new FlxPoint(68 * ratio,93 * ratio)];
+        var ba:Array<FlxPoint> = [new FlxPoint(7 * ratio,33 * ratio), new FlxPoint(68 * ratio,33 * ratio), new FlxPoint(7 * ratio,93 * ratio), new FlxPoint(68 * ratio,93 * ratio)];
         for (n in 0...Global.levels.length) {
             levelButtons.push(new LevelButton(ba[n].x,ba[n].y,Global.levels[n]));
             buttons.add(levelButtons[n]);
         }
         buttons.visible = false;
 
-        more = new MoreButton(113,4,buttons);
+        more = new MoreButton(113 * ratio,4 * ratio,buttons);
         hud.add(more);
 
         //_status = new FlxText(FlxG.width - 160 - 2, 2, 160, "Collect coins.");
@@ -579,6 +584,11 @@ class PlayState extends FlxState
             Global.groundSetA = [1,3,4,5];
             treeTypes = ["evergreen"];
         }
+    }
+
+    private function setupSong():Void {
+        Global.noteInterval = Math.round(Math.random() * 75 + 10);
+        Global.maxIntervals = Math.round(Math.random() * 16);
     }
 
     private function win():Void {

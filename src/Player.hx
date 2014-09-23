@@ -29,11 +29,13 @@ class Player extends Animal
 		wander = false;
 		visible = false;
 
+        /*
 		#if cpp
 			var data = Accelerometer.get();
 			zeroPoint = new FlxPoint(data.x,data.y);
 			Global.zeroPoint = zeroPoint;
 		#end
+		*/
 	}
 
     function playerSwimming():Void {

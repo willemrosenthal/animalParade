@@ -1,5 +1,6 @@
 package ;
 
+import flash.Lib;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.util.FlxPoint;
@@ -13,6 +14,9 @@ class LevelButton extends Button
 	public function new(X:Float, Y:Float, Level:String)
 	{
 		super(X, Y);
+
+        if (Lib.current.stage.stageWidth/5 > 128)
+            x += Lib.current.stage.stageWidth/5/128 * width;
 
 		loadGraphic("assets/levels.png", true, false, 53,53);
 		animation.add("spring", [0]);

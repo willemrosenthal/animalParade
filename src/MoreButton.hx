@@ -4,6 +4,7 @@ import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.util.FlxPoint;
 import flixel.group.FlxGroup;
+import flash.Lib;
 
 class MoreButton extends Button
 {
@@ -21,6 +22,7 @@ class MoreButton extends Button
 		animation.add("plus", [0]);
 		animation.add("x", [1]);
 		animation.play("plus");
+
 
         offset.x -= width * 0.4;
         offset.y -= height * 0.4;

@@ -43,6 +43,8 @@ class Animal extends FlxSprite
 
     private var onIce:Bool = false;
 
+    private var songSetup:Bool = false;
+
 	public function new(X:Float, Y:Float)
 	{
         soundArray = [""];
@@ -57,13 +59,22 @@ class Animal extends FlxSprite
 
 	}
 
+    function setupSong():Void {
+        soundTime = Global.noteInterval * Math.round(Math.random() * Global.maxIntervals);
+        soundTimer = soundTime;
+        soundMoving = soundTime;
+        songSetup = true;
+    }
+
 	private var moveDifX:Float;
 	private var moveDifY:Float;
 	override public function update():Void {
 		super.update();
 
-        if (pickedUp)
-            soundCounter();
+        if (!songSetup)
+            setupSong();
+
+        soundCounter();
 
 		if (pickedUp) {
 		    x = Global.paradeX[fd];
@@ -247,7 +258,8 @@ class Animal extends FlxSprite
     private function soundCounter():Void {
         soundTimer --;
         if (soundTimer == 0) {
-            chooseSound();
+            if (pickedUp)
+                chooseSound();
             soundTimer = soundTime;
             if (!still)
                 soundTimer = soundMoving;
