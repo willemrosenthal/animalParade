@@ -587,8 +587,8 @@ class PlayState extends FlxState
     }
 
     private function setupSong():Void {
-        Global.noteInterval = Math.round(Math.random() * 75 + 10);
-        Global.maxIntervals = Math.round(Math.random() * 16);
+        Global.noteInterval = Math.round(Math.random() * 80 + 20);
+        Global.maxIntervals = Math.round(Math.random() * 14);
     }
 
     private function win():Void {

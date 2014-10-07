@@ -32,9 +32,9 @@ class Hedgehog extends Animal
 		    animation.play("idledown");
 			afacing  = "down";
 		}
-        soundTimer = 200;
-        soundTime = 200;
-        soundMoving = 120;
+        soundTimer = 340;
+        soundTime = 340;
+        soundMoving = 250;
         soundArray = ["assets/sounds/f/f1.wav","assets/sounds/f/f2.wav","assets/sounds/f/f3.wav","assets/sounds/f/f4.wav"];
         soundArray = ["assets/sounds/winter/hogg1.ogg","assets/sounds/winter/hogg2.ogg","assets/sounds/winter/hogg3.ogg","assets/sounds/winter/hogg4.ogg"];
     }

@@ -71,10 +71,13 @@ class Animal extends FlxSprite
 	override public function update():Void {
 		super.update();
 
-        if (!songSetup)
-            setupSong();
+        //if (!songSetup)
+        //    setupSong();
 
-        soundCounter();
+        //soundCounter();
+
+        if (pickedUp)
+           soundCounter();
 
 		if (pickedUp) {
 		    x = Global.paradeX[fd];
@@ -258,7 +261,6 @@ class Animal extends FlxSprite
     private function soundCounter():Void {
         soundTimer --;
         if (soundTimer == 0) {
-            if (pickedUp)
                 chooseSound();
             soundTimer = soundTime;
             if (!still)
